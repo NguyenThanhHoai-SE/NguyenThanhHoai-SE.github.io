@@ -36,18 +36,24 @@
                 window.parent.showPopupFunction(url, isCancel)
             }
 
-            function getEventList() {
-                const eventList = window.parent.getEventListFunction();
+            async function getEventList() {
+                const eventList = await parent.getEventListFunction().then((value) => {
+                    return value
+                });
                 console.log("eventList", eventList)
             }
 
-            function joinEvent() {
-                const result = window.parent.joinEventFunction();
+            async function joinEvent() {
+                const result = await window.parent.joinEventFunction().then((value) => {
+                    return value
+                });
                 console.log("result join event = ", result);
             }
 
-            function cancelJoinEvent() {
-                const result = window.parent.cancelJoinEventFunction();
+            async function cancelJoinEvent() {
+                const result = await window.parent.cancelJoinEventFunction().then((value) => {
+                    return value
+                });
                 console.log("result cancel join event = ", result)
             }
 
