@@ -94,16 +94,12 @@
             }
 
             async function joinEvent(eventMasterId) {
-                const result = await window.parent.joinEventFunc(eventMasterId).then((value) => {
-                    return value
-                });
+                const result = await window.parent.joinEventFunc(eventMasterId)
                 console.log("result join event = ", result);
             }
 
             async function cancelJoinEvent(eventApplyId, eventMasterId) {
-                const result = await window.parent.cancelJoinEventFunc(eventApplyId, eventMasterId).then((value) => {
-                    return value
-                });
+                const result = await window.parent.cancelJoinEventFunc(eventApplyId, eventMasterId)
                 console.log("result cancel join event = ", result)
             }
 
