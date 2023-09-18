@@ -8,26 +8,50 @@
         <link rel="stylesheet" href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
     </head>
 
+    <style>
+        .button-list {
+            display: flex;
+            gap: 0 20px;
+        }
+    </style>
+
     <body>
 
-        <div id="event-container">
-            <div class="floating">
-                <button onclick="checkLogin('../challenge/challenge.html')">CHECK LOGIN</button>
-            </div>
+        <div class="button-list" id="event-container">
+            <button onclick="showPopup('ponup contain', false)">CHECK LOGIN</button>
+
+            <button onclick="getEventList()">GEN EVENT LIST</button>
+
+            <button onclick="joinEvent()">JOIN EVENT</button>
+
+            <button onclick="cancelJoinEvent()">CANCEL JOIN EVENT</button>
+
+
         </div>
 
-        <!-- start modal -->
-        <div class="modal-backdrop" id="event-modal">
-            <div class="model-container">
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn-cancel" onclick="closeAlert()">취소</button>
-                    <button class="btn-ok">확인</button>
-                </div>
-            </div>
-        </div>
         <!-- end modal-->
         <script>
+
+            function showPopup(url, isCancel) {
+                window.parent.showPopupFunction(url, isCancel)
+            }
+
+            function getEventList() {
+                const eventList = window.parent.getEventListFunction();
+                console.log("eventList", eventList)
+            }
+
+            function joinEvent() {
+                const result = window.parent.joinEventFunction();
+                console.log("result join event = ", result);
+            }
+
+            function cancelJoinEvent() {
+                const result = window.parent.cancelJoinEventFunction();
+                console.log("result cancel join event = ", result)
+            }
+
+            // =======================================================================================
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
@@ -51,6 +75,9 @@
             function showAlert() {
                 modal.classList.add("show");
             }
+
+
+            functino
         </script>
     </body>
 </html>
