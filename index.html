@@ -13,6 +13,14 @@
             display: flex;
             gap: 0 20px;
         }
+
+        button {
+            min-width: 120px;
+        }
+
+        body {
+            width: 100vh;
+        }
     </style>
 
     <body>
@@ -20,13 +28,23 @@
         <div class="button-list" id="event-container">
             <button onclick="showPopup('ponup contain', false)">CHECK LOGIN</button>
 
-            <button onclick="getEventList()">GEN EVENT LIST</button>
+            <button onclick="getEventList()">GET EVENT LIST</button>
 
-            <button onclick="joinEvent()">JOIN EVENT</button>
+            <button onclick="getJoinEventHistory('EASApply')">GET JOIN EVENT HISTORY</button>
 
-            <button onclick="cancelJoinEvent()">CANCEL JOIN EVENT</button>
+            <button onclick="getEventMaster('DVTAll', '', '', 0, 0)">GET EVENT MASTER</button>
 
+            <button onclick="getEventComments('587A765D-FB3D-4ADD-81E7-08DBA36F3114', 'AD0BECB5-A525-4566-B408-B8EBD136DAB8')">GET EVENT COMMENTS</button>
 
+            <button onclick="joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">JOIN EVENT</button>
+
+            <button onclick="cancelJoinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114', '47D50740-F0BE-4905-824C-C95C70D2FDA9')">CANCEL JOIN EVENT</button>
+
+            <button onclick="registerMissonChallenge('587A765D-FB3D-4ADD-81E7-08DBA36F3114', '', 'C9546842-64A5-41BA-A76F-B499B28DA3BB', 'test test test', '')">REGISTER MISSION CHALLENGE</button>
+
+            <button onclick="updateMissionChallenge('', '587A765D-FB3D-4ADD-81E7-08DBA36F3114', '', 'BF552708-C008-46D8-81FC-84A2B0A32C54', 'test test', '')">UPDATE MISSION CHALLENGE</button>
+
+            <button onclick="deleteMissionChallenge('', '587A765D-FB3D-4ADD-81E7-08DBA36F3114', '', 'BF552708-C008-46D8-81FC-84A2B0A32C54')">DELETE MISSION CHALLENGE</button>
         </div>
 
         <div id="listEvent"></div>
@@ -54,19 +72,62 @@
                 console.log("eventList", eventList)
             }
 
-            async function joinEvent() {
-                const result = await window.parent.joinEventFunction().then((value) => {
+            async function getJoinEventHistory(status) {
+                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+                    return value
+                });
+                console.log("result join event history = ", result);
+            }
+
+            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                    return value
+                });
+                console.log("result event master = ", result);
+            }
+
+            async function getEventComments(eventMasterId, eventMissionId) {
+                const result = await window.parent.getEventCommentsFunc(eventMasterId, eventMissionId).then((value) => {
+                    return value
+                });
+                console.log("result event comment = ", result);
+            }
+
+            async function joinEvent(eventMasterId) {
+                const result = await window.parent.joinEventFunc(eventMasterId).then((value) => {
                     return value
                 });
                 console.log("result join event = ", result);
             }
 
-            async function cancelJoinEvent() {
-                const result = await window.parent.cancelJoinEventFunction().then((value) => {
+            async function cancelJoinEvent(eventApplyId, eventMasterId) {
+                const result = await window.parent.cancelJoinEventFunc(eventApplyId, eventMasterId).then((value) => {
                     return value
                 });
                 console.log("result cancel join event = ", result)
             }
+
+            async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
+                const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
+                    return value
+                });
+                console.log("result register mission challenge = ", result)
+            }
+
+            async function updateMissionChallenge(challengContent, eventApplyId, eventMasterId, eventMissionChallengeId, eventMissionId, missionCouponInfos) {
+                const result = await window.parent.updateMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionChallengeId, eventMissionId, missionCouponInfos).then((value) => {
+                    return value
+                });
+                console.log("result update mission challenge = ", result)
+            }
+
+            async function deleteMissionChallenge(eventApplyId, eventMasterId, eventMissionChallengeId, eventMissionId) {
+                const result = await window.parent.deleteMissionChallengeFunc(eventApplyId, eventMasterId, eventMissionChallengeId, eventMissionId).then((value) => {
+                    return value
+                });
+                console.log("result delete mission challenge = ", result)
+            }
+
 
             // =======================================================================================
             const modal = document.querySelector("#event-modal");
