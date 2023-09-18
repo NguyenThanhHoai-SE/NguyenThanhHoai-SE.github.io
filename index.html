@@ -29,6 +29,8 @@
 
         </div>
 
+        <div id="listEvent"></div>
+
         <!-- end modal-->
         <script>
 
@@ -40,7 +42,16 @@
                 const eventList = await parent.getEventListFunction().then((value) => {
                     return value
                 });
-                console.log("eventList", eventList)
+                const listEvent = document.getElementById("listEvent");
+                const showHTML = eventList ?. map((object, index) => {
+                    return `<div> <p> stt :  ${index} </p>  <p> eventId : ${
+                        object.eventId
+                    }</p> <p> specialExhibitionId : ${
+                        object.specialExhibitionId
+                    }</p> </div>`
+                })
+                listEvent.innerHTML = showHTML
+                // console.log("eventList", eventList)
             }
 
             async function joinEvent() {
@@ -81,9 +92,6 @@
             function showAlert() {
                 modal.classList.add("show");
             }
-
-
-            functino
         </script>
     </body>
 </html>
