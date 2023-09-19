@@ -304,6 +304,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             const timeMissionEvent = document.getElementById("mission-time-event")
             function checkStatus(eventMission, eventMissionChallenges) {
@@ -324,9 +325,7 @@
                 }
 
                 if (eventMissionChallenges ?. find((e) => e.eventMasterId === eventMission.eventMissionId)) 
-                    return 'completed'
-
-
+                    return 'completed';
                 
 
 
@@ -390,6 +389,8 @@
                 const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
                     return value
                 });
+                console.log("result event master challenge= ", result);
+
                 if (result) {
                     if (result.eventStartDate && result.eventEndDate) 
                         timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("MM.DD") + '(' + moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + ')일간';
@@ -398,7 +399,6 @@
 
                     handleDatasetStatus(result.eventMissions, result.eventMissionChallenges);
                 }
-                console.log("result event master = ", result);
             }
 
             getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
