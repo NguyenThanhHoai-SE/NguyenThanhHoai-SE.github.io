@@ -1,381 +1,352 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Main - PC</title>
-    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
-    <link
-      rel="stylesheet"
-      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
-    />
-  </head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>Main - PC</title>
+        <link rel="stylesheet" href="../fonts/Modetour/Modetour.css"/>
+        <link rel="stylesheet" href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
+    </head>
 
-  <body>
-    <style>
-      /* reset css */
-      * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-      }
+    <body>
+        <style>
+            /* reset css */
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
 
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
-      ol,
-      ul {
-        list-style: none;
-      }
+            ol,
+            ul {
+                list-style: none;
+            }
 
-      button,
-      a {
-        cursor: pointer;
-        text-decoration: unset;
-        color: inherit;
-      }
+            button,
+            a {
+                cursor: pointer;
+                text-decoration: unset;
+                color: inherit;
+            }
 
-      /* end reset css */
+            /* end reset css */
 
-      /* modal */
-      #event-modal.modal-backdrop {
-        background-color: rgba(0, 0, 0, 0.6);
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-      }
+            /* modal */
+            #event-modal.modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: none;
+            }
 
-      #event-modal.modal-backdrop.show {
-        display: flex;
-      }
+            #event-modal.modal-backdrop.show {
+                display: flex;
+            }
 
-      #event-modal .model-container {
-        background-color: white;
-        width: 335px;
-        margin: auto;
-        position: relative;
-        padding: 0;
-        font-family: "Pretendard";
-        font-weight: 400;
-        border-radius: 5px;
-        box-shadow: 0px 0px 6px #00000029;
-      }
+            #event-modal .model-container {
+                background-color: white;
+                width: 335px;
+                margin: auto;
+                position: relative;
+                padding: 0;
+                font-family: "Pretendard";
+                font-weight: 400;
+                border-radius: 5px;
+                box-shadow: 0 0 6px #00000029;
+            }
 
-      #event-modal .model-container .modal-body {
-        padding: 0 40px;
-        text-align: center;
-        font-size: 15px;
-        line-height: 23px;
-        color: #111111;
-        padding: 37px 40px 30px;
-        border-bottom: 1px solid #d3dbd9;
-      }
+            #event-modal .model-container .modal-body {
+                padding: 37px 40px 30px;
+                text-align: center;
+                font-size: 15px;
+                line-height: 23px;
+                color: #111111;
+                border-bottom: 1px solid #d3dbd9;
+            }
 
-      #event-modal .model-container .modal-footer {
-        display: flex;
-        justify-content: center;
-      }
+            #event-modal .model-container .modal-footer {
+                display: flex;
+                justify-content: center;
+            }
 
-      #event-modal .model-container .modal-footer button {
-        flex: 1;
-        font-size: 15px;
-        line-height: 32px;
-        font-weight: 600;
-        color: #009c75;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-      }
+            #event-modal .model-container .modal-footer button {
+                flex: 1;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 600;
+                color: #009c75;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
 
-      #event-modal .model-container .modal-footer button.btn-cancel {
-        color: #111111;
-      }
+            #event-modal .model-container .modal-footer button.btn-cancel {
+                color: #111111;
+            }
 
-      /* End modal */
+            /* End modal */
 
-      .block-3 > .block-3-time-container,
-      .block-3 > img:first-child,
-      .block-3 > img:nth-child(2) {
-        margin-left: 94px;
-        margin-bottom: 17px;
-      }
-      #event-container {
-        position: relative;
-        font-family: Modetour;
-        font-weight: 400;
-      }
-      .block-1 {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 303px;
-        padding-bottom: 263px;
-        background: url("./images/block-1-bg.png") 0 0 / cover no-repeat;
-      }
-      .block-2,
-      .block-3 {
-        margin: auto;
-        padding-top: 94px;
-        display: flex;
-        flex-direction: column;
-        max-width: 1200px;
-      }
-      .block-2 {
-        padding-bottom: 0;
-      }
-      .block-2 > img {
-        display: block;
-        margin: 0 auto;
-      }
-      .block-3 {
-        background: url("./images/bg-1.png") 0 0/100% auto;
-        padding-bottom: 56px;
-      }
-      .block-4,
-      .block-5 {
-        flex-direction: column;
-      }
-      .block-3 > .block-3-time-container {
-        margin-right: auto;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        column-gap: 55px;
-        align-items: flex-start;
-      }
-      .block-3 > .block-3-time-container > span {
-        font-size: 34px;
-        line-height: 38px;
-        vertical-align: super;
-        color: #000000;
-        font-family: "Pretendard";
-        font-weight: 800;
-      }
-      .block-3 > a:nth-child(3) {
-        margin-left: 333px;
-        margin-top: 54px;
-        margin-bottom: 94px;
-      }
-      .block-3 > img:nth-child(4) {
-        margin: 56.45px auto 94.25px;
-      }
-      .block-3 > a:nth-child(n + 5),
-      .block-4 > img {
-        margin-bottom: 56px;
-      }
-      .block-3 .mission {
-        display: block;
-        position: relative;
-      }
-      .block-3 .mission-time {
-        position: absolute;
-        left: 92px;
-        bottom: 77px;
-        color: #000000;
-        font-size: 22px;
-        font-weight: 800;
-        font-family: "Pretendard";
-      }
-      .block-4 {
-        background: url("./images/bg-1.png") 0 -60px/100% auto;
-        width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        padding-bottom: 88px;
-      }
-      .block-4 .block-4-coupons {
-        width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 56px;
-        column-gap: 13px;
-        justify-content: flex-end;
-        padding-bottom: 95.26px;
-        z-index: 1;
-      }
-      .block-4 .block-4-rewards {
-        z-index: 1;
-        display: block;
-      }
-      .block-5 {
-        background: url("./images/bg-2.png") center 0/1920px auto no-repeat;
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding-top: 890px;
-        margin-top: -890px;
-      }
-      .block-5 > a {
-        position: absolute;
-        bottom: 65px;
-      }
-      #event-container .block-6 {
-        background: url("./images/bg-3.png") center 0/1920px auto no-repeat;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 56px;
-      }
-      #event-container .block-7 {
-        padding-bottom: 64px;
-        max-width: 1200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 74.79px auto 0;
-      }
-      #event-container .block-7 > img {
-        margin-bottom: 56px;
-        display: block;
-      }
-      #event-container .floating {
-        display: flex;
-        position: fixed;
-        right: 110px;
-        bottom: 64px;
-        z-index: 2;
-      }
-    </style>
-    <div id="event-container">
-      <div class="block-1">
-        <img src="./images/block-1-banner.png" alt="" width="872" />
-      </div>
-      <div class="block-2">
-        <img src="./images/block-2-main.png" alt="" width="813" />
-      </div>
-      <div class="block-3">
-        <div class="block-3-time-container">
-          <img src="./images/block-3-time-click.png" alt="" width="248" />
-          <span class="block-3-time">2023.08.28 – 2023.09.26 (30일간)</span>
+            .block-3 > .block-3-time-container,
+            .block-3 > img:first-child,
+            .block-3 > img:nth-child(2) {
+                margin-left: 94px;
+                margin-bottom: 17px;
+            }
+            #event-container {
+                position: relative;
+                font-family: Modetour;
+                font-weight: 400;
+            }
+            .block-1 {
+                max-width: 1200px;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                padding-top: 303px;
+                padding-bottom: 263px;
+                background: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-1-bg.png") 0 0 / cover no-repeat;
+            }
+            .block-2,
+            .block-3 {
+                margin: auto;
+                padding-top: 94px;
+                display: flex;
+                flex-direction: column;
+                max-width: 1200px;
+            }
+            .block-2 {
+                padding-bottom: 0;
+            }
+            .block-2 > img {
+                display: block;
+                margin: 0 auto;
+            }
+            .block-3 {
+                background: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/bg-1.png") 0 0/100% auto;
+                padding-bottom: 56px;
+            }
+            .block-4,
+            .block-5 {
+                flex-direction: column;
+            }
+            .block-3 > .block-3-time-container {
+                margin-right: auto;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                column-gap: 55px;
+                align-items: flex-start;
+            }
+            .block-3 > .block-3-time-container > span {
+                font-size: 34px;
+                line-height: 38px;
+                vertical-align: super;
+                color: #000000;
+                font-family: "Pretendard";
+                font-weight: 800;
+            }
+            .block-3 > a:nth-child(3) {
+                margin-left: 333px;
+                margin-top: 54px;
+                margin-bottom: 94px;
+            }
+            .block-3 > img:nth-child(4) {
+                margin: 56.45px auto 94.25px;
+            }
+            .block-3 > a:nth-child(n + 5),
+            .block-4 > img {
+                margin-bottom: 56px;
+            }
+            .block-3 .mission {
+                display: block;
+                position: relative;
+            }
+            .block-3 .mission-time {
+                position: absolute;
+                left: 92px;
+                bottom: 77px;
+                color: #000000;
+                font-size: 22px;
+                font-weight: 800;
+                font-family: "Pretendard";
+            }
+            .block-4 {
+                background: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/bg-1.png") 0 -60px/100% auto;
+                width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                padding-bottom: 88px;
+            }
+            .block-4 .block-4-coupons {
+                width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 56px;
+                column-gap: 13px;
+                justify-content: flex-end;
+                padding-bottom: 95.26px;
+                z-index: 1;
+            }
+            .block-4 .block-4-rewards {
+                z-index: 1;
+                display: block;
+            }
+            .block-5 {
+                background: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/bg-2.png") center 0/1920px auto no-repeat;
+                display: flex;
+                align-items: center;
+                position: relative;
+                padding-top: 890px;
+                margin-top: -890px;
+            }
+            .block-5 > a {
+                position: absolute;
+                bottom: 65px;
+            }
+            #event-container .block-6 {
+                background: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/bg-3.png") center 0/1920px auto no-repeat;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 56px;
+            }
+            #event-container .block-7 {
+                padding-bottom: 64px;
+                max-width: 1200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 74.79px auto 0;
+            }
+            #event-container .block-7 > img {
+                margin-bottom: 56px;
+                display: block;
+            }
+            #event-container .floating {
+                display: flex;
+                position: fixed;
+                right: 110px;
+                bottom: 64px;
+                z-index: 2;
+            }
+        </style>
+        <div id="event-container">
+            <div class="block-1">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-1-banner.png" alt="" width="872"/>
+            </div>
+            <div class="block-2">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-2-main.png" alt="" width="813"/>
+            </div>
+            <div class="block-3">
+                <div class="block-3-time-container">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-time-click.png" alt="" width="248"/>
+                    <span class="block-3-time">2023.08.28 – 2023.09.26 (30일간)</span>
+                </div>
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-benefits.png" alt="" width="1105"/>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html')">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-challenge.png" alt="" width="534"/>
+                </a>
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-middle-title.png" alt="" width="450px"/>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-1.png" alt="" width="1200"/><span class="mission-time">2023.09.18 11:00 ~ 2023.09.24 18:00</span>
+                </a>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/mission-2.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-2.png" alt="" width="1200"/><span class="mission-time">2023.09.25 11:00 ~ 2023.10.01 18:00</span>
+                </a>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/mission-3.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-3.png" alt="" width="1200"/>
+                    <span class="mission-time">2023.10.02 11:00 ~ 2023.10.08 18:00</span>
+                </a>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-4/mission-4.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-4.png" alt="" width="1200"/><span class="mission-time">2023.10.09 11:00 ~ 2023.10.15 18:00</span>
+                </a>
+            </div>
+            <div class="block-4">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-title.png" alt="" width="450px"/>
+                <div class="block-4-coupons">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-coupon-1.png" alt="" width="589px"/>
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-coupon-2.png" alt="" width="589px"/>
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-coupon-3.png" alt="" width="589px"/>
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-coupon-4.png" alt="" width="589px"/>
+                </div>
+                <img class="block-4-rewards" src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-4-rewards.png" alt="" width="1200"/>
+            </div>
+            <div class="block-5">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-5-banner.png" alt="" width="1200"/>
+                <a href="https://newgen-pc.modetour.com/" class="block-5-button-link" target="_blank">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-5-button.png" alt="" width="535"/>
+                </a>
+            </div>
+            <div class="block-6">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-6.png" alt="" width="1200"/>
+            </div>
+            <div class="block-7">
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html')">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-7.png" alt="" width="534"/>
+                </a>
+            </div>
+            <div class="floating">
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html')">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/floating-button.png" alt="" width="204"/>
+                </a>
+            </div>
         </div>
-        <img src="./images/block-3-benefits.png" alt="" width="1105" />
-        <a onclick="checkLogin('../challenge/challenge.html')">
-          <img src="./images/block-3-challenge.png" alt="" width="534" />
-        </a>
-        <img src="./images/block-3-middle-title.png" alt="" width="450px" />
-        <a onclick="checkLogin('../mission-1/mission-1.html')" class="mission"
-          ><img src="./images/block-3-mission-1.png" alt="" width="1200" /><span
-            class="mission-time"
-            >2023.09.18 11:00 ~ 2023.09.24 18:00</span
-          >
-        </a>
-        <a onclick="checkLogin('../mission-2/mission-2.html')" class="mission"
-          ><img src="./images/block-3-mission-2.png" alt="" width="1200" /><span
-            class="mission-time"
-            >2023.09.25 11:00 ~ 2023.10.01 18:00</span
-          >
-        </a>
-        <a onclick="checkLogin('../mission-3/mission-3.html')" class="mission"
-          ><img src="./images/block-3-mission-3.png" alt="" width="1200" />
-          <span class="mission-time"
-            >2023.10.02 11:00 ~ 2023.10.08 18:00</span
-          ></a
-        ><a onclick="checkLogin('../mission-4/mission-4.html')" class="mission"
-          ><img src="./images/block-3-mission-4.png" alt="" width="1200" /><span
-            class="mission-time"
-            >2023.10.09 11:00 ~ 2023.10.15 18:00</span
-          >
-        </a>
-      </div>
-      <div class="block-4">
-        <img src="./images/block-4-title.png" alt="" width="450px" />
-        <div class="block-4-coupons">
-          <img src="./images/block-4-coupon-1.png" alt="" width="589px" />
-          <img src="./images/block-4-coupon-2.png" alt="" width="589px" />
-          <img src="./images/block-4-coupon-3.png" alt="" width="589px" />
-          <img src="./images/block-4-coupon-4.png" alt="" width="589px" />
-        </div>
-        <img
-          class="block-4-rewards"
-          src="./images/block-4-rewards.png"
-          alt=""
-          width="1200"
-        />
-      </div>
-      <div class="block-5">
-        <img src="./images/block-5-banner.png" alt="" width="1200" />
-        <a
-          href="https://newgen-pc.modetour.com/"
-          class="block-5-button-link"
-          target="_blank"
-        >
-          <img src="./images/block-5-button.png" alt="" width="535" />
-        </a>
-      </div>
-      <div class="block-6">
-        <img src="./images/block-6.png" alt="" width="1200" />
-      </div>
-      <div class="block-7">
-        <a onclick="checkLogin('../mission-1/mission-1.html')">
-          <img src="./images/block-7.png" alt="" width="534" />
-        </a>
-      </div>
-      <div class="floating">
-        <a onclick="checkLogin('../challenge/challenge.html')">
-          <img src="./images/floating-button.png" alt="" width="204" />
-        </a>
-      </div>
-    </div>
 
-    <!-- start modal -->
-    <div class="modal-backdrop" id="event-modal">
-      <div class="model-container">
-        <div class="modal-body"></div>
-        <div class="modal-footer">
-          <button class="btn-cancel" onclick="closeAlert()">취소</button>
-          <button class="btn-ok">확인</button>
+        <!-- start modal -->
+        <div class="modal-backdrop" id="event-modal">
+            <div class="model-container">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="closeAlert()">취소</button>
+                    <button class="btn-ok">확인</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- end modal-->
-    <script>
-      const modal = document.querySelector("#event-modal");
-      const modalBody = document.querySelector("#event-modal .modal-body");
-      const modalButton = document.querySelector(
-        "#event-modal .modal-footer .btn-ok"
-      );
-      let isLogin = false;
-      function checkLogin(url) {
-        if (!isLogin) {
-          modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
+        <!-- end modal-->
+        <script>
+            const modal = document.querySelector("#event-modal");
+            const modalBody = document.querySelector("#event-modal .modal-body");
+            const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
+            let isLogin = false;
+            function checkLogin(url) {
+                if (! isLogin) {
+                    modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
 
-          modalButton.addEventListener("click", function () {
-            isLogin = true;
-            window.location.href = url;
-          });
-          showAlert();
-        } else {
-          window.location.href = url;
-        }
-      }
-      function closeAlert() {
-        modal.classList.remove("show");
-      }
-      function showAlert() {
-        modal.classList.add("show");
-      }
-    </script>
-  </body>
+                    modalButton.addEventListener("click", function () {
+                        isLogin = true;
+                        window.location.href = url;
+                    });
+                    showAlert();
+                } else {
+                    window.location.href = url;
+                }
+            }
+            function closeAlert() {
+                modal.classList.remove("show");
+            }
+            function showAlert() {
+                modal.classList.add("show");
+            }
+        </script>
+    </body>
 </html>

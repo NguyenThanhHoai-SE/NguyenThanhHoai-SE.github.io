@@ -1,498 +1,443 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Event 1 - Mission 1 - PC</title>
-    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
-    <link
-      rel="stylesheet"
-      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
-    />
-  </head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>Event 1 - Mission 1 - PC</title>
+        <link rel="stylesheet" href="../fonts/Modetour/Modetour.css"/>
+        <link rel="stylesheet" href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
+    </head>
 
-  <body>
-    <style>
-      /* reset css */
-      * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-      }
+    <body>
+        <style>
+            /* reset css */
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
 
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
-      ol,
-      ul {
-        list-style: none;
-      }
+            ol,
+            ul {
+                list-style: none;
+            }
 
-      button,
-      a {
-        cursor: pointer;
-        text-decoration: unset;
-        color: inherit;
-      }
+            button,
+            a {
+                cursor: pointer;
+                text-decoration: unset;
+                color: inherit;
+            }
 
-      /* end reset css */
+            /* end reset css */
 
-      /* modal */
-      #event-modal.modal-backdrop {
-        background-color: rgba(0, 0, 0, 0.6);
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-      }
+            /* modal */
+            #event-modal.modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: none;
+            }
 
-      #event-modal.modal-backdrop.show {
-        display: flex;
-      }
+            #event-modal.modal-backdrop.show {
+                display: flex;
+            }
 
-      #event-modal .model-container {
-        background-color: white;
-        width: 335px;
-        margin: auto;
-        position: relative;
-        padding: 0;
-        font-family: "Pretendard";
-        font-weight: 400;
-        border-radius: 5px;
-        box-shadow: 0px 0px 6px #00000029;
-      }
+            #event-modal .model-container {
+                background-color: white;
+                width: 335px;
+                margin: auto;
+                position: relative;
+                padding: 0;
+                font-family: "Pretendard";
+                font-weight: 400;
+                border-radius: 5px;
+                box-shadow: 0 0 6px #00000029;
+            }
 
-      #event-modal .model-container .modal-body {
-        padding: 0 40px;
-        text-align: center;
-        font-size: 15px;
-        line-height: 23px;
-        color: #111111;
-        padding: 37px 40px 30px;
-        border-bottom: 1px solid #d3dbd9;
-      }
+            #event-modal .model-container .modal-body {
+                padding: 37px 40px 30px;
+                text-align: center;
+                font-size: 15px;
+                line-height: 23px;
+                color: #111111;
+                border-bottom: 1px solid #d3dbd9;
+            }
 
-      #event-modal .model-container .modal-footer {
-        display: flex;
-        justify-content: center;
-      }
+            #event-modal .model-container .modal-footer {
+                display: flex;
+                justify-content: center;
+            }
 
-      #event-modal .model-container .modal-footer button {
-        flex: 1;
-        font-size: 15px;
-        line-height: 32px;
-        font-weight: 600;
-        color: #009c75;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-      }
+            #event-modal .model-container .modal-footer button {
+                flex: 1;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 600;
+                color: #009c75;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
 
-      #event-modal .model-container .modal-footer button.btn-cancel {
-        color: #111111;
-      }
-      /* End modal */
+            #event-modal .model-container .modal-footer button.btn-cancel {
+                color: #111111;
+            }
+            /* End modal */
 
-      /* custom radio style */
-      .radio-custom {
-        position: relative;
-        /* padding-left: 35px; */
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+            /* custom radio style */
+            .radio-custom {
+                position: relative;
+                /* padding-left: 35px; */
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
 
-      .radio-custom input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-      }
+            .radio-custom input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
 
-      /* custom radio style --checktag */
-      .radio-custom .checktag {
-        display: flex;
-      }
+            /* custom radio style --checktag */
+            .radio-custom .checktag {
+                display: flex;
+            }
 
-      .radio-custom .checktag::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 1px;
-        right: 1px;
-        bottom: 1px;
-        border-radius: 20px;
-        background-image: url("./images/block-2-overlay.png");
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        z-index: 1;
-      }
+            .radio-custom .checktag::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 1px;
+                right: 1px;
+                bottom: 1px;
+                border-radius: 20px;
+                background-image: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-overlay.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                z-index: 1;
+            }
 
-      .radio-custom .checktag img {
-        position: relative;
-      }
+            .radio-custom .checktag img {
+                position: relative;
+            }
 
-      #event-container
-        #mission-1-form
-        .quiz-1
-        .radio-custom
-        input:checked
-        ~ .checktag::before {
-        opacity: 1;
-        /* z-index: 1; */
-      }
+            #event-container #mission-1-form .quiz-1 .radio-custom input:checked ~ .checktag::before {
+                opacity: 1;
+                /* z-index: 1; */
+            }
 
-      #event-container
-        #mission-1-form
-        .quiz-2
-        .radio-custom
-        input:checked
-        ~ .checktag::before {
-        opacity: 1;
-      }
+            #event-container #mission-1-form .quiz-2 .radio-custom input:checked ~ .checktag::before {
+                opacity: 1;
+            }
 
-      #event-container
-        #mission-1-form
-        .quiz-3
-        .radio-custom
-        input:checked
-        ~ .checktag::before {
-        opacity: 1;
-      }
+            #event-container #mission-1-form .quiz-3 .radio-custom input:checked ~ .checktag::before {
+                opacity: 1;
+            }
 
-      .radio-container {
-        display: grid;
-        grid-template-columns: 478px 478px;
-        gap: 30px 44px;
-        justify-content: center;
-        margin-top: 76px;
-      }
+            .radio-container {
+                display: grid;
+                grid-template-columns: 478px 478px;
+                gap: 30px 44px;
+                justify-content: center;
+                margin-top: 76px;
+            }
 
-      #event-container {
-        max-width: 1200px;
-        margin: auto;
-        font-family: "Pretendard";
-      }
+            #event-container {
+                max-width: 1200px;
+                margin: auto;
+                font-family: "Pretendard";
+            }
 
-      .block-1 {
-        display: flex;
-        position: relative;
-      }
+            .block-1 {
+                display: flex;
+                position: relative;
+            }
 
-      .block-1 .participants {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 0 57.53px 93.38px;
-        display: flex;
-        flex-direction: row;
-        column-gap: 6px;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-      }
+            .block-1 .participants {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 0 57.53px 93.38px;
+                display: flex;
+                flex-direction: row;
+                column-gap: 6px;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-      .block-1 .participants-statics {
-        display: flex;
-        flex-direction: row;
-        column-gap: 6px;
-      }
+            .block-1 .participants-statics {
+                display: flex;
+                flex-direction: row;
+                column-gap: 6px;
+            }
 
-      .block-1 .participants span {
-        display: block;
-        width: 159px;
-        height: 222.5px;
-        color: white;
-        font-weight: 900;
-        font-size: 120px;
-        text-align: center;
-        background-image: url("./images/block-1-participants-container.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        line-height: 220px;
-      }
+            .block-1 .participants span {
+                display: block;
+                width: 159px;
+                height: 222.5px;
+                color: white;
+                font-weight: 900;
+                font-size: 120px;
+                text-align: center;
+                background-image: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-participants-container.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                line-height: 220px;
+            }
 
-      .block-1 > img:nth-child(4) {
-        position: absolute;
-        bottom: 355.27px;
-        left: 94px;
-        z-index: 1;
-      }
+            .block-1 > img:nth-child(4) {
+                position: absolute;
+                bottom: 355.27px;
+                left: 94px;
+                z-index: 1;
+            }
 
-      .block-1 .duration {
-        position: absolute;
-        color: #f603b7;
-        left: 249px;
-        bottom: 444px;
-        font-size: 27px;
-        font-weight: 700;
-      }
+            .block-1 .duration {
+                position: absolute;
+                color: #f603b7;
+                left: 249px;
+                bottom: 444px;
+                font-size: 27px;
+                font-weight: 700;
+            }
 
-      .footer button {
-        border-radius: 20px;
-      }
+            .footer button {
+                border-radius: 20px;
+            }
 
-      .footer button img {
-        display: block;
-      }
+            .footer button img {
+                display: block;
+            }
 
-      #event-container #mission-1-form .quiz {
-        /* min-height: 854px; */
-        padding: 120px 100px 80px;
-      }
+            #event-container #mission-1-form .quiz {
+                /* min-height: 854px; */
+                padding: 120px 100px 80px;
+            }
 
-      #event-container #mission-1-form .quiz-1 {
-        background-color: #d3fd0f;
-      }
+            #event-container #mission-1-form .quiz-1 {
+                background-color: #d3fd0f;
+            }
 
-      #event-container #mission-1-form .quiz-2 {
-        background-image: url("./images/mission1_quiz2_bg.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+            #event-container #mission-1-form .quiz-2 {
+                background-image: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/mission1_quiz2_bg.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
 
-      #event-container #mission-1-form .quiz-3 {
-        background-image: url("./images/mission1_quiz3_bg.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+            #event-container #mission-1-form .quiz-3 {
+                background-image: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/mission1_quiz3_bg.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
 
-      #event-container #mission-1-form .quiz .quiz-title {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 47px;
-      }
+            #event-container #mission-1-form .quiz .quiz-title {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 47px;
+            }
 
-      #event-container #mission-1-form .footer {
-        display: flex;
-        justify-content: center;
-        margin: 70px 0;
-      }
+            #event-container #mission-1-form .footer {
+                display: flex;
+                justify-content: center;
+                margin: 70px 0;
+            }
 
-      #event-container #mission-1-form .btn-submit {
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0;
-        margin: 0;
-      }
-    </style>
-    <div id="event-container">
-      <div class="block-1">
-        <img src="./images/block-1-banner.png" alt="" width="1200" />
-        <div class="participants">
-          <div class="participants-statics">
-            <span>1</span>
-            <span>5</span>
-            <span>7</span>
-            <span>2</span>
-            <span>0</span>
-          </div>
-          <img src="./images/block-1-text-2.png" width="65" alt="" />
-          <img src="./images/block-1-text-3.png" width="143" alt="" />
+            #event-container #mission-1-form .btn-submit {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <div id="event-container">
+            <div class="block-1">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-banner.png" alt="" width="1200"/>
+                <div class="participants">
+                    <div class="participants-statics">
+                        <span>1</span>
+                        <span>5</span>
+                        <span>7</span>
+                        <span>2</span>
+                        <span>0</span>
+                    </div>
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-text-2.png" width="65" alt=""/>
+                    <img src="./images/block-1-text-3.png" width="143" alt=""/>
+                </div>
+                <span class="duration">2023.09.18 11:00 ~ 2023.09.24 18:00</span>
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-text-1.png" width="345" alt=""/>
+            </div>
+            <form id="mission-1-form">
+                <div class="quiz quiz-1">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/mission1_quiz1.png" width="1000" alt=""/>
+
+                    <div class="radio-container">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="1"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-1-1.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="2"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-1-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="3"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-1-3.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="4"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-1-4.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="quiz quiz-2">
+                    <div class="radio-container" style="margin-top: 180px !important">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="1"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-2-1.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="2"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-2-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="3"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-2-4.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="4"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-2-3.png" width="100%" alt=""/></span>
+                        </label>
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="5"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-2-5.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="quiz quiz-3">
+                    <div class="radio-container" style="margin-top: 185px !important">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="1"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-3-1.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="2"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-3-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="3"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-3-3.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="4"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-3-4.png" width="100%" alt=""/></span>
+                        </label>
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="5"/>
+                            <span class="checktag"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-2-quiz-3-5.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button class="btn-submit" type="button" onclick="onSubmit()">
+                        <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/mission1_btn.png" width="558" alt=""/>
+                    </button>
+                </div>
+            </form>
+
+            <div class="modal-backdrop" id="event-modal">
+                <div class="model-container">
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button>확인</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="duration">2023.09.18 11:00 ~ 2023.09.24 18:00</span>
-        <img src="./images/block-1-text-1.png" width="345" alt="" />
-      </div>
-      <form id="mission-1-form">
-        <div class="quiz quiz-1">
-          <img src="./images/mission1_quiz1.png" width="1000" alt="" />
+        <script>
+            const modal = document.querySelector("#event-modal");
+            const modalBody = document.querySelector("#event-modal .modal-body");
+            const modalButton = document.querySelector("#event-modal .modal-footer button");
+            function onSubmit() {
+                const quiz1 = document.querySelectorAll('input[name="quiz-1"]');
+                const quiz2 = document.querySelectorAll('input[name="quiz-2"]');
+                const quiz3 = document.querySelectorAll('input[name="quiz-3"]');
+                const selected1 = [... quiz1].find((radio) => radio.checked);
+                const selected2 = [... quiz2].find((radio) => radio.checked);
+                const selected3 = [... quiz3].find((radio) => radio.checked);
 
-          <div class="radio-container">
-            <label class="radio-custom">
-              <input type="radio" name="quiz-1" value="1" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-1-1.png" width="100%" alt=""
-              /></span>
-            </label>
+                if (! selected1 || ! selected2 || ! selected3) {
+                    modalBody.innerHTML = "정답을 모두 체크해 주세요.";
+                    modalButton.addEventListener("click", function () {
+                        modal.classList.remove("show");
+                    });
+                    showAlert();
+                } else {
+                    if (selected1.value !== "4" || selected2.value !== "1" || selected3.value !== "1") { // show alert
+                        modalBody.innerHTML = `정답을 아닙니다. 다시 퀴즈를 확인해 주세요.`;
 
-            <label class="radio-custom">
-              <input type="radio" name="quiz-1" value="2" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-1-2.png" width="100%" alt=""
-              /></span>
-            </label>
+                        modalButton.addEventListener("click", function () {
+                            modal.classList.remove("show");
+                        });
+                        showAlert();
+                    } else { // show alert
+                        modalBody.innerHTML = `30 days with 모두투어 챌린지 첫번째 미션 성공을 축하드립니다. 해외항공 할인쿠폰이 발급되었습니다. 마이페이지에서 확인하세요.`;
+                        modalButton.addEventListener("click", function () {
+                            window.location.href = "../challenge/challenge.html";
+                        });
+                        showAlert();
+                    }
+                }
+                return;
+            }
 
-            <label class="radio-custom">
-              <input type="radio" name="quiz-1" value="3" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-1-3.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-1" value="4" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-1-4.png" width="100%" alt=""
-              /></span>
-            </label>
-          </div>
-        </div>
-        <div class="quiz quiz-2">
-          <div class="radio-container" style="margin-top: 180px !important">
-            <label class="radio-custom">
-              <input type="radio" name="quiz-2" value="1" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-2-1.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-2" value="2" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-2-2.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-2" value="3" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-2-4.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-2" value="4" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-2-3.png" width="100%" alt=""
-              /></span>
-            </label>
-            <label class="radio-custom">
-              <input type="radio" name="quiz-2" value="5" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-2-5.png" width="100%" alt=""
-              /></span>
-            </label>
-          </div>
-        </div>
-        <div class="quiz quiz-3">
-          <div class="radio-container" style="margin-top: 185px !important">
-            <label class="radio-custom">
-              <input type="radio" name="quiz-3" value="1" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-3-1.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-3" value="2" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-3-2.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-3" value="3" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-3-3.png" width="100%" alt=""
-              /></span>
-            </label>
-
-            <label class="radio-custom">
-              <input type="radio" name="quiz-3" value="4" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-3-4.png" width="100%" alt=""
-              /></span>
-            </label>
-            <label class="radio-custom">
-              <input type="radio" name="quiz-3" value="5" />
-              <span class="checktag"
-                ><img src="./images/block-2-quiz-3-5.png" width="100%" alt=""
-              /></span>
-            </label>
-          </div>
-        </div>
-        <div class="footer">
-          <button class="btn-submit" type="button" onclick="onSubmit()">
-            <img src="./images/mission1_btn.png" width="558" alt="" />
-          </button>
-        </div>
-      </form>
-
-      <div class="modal-backdrop" id="event-modal">
-        <div class="model-container">
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button>확인</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      const modal = document.querySelector("#event-modal");
-      const modalBody = document.querySelector("#event-modal .modal-body");
-      const modalButton = document.querySelector(
-        "#event-modal .modal-footer button"
-      );
-      function onSubmit() {
-        const quiz1 = document.querySelectorAll('input[name="quiz-1"]');
-        const quiz2 = document.querySelectorAll('input[name="quiz-2"]');
-        const quiz3 = document.querySelectorAll('input[name="quiz-3"]');
-        const selected1 = [...quiz1].find((radio) => radio.checked);
-        const selected2 = [...quiz2].find((radio) => radio.checked);
-        const selected3 = [...quiz3].find((radio) => radio.checked);
-
-        if (!selected1 || !selected2 || !selected3) {
-          modalBody.innerHTML = "정답을 모두 체크해 주세요.";
-          modalButton.addEventListener("click", function () {
-            modal.classList.remove("show");
-          });
-          showAlert();
-        } else {
-          if (
-            selected1.value !== "4" ||
-            selected2.value !== "1" ||
-            selected3.value !== "1"
-          ) {
-            //show alert
-            modalBody.innerHTML = `정답을 아닙니다. 다시 퀴즈를 확인해 주세요.`;
-
-            modalButton.addEventListener("click", function () {
-              modal.classList.remove("show");
-            });
-            showAlert();
-          } else {
-            //show alert
-            modalBody.innerHTML = `30 days with 모두투어 챌린지 첫번째 미션 성공을 축하드립니다. 해외항공 할인쿠폰이 발급되었습니다. 마이페이지에서 확인하세요.`;
-            modalButton.addEventListener("click", function () {
-              window.location.href = "../challenge/challenge.html";
-            });
-            showAlert();
-          }
-        }
-        return;
-      }
-
-      function closeAlert() {
-        modal.classList.remove("show");
-      }
-      function showAlert() {
-        modal.classList.add("show");
-      }
-    </script>
-  </body>
+            function closeAlert() {
+                modal.classList.remove("show");
+            }
+            function showAlert() {
+                modal.classList.add("show");
+            }
+        </script>
+    </body>
 </html>

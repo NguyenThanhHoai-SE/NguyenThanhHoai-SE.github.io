@@ -1,454 +1,415 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Mission 3 - PC</title>
-    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
-    <link
-      rel="stylesheet"
-      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
-    />
-  </head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>Mission 3 - PC</title>
+        <link rel="stylesheet" href="../fonts/Modetour/Modetour.css"/>
+        <link rel="stylesheet" href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
+    </head>
 
-  <body>
-    <style>
-      /* reset css */
-      * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-      }
+    <body>
+        <style>
+            /* reset css */
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
 
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: Arial, Helvetica, sans-serif;
+            }
 
-      ol,
-      ul {
-        list-style: none;
-      }
+            ol,
+            ul {
+                list-style: none;
+            }
 
-      button,
-      a {
-        cursor: pointer;
-        text-decoration: unset;
-        color: inherit;
-      }
+            button,
+            a {
+                cursor: pointer;
+                text-decoration: unset;
+                color: inherit;
+            }
 
-      /* end reset css */
+            /* end reset css */
 
-      /* modal */
-      #event-modal.modal-backdrop {
-        background-color: rgba(0, 0, 0, 0.6);
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: none;
-      }
+            /* modal */
+            #event-modal.modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: none;
+            }
 
-      #event-modal.modal-backdrop.show {
-        display: flex;
-      }
+            #event-modal.modal-backdrop.show {
+                display: flex;
+            }
 
-      #event-modal .model-container {
-        background-color: white;
-        width: 335px;
-        margin: auto;
-        position: relative;
-        padding: 0;
-        font-family: "Pretendard";
-        font-weight: 400;
-        border-radius: 5px;
-        box-shadow: 0px 0px 6px #00000029;
-      }
+            #event-modal .model-container {
+                background-color: white;
+                width: 335px;
+                margin: auto;
+                position: relative;
+                padding: 0;
+                font-family: "Pretendard";
+                font-weight: 400;
+                border-radius: 5px;
+                box-shadow: 0 0 6px #00000029;
+            }
 
-      #event-modal .model-container .modal-body {
-        padding: 0 40px;
-        text-align: center;
-        font-size: 15px;
-        line-height: 23px;
-        color: #111111;
-        padding: 37px 40px 30px;
-        border-bottom: 1px solid #d3dbd9;
-      }
+            #event-modal .model-container .modal-body {
+                padding: 37px 40px 30px;
+                text-align: center;
+                font-size: 15px;
+                line-height: 23px;
+                color: #111111;
+                border-bottom: 1px solid #d3dbd9;
+            }
 
-      #event-modal .model-container .modal-footer {
-        display: flex;
-        justify-content: center;
-      }
+            #event-modal .model-container .modal-footer {
+                display: flex;
+                justify-content: center;
+            }
 
-      #event-modal .model-container .modal-footer button {
-        flex: 1;
-        font-size: 15px;
-        line-height: 32px;
-        font-weight: 600;
-        color: #009c75;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-      }
+            #event-modal .model-container .modal-footer button {
+                flex: 1;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 600;
+                color: #009c75;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
 
-      #event-modal .model-container .modal-footer button.btn-cancel {
-        color: #111111;
-      }
+            #event-modal .model-container .modal-footer button.btn-cancel {
+                color: #111111;
+            }
 
-      /* End modal */
+            /* End modal */
 
-      #event-container {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 100px;
-        font-family: "Pretendard";
-        font-weight: 400;
-      }
+            #event-container {
+                max-width: 1200px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 100px;
+                font-family: "Pretendard";
+                font-weight: 400;
+            }
 
-      #event-container .section-1 {
-        position: relative;
-        display: flex;
-      }
+            #event-container .section-1 {
+                position: relative;
+                display: flex;
+            }
 
-      #event-container .section-1 .participants {
-        position: absolute;
-        bottom: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 992px;
-        height: 211px;
-        padding: 0 56px;
-        background-color: #71e28c;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: white;
-        font-size: 105px;
-        font-weight: 900;
-        border-radius: 20px;
-        letter-spacing: -4px;
-      }
+            #event-container .section-1 .participants {
+                position: absolute;
+                bottom: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 992px;
+                height: 211px;
+                padding: 0 56px;
+                background-color: #71e28c;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: white;
+                font-size: 105px;
+                font-weight: 900;
+                border-radius: 20px;
+                letter-spacing: -4px;
+            }
 
-      #event-container .section-1 .duration {
-        position: absolute;
-        top: 75px;
-        right: 104px;
-        background-image: url("./images/mission3_time_bg.png");
-        background-size: contain;
-        background-position: 0 0;
-        color: white;
-        width: 483px;
-        display: block;
-        height: 78px;
-        font-size: 26px;
-        font-family: "Pretendard";
-        font-weight: 700;
-        text-align: center;
-        line-height: 78px;
-      }
+            #event-container .section-1 .duration {
+                position: absolute;
+                top: 75px;
+                right: 104px;
+                background-image: url("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_time_bg.png");
+                background-size: contain;
+                background-position: 0 0;
+                color: white;
+                width: 483px;
+                display: block;
+                height: 78px;
+                font-size: 26px;
+                font-family: "Pretendard";
+                font-weight: 700;
+                text-align: center;
+                line-height: 78px;
+            }
 
-      #event-container .section-2 {
-        display: flex;
-        flex-direction: column;
-        gap: 60px;
-      }
+            #event-container .section-2 {
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+            }
 
-      #event-container .section-2 .section-2-social-container {
-        position: relative;
-      }
+            #event-container .section-2 .section-2-social-container {
+                position: relative;
+            }
 
-      #event-container .section-2 .section-2-social-networks {
-        position: absolute;
-        bottom: 61px;
-        width: 810px;
-        transform: translateX(-50%);
-        left: 50%;
-        display: flex;
-        gap: 78px;
-      }
+            #event-container .section-2 .section-2-social-networks {
+                position: absolute;
+                bottom: 61px;
+                width: 810px;
+                transform: translateX(-50%);
+                left: 50%;
+                display: flex;
+                gap: 78px;
+            }
 
-      #event-container
-        .section-2
-        .section-2-social-networks
-        .section-2-social-network {
-        display: flex;
-        gap: 32px;
-        align-items: flex-end;
-      }
+            #event-container .section-2 .section-2-social-networks .section-2-social-network {
+                display: flex;
+                gap: 32px;
+                align-items: flex-end;
+            }
 
-      #event-container
-        .section-2
-        .section-2-social-networks
-        .section-2-social-network
-        .section-2-information
-        > img:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15px;
-      }
+            #event-container .section-2 .section-2-social-networks .section-2-social-network .section-2-information > img:nth-child(1) {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+            }
 
-      #event-container .section-3 {
-        display: flex;
-        flex-direction: column;
-        margin-top: 70px;
-      }
+            #event-container .section-3 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 70px;
+            }
 
-      #event-container .section-3 button {
-        display: flex;
-        cursor: pointer;
-      }
+            #event-container .section-3 button {
+                display: flex;
+                cursor: pointer;
+            }
 
-      #event-container .section-3 .total-comment {
-        font-size: 24px;
-        font-weight: 500;
-        margin-bottom: 20px;
-      }
+            #event-container .section-3 .total-comment {
+                font-size: 24px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
 
-      #event-container .section-3 #mission-3-form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 20px;
-        padding-bottom: 73px;
-        border-bottom: 2px solid #c6c6c6;
-      }
+            #event-container .section-3 #mission-3-form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 20px;
+                padding-bottom: 73px;
+                border-bottom: 2px solid #c6c6c6;
+            }
 
-      #event-container .section-3 #mission-3-form #comment {
-        height: 230px;
-        width: 100%;
-        border: 2px solid #686868;
-        background-color: #efefef;
-        border-radius: 15px;
-        font-size: 20px;
-        resize: none;
-        padding: 40px;
-        font-family: "Pretendard";
-        font-weight: 400;
-      }
+            #event-container .section-3 #mission-3-form #comment {
+                height: 230px;
+                width: 100%;
+                border: 2px solid #686868;
+                background-color: #efefef;
+                border-radius: 15px;
+                font-size: 20px;
+                resize: none;
+                padding: 40px;
+                font-family: "Pretendard";
+                font-weight: 400;
+            }
 
-      #event-container .section-3 #mission-3-form #comment:focus {
-        background-color: white;
-        border-color: #686868;
-        outline: none;
-        box-shadow: none;
-      }
+            #event-container .section-3 #mission-3-form #comment:focus {
+                background-color: white;
+                border-color: #686868;
+                outline: none;
+                box-shadow: none;
+            }
 
-      #event-container .section-3 .comments {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 74px;
-      }
+            #event-container .section-3 .comments {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 74px;
+            }
 
-      #event-container .section-3 .comments .comment {
-        display: flex;
-        flex-direction: column;
-        padding: 33px 0 30px;
-        color: black;
-        border-bottom: 2px solid #c6c6c6;
-      }
+            #event-container .section-3 .comments .comment {
+                display: flex;
+                flex-direction: column;
+                padding: 33px 0 30px;
+                color: black;
+                border-bottom: 2px solid #c6c6c6;
+            }
 
-      #event-container .section-3 .comments .comment .user-info {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        margin-bottom: 20px;
-      }
+            #event-container .section-3 .comments .comment .user-info {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                margin-bottom: 20px;
+            }
 
-      #event-container .section-3 .comments .comment .user-info span {
-        font-size: 24px;
-        font-weight: 500;
-      }
+            #event-container .section-3 .comments .comment .user-info span {
+                font-size: 24px;
+                font-weight: 500;
+            }
 
-      #event-container .section-3 .comments .comment .user-comment {
-        font-size: 20px;
-        font-weight: 300;
-      }
+            #event-container .section-3 .comments .comment .user-comment {
+                font-size: 20px;
+                font-weight: 300;
+            }
 
-      #event-container .section-3 .load-more {
-        display: flex;
-        justify-content: center;
-      }
+            #event-container .section-3 .load-more {
+                display: flex;
+                justify-content: center;
+            }
 
-      #event-container .disabled {
-        pointer-events: none;
-        user-select: none;
-      }
-    </style>
-    <div id="event-container">
-      <div class="section-1">
-        <img src="./images/mission3_1.png" width="1200" alt="" />
-        <div class="participants">
-          <img src="./images/mission3_1_1.png" width="239" alt="" />
-          <span>15,720명 참여</span>
-        </div>
-        <span class="duration">2023.10.02 11:00 ~ 2023.10.08 18:00</span>
-      </div>
-      <div class="section-2">
-        <img src="./images/mission3_2_1.png" width="1200" alt="" />
-        <div class="section-2-social-container">
-          <img src="./images/mission3_2_2.png" width="1200" alt="" />
-          <div class="section-2-social-networks">
-            <div class="section-2-social-network">
-              <img src="./images/mission3_instagram.png" width="81" alt="" />
-              <div class="section-2-information">
-                <img
-                  src="./images/mission3_instagram_tag.png"
-                  width="250"
-                  alt=""
-                />
-                <a href="https://www.instagram.com/nowairplanemode/​"
-                  ><img
-                    src="./images/mission3_link.png"
-                    style="cursor: pointer"
-                    width="98"
-                    alt=""
-                /></a>
-              </div>
+            #event-container .disabled {
+                pointer-events: none;
+                user-select: none;
+            }
+        </style>
+        <div id="event-container">
+            <div class="section-1">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1.png" width="1200" alt=""/>
+                <div class="participants">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1_1.png" width="239" alt=""/>
+                    <span>15,720명 참여</span>
+                </div>
+                <span class="duration">2023.10.02 11:00 ~ 2023.10.08 18:00</span>
             </div>
-            <div class="section-2-social-network">
-              <img src="./images/mission3_youtube.png" width="81" alt="" />
-              <div class="section-2-information">
-                <img
-                  src="./images/mission3_youtube_tag.png"
-                  width="250"
-                  alt=""
-                /><a href="https://www.youtube.com/@now_airplanemode/​"
-                  ><img
-                    src="./images/mission3_link.png"
-                    style="cursor: pointer"
-                    width="98"
-                    alt=""
-                /></a>
-              </div>
+            <div class="section-2">
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_2_1.png" width="1200" alt=""/>
+                <div class="section-2-social-container">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_2_2.png" width="1200" alt=""/>
+                    <div class="section-2-social-networks">
+                        <div class="section-2-social-network">
+                            <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_instagram.png" width="81" alt=""/>
+                            <div class="section-2-information">
+                                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_instagram_tag.png" width="250" alt=""/>
+                                <a href="https://www.instagram.com/nowairplanemode/​"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></a>
+                            </div>
+                        </div>
+                        <div class="section-2-social-network">
+                            <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_youtube.png" width="81" alt=""/>
+                            <div class="section-2-information">
+                                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_youtube_tag.png" width="250" alt=""/><a href="https://www.youtube.com/@now_airplanemode/​"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="section-3">
+                <div class="total-comment">댓글 1,345</div>
+                <form id="mission-3-form">
+                    <textarea id="comment"></textarea>
+                    <button type="button" id="mission-3-btn" onclick="onSubmit()">
+                        <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_btn_submit.png" width="123" alt=""/>
+                    </button>
+                </form>
+                <div
+                    class="comments" id="list-comment"><!-- comments will be loaded here -->
+                </div>
+                <div class="load-more">
+                    <button onclick="loadMoreComment()">
+                        <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_btn_more.png" width="1157" alt=""/>
+                    </button>
+                </div>
+            </div>
+            <!-- alert -->
+            <div class="modal-backdrop" id="event-modal">
+                <div class="model-container">
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel" onclick="closeAlert()">취소</button>
+                        <button class="btn-ok">확인</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="section-3">
-        <div class="total-comment">댓글 1,345</div>
-        <form id="mission-3-form">
-          <textarea id="comment"></textarea>
-          <button type="button" id="mission-3-btn" onclick="onSubmit()">
-            <img src="./images/mission3_btn_submit.png" width="123" alt="" />
-          </button>
-        </form>
-        <div class="comments" id="list-comment">
-          <!-- comments will be loaded here -->
-        </div>
-        <div class="load-more">
-          <button onclick="loadMoreComment()">
-            <img src="./images/mission3_btn_more.png" width="1157" alt="" />
-          </button>
-        </div>
-      </div>
-      <!-- alert -->
-      <div class="modal-backdrop" id="event-modal">
-        <div class="model-container">
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button class="btn-cancel" onclick="closeAlert()">취소</button>
-            <button class="btn-ok">확인</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <script type="text/html" id="comment-item">
-      <div class="comment">
-        <div class="user-info">
-          <img src="./images/mission3_avatar.png" width="73" alt="" />
-          <span>별명</span>
-        </div>
-        <div class="user-comment">
-          기대돼요~<br />인스타 구독했어요 @modetour1325
-        </div>
-      </div>
-    </script>
-    <script>
-      (function () {
-        //disable button comment if it’s not this mission time
-        const date = new Date().getTime();
-        const missionStart = new Date("Aug 19, 2023 21:00:00").getTime();
-        // const missionStart = new Date('September 11, 2023 11:00:00').getTime();
-        const missionEnd = new Date("September 17, 2023 18:00:00").getTime();
-        const btn = document.getElementById("mission-3-btn");
-        if (date >= missionStart && date <= missionEnd) {
-          btn.classList.remove("disabled");
-        } else {
-          btn.classList.add("disabled");
-        }
+        <script type="text/html" id="comment-item">
+            <div class="comment">
+                <div class="user-info">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_avatar.png" width="73" alt=""/>
+                    <span>별명</span>
+                </div>
+                <div class="user-comment">
+                    기대돼요~<br/>인스타 구독했어요 @modetour1325
+                </div>
+            </div>
+        </script>
+        <script>
+            (function () { // disable button comment if it’s not this mission time
+                const date = new Date().getTime();
+                const missionStart = new Date("Aug 19, 2023 21:00:00").getTime();
+                // const missionStart = new Date('September 11, 2023 11:00:00').getTime();
+                const missionEnd = new Date("September 17, 2023 18:00:00").getTime();
+                const btn = document.getElementById("mission-3-btn");
+                if (date >= missionStart && date <= missionEnd) {
+                    btn.classList.remove("disabled");
+                } else {
+                    btn.classList.add("disabled");
+                }
 
-        //load comment
-        loadMoreComment();
-      })();
+                // load comment
+                loadMoreComment();
+            })();
 
-      const modal = document.querySelector("#event-modal");
-      const modalBody = document.querySelector("#event-modal .modal-body");
-      const modalButton = document.querySelector(
-        "#event-modal .modal-footer button.btn-ok"
-      );
-      const modalButtonCancel = document.querySelector(
-        "#event-modal .modal-footer button.btn-cancel"
-      );
+            const modal = document.querySelector("#event-modal");
+            const modalBody = document.querySelector("#event-modal .modal-body");
+            const modalButton = document.querySelector("#event-modal .modal-footer button.btn-ok");
+            const modalButtonCancel = document.querySelector("#event-modal .modal-footer button.btn-cancel");
 
-      function loadMoreComment() {
-        const commentList = document.getElementById("list-comment");
-        const comment = document.getElementById("comment-item").innerHTML;
-        for (let i = 0; i < 10; i++) {
-          commentList.insertAdjacentHTML("beforeend", comment);
-        }
-      }
+            function loadMoreComment() {
+                const commentList = document.getElementById("list-comment");
+                const comment = document.getElementById("comment-item").innerHTML;
+                for (let i = 0; i < 10; i++) {
+                    commentList.insertAdjacentHTML("beforeend", comment);
+                }
+            }
 
-      function onSubmit() {
-        const comment = document.getElementById("comment");
-        if (comment.value === "") {
-          //show alert
-          modalBody.innerHTML = `Please leave a comment!`;
-          modalButtonCancel.classList.add("hide");
-          modalButton.addEventListener("click", function () {
-            closeAlert();
-          });
-          showAlert();
-        } else {
-          //show alert
-          modalBody.innerHTML = `댓글을 등록 하시겠습니까?`;
-          modalButtonCancel.classList.remove("hide");
-          modalButton.addEventListener("click", function () {
-            closeAlert();
-            modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
-            modalButtonCancel.classList.add("hide");
-            modalButton.addEventListener("click", function () {
-              window.location.href = "../challenge/challenge.html";
-            });
-            showAlert();
-          });
-          showAlert();
-        }
-        return;
-      }
+            function onSubmit() {
+                const comment = document.getElementById("comment");
+                if (comment.value === "") { // show alert
+                    modalBody.innerHTML = `Please leave a comment!`;
+                    modalButtonCancel.classList.add("hide");
+                    modalButton.addEventListener("click", function () {
+                        closeAlert();
+                    });
+                    showAlert();
+                } else { // show alert
+                    modalBody.innerHTML = `댓글을 등록 하시겠습니까?`;
+                    modalButtonCancel.classList.remove("hide");
+                    modalButton.addEventListener("click", function () {
+                        closeAlert();
+                        modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
+                        modalButtonCancel.classList.add("hide");
+                        modalButton.addEventListener("click", function () {
+                            window.location.href = "https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html";
+                        });
+                        showAlert();
+                    });
+                    showAlert();
+                }
+                return;
+            }
 
-      function closeAlert() {
-        modal.classList.remove("show");
-      }
-      function showAlert() {
-        modal.classList.add("show");
-      }
-    </script>
-  </body>
+            function closeAlert() {
+                modal.classList.remove("show");
+            }
+            function showAlert() {
+                modal.classList.add("show");
+            }
+        </script>
+    </body>
 </html>
