@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission 2 - MO</title>
+    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
+    <link
+      rel="stylesheet"
+      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <style>
+      /* reset css */
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      button,
+      a {
+        cursor: pointer;
+        text-decoration: unset;
+        color: inherit;
+      }
+
+      /* end reset css */
+
+      #mission-2 {
+        /* margin: 0 auto; */
+        position: relative;
+        font-family: "Modetour";
+        font-weight: 400;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 480px;
+        background-color: #141414;
+        min-height: 100vh;
+        font-family: "Pretendard";
+      }
+
+      #mission-2 .block-1 img {
+        display: block;
+        object-fit: cover;
+      }
+
+      #mission-2 .block-1 {
+        position: relative;
+      }
+
+      #mission-2 .block-1 .duration {
+        position: absolute;
+        color: white;
+        top: 25.33vw;
+        left: 26.67vw;
+        font-size: 3.47vw;
+        font-weight: 700;
+      }
+
+      #mission-2 .block-1 .participants {
+        position: absolute;
+        top: 45.2vw;
+        left: 16.16vw;
+        color: white;
+        font-weight: 900;
+        font-size: 10.13vw;
+        height: 13.6vw;
+        line-height: 13.6vw;
+        background: rgb(20, 20, 20);
+      }
+
+      @media screen and (min-width: 480px) {
+        #mission-2 .block-1 .duration {
+          top: 121.6px;
+          left: 128px;
+          font-size: 16.64px;
+        }
+
+        #mission-2 .block-1 .participants {
+          top: 217px;
+          left: 77.57px;
+          font-size: 48.64px;
+          height: 65.28px;
+          line-height: 65.28px;
+        }
+      }
+
+      #mission-2 .block-1 .block-1-btn-container {
+        position: absolute;
+        bottom: 4%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87.2%;
+      }
+
+      #mission-2 .disabled {
+        pointer-events: none;
+        user-select: none;
+      }
+
+      #event-alert.modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+      }
+
+      #event-alert.modal-backdrop.show {
+        display: flex;
+      }
+
+      #event-alert .model-container {
+        background-color: white;
+        width: 335px;
+        margin: auto;
+        position: relative;
+        padding: 0;
+        font-family: "Pretendard";
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px #00000029;
+      }
+
+      #event-alert .model-container .modal-body {
+        padding: 0 40px;
+        text-align: center;
+        font-size: 15px;
+        line-height: 23px;
+        color: #111111;
+        padding: 37px 40px 30px;
+        border-bottom: 1px solid #d3dbd9;
+      }
+
+      #event-alert .model-container .modal-footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      #event-alert .model-container .modal-footer button {
+        flex: 1;
+        font-size: 15px;
+        line-height: 32px;
+        font-weight: 600;
+        color: #009c75;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+      }
+
+      #event-alert .model-container .modal-footer button.btn-cancel {
+        color: #111111;
+      }
+    </style>
+    <div id="mission-2">
+      <div class="block-1">
+        <img src="./images/bg.png" alt="" width="100%" />
+        <div class="participants">
+          <span>15,720 명 참여​</span>
+        </div>
+        <div class="duration">
+          <span>2023.09.25 11:00 ~ 2023.10.01 18:00</span>
+        </div>
+        <div class="block-1-btn-container">
+          <a
+            id="mission-2-btn"
+            class="disabled"
+            href="https://newgen-mo.modetour.com/"
+            ><img src="./images/mission-2-button.png" alt="" width="100%"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="event-alert">
+      <div class="model-container">
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button>확인</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#event-alert");
+      const modalBody = document.querySelector("#event-alert .modal-body");
+      const modalButton = document.querySelector(
+        "#event-alert .modal-footer button"
+      );
+
+      function closeAlert() {
+        modal.classList.remove("show");
+      }
+      function showAlert() {
+        modal.classList.add("show");
+      }
+
+      (function () {
+        const date = new Date().getTime();
+        const missionStart = new Date("September 12, 2023 11:00:00").getTime();
+        // const missionStart = new Date('September 04, 2023 11:00:00').getTime();
+        const missionEnd = new Date("October 01, 2023 18:00:00").getTime();
+        const btn = document.getElementById("mission-2-btn");
+        if (date >= missionStart && date <= missionEnd) {
+          btn.classList.remove("disabled");
+        } else {
+          btn.classList.add("disabled");
+        }
+      })();
+    </script>
+  </body>
+</html>

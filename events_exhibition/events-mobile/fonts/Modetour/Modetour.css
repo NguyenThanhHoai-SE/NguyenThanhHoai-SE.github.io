@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Modetour";
+  font-weight: 400;
+  src: local("Modetour"), url("./ModetourR.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Modetour";
+  font-weight: 700;
+  src: url("./ModetourB.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ModetourNanumB";
+  font-weight: 700;
+  src: url("./ModetourNanumB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ModetourNanumR";
+  font-weight: 400;
+  src: url("./ModetourNanumR.ttf") format("truetype");
+}

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission 3 - MO</title>
+    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
+    <link
+      rel="stylesheet"
+      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <style>
+      /* reset css */
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      button,
+      a {
+        cursor: pointer;
+        text-decoration: unset;
+        color: inherit;
+      }
+
+      /* end reset css */
+
+      #mission-3 {
+        /* margin: 0 auto; */
+        position: relative;
+        font-family: "Modetour";
+        font-weight: 400;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 480px;
+      }
+
+      #mission-3 .block-1 > img,
+      #mission-3 .block-2 > img {
+        display: block;
+        object-fit: cover;
+      }
+
+      #mission-3 .block-1 {
+        position: relative;
+        max-width: 100%;
+      }
+
+      #mission-3 .block-1 .duration {
+        position: absolute;
+        top: 9vw;
+        left: 36vw;
+        font-size: 3.2vw;
+        color: white;
+        font-weight: 700;
+        font-family: "Pretendard";
+      }
+
+      #mission-3 .participants {
+        position: absolute;
+        bottom: 11.89%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 55%;
+      }
+
+      #mission-3 .participants span {
+        color: white;
+        font-weight: 800;
+        font-size: 9vw;
+        font-family: "Pretendard";
+      }
+
+      #mission-3 .block-3 {
+        background-image: url("./images/bg.png");
+        background-repeat: no-repeat;
+        background-position: 0% 0%;
+        background-size: cover;
+        width: 100%;
+        height: 114.67vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 33px;
+        padding-bottom: 44.8px;
+      }
+
+      @media screen and (min-width: 480px) {
+        #mission-3 .participants span {
+          font-size: 43.2px;
+        }
+
+        #mission-3 .block-1 .duration {
+          top: 43.2px;
+          left: 172.8px;
+          font-size: 15.36px;
+        }
+
+        #mission-3 .block-3 {
+          height: 550px;
+        }
+      }
+
+      #mission-3 .block-3 .block-3-social-network-container {
+        position: relative;
+        margin-bottom: 47px;
+      }
+
+      #mission-3 .block-3 .block-3-social-network-container > img:nth-child(1) {
+        margin: 0 auto;
+        display: block;
+      }
+
+      #mission-3 .block-3 .block-3-social-network {
+        position: absolute;
+        left: 14.4vw;
+        bottom: 7%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 19px;
+      }
+
+      #mission-3 .block-3 .block-3-social-network .item {
+        display: flex;
+        column-gap: 4.5vw;
+      }
+
+      #mission-3 .block-3 .block-3-social-network .item > img {
+        width: 15.47vw;
+        display: block;
+      }
+
+      #mission-3 .block-3 .block-3-social-network .item .info {
+        display: flex;
+        flex-direction: column;
+        width: 40.53vw;
+        justify-content: center;
+        row-gap: 2.4vw;
+      }
+
+      @media screen and (min-width: 480px) {
+        #mission-3 .block-3 .block-3-social-network {
+          left: 69.12px;
+        }
+
+        #mission-3 .block-3 .block-3-social-network .item {
+          display: flex;
+          column-gap: 21.6px;
+        }
+
+        #mission-3 .block-3 .block-3-social-network .item > img {
+          width: 74.256px;
+        }
+
+        #mission-3 .block-3 .block-3-social-network .item .info {
+          width: 194.54px;
+          row-gap: 11.52px;
+        }
+      }
+
+      #mission-3
+        .block-3
+        .block-3-social-network
+        .item
+        .info
+        > img:nth-child(1) {
+        display: block;
+      }
+
+      #mission-3 .block-3 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #mission-3 .block-3 .block-3-contact {
+        width: 88.5%;
+      }
+
+      #mission-3 .block-3 button {
+        display: flex;
+        cursor: pointer;
+      }
+
+      #mission-3 .block-3 .contact {
+        margin: 0 auto;
+        display: block;
+      }
+
+      #mission-3 .block-3 .total-comment {
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 13px;
+        margin-left: 18px;
+        font-family: "Pretendard";
+      }
+
+      #mission-3 .block-3 #mission-3-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+        padding-bottom: 52px;
+        border-bottom: 1px solid #c6c6c6;
+      }
+
+      #mission-3 .block-3 #mission-3-form #comment {
+        height: 230px;
+        width: 100%;
+        border: 1px solid #686868;
+        background-color: #efefef;
+        border-radius: 15px;
+        font-size: 16px;
+        resize: none;
+        padding: 20px;
+        font-family: "Pretendard";
+        font-weight: 400;
+      }
+
+      #mission-3 .block-3 #mission-3-form #comment:focus {
+        background-color: white;
+        border-color: #686868;
+        outline: none;
+        box-shadow: none;
+      }
+
+      #mission-3 .block-3 #mission-3-form button {
+        margin-right: 18px;
+      }
+
+      #mission-3 .block-3 .comments {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 47px;
+      }
+
+      #mission-3 .block-3 .comments .comment {
+        display: flex;
+        flex-direction: column;
+        padding: 13px 0 17px;
+        color: black;
+        border-bottom: 1px solid #c6c6c6;
+      }
+
+      #mission-3 .block-3 .comments .comment .user-info {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      #mission-3 .block-3 .comments .comment .user-info span {
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      #mission-3 .block-3 .comments .comment .user-comment {
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "Pretendard";
+      }
+
+      #mission-3 .block-3 .load-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 100%;
+        margin-bottom: 13.88vw;
+      }
+
+      @media screen and (min-width: 480px) {
+        #mission-3 .block-3 .load-more {
+          margin-bottom: 66.62px;
+        }
+      }
+
+      #mission-3 .block-3 .load-more > img {
+        display: block;
+      }
+
+      #mission-3 .disabled {
+        pointer-events: none;
+        user-select: none;
+      }
+
+      #event-alert.modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+      }
+
+      #event-alert.modal-backdrop.show {
+        display: flex;
+      }
+
+      #event-alert .model-container {
+        background-color: white;
+        width: 335px;
+        margin: auto;
+        position: relative;
+        padding: 0;
+        font-family: "Pretendard";
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px #00000029;
+      }
+
+      #event-alert .model-container .modal-body {
+        padding: 0 40px;
+        text-align: center;
+        font-size: 15px;
+        line-height: 23px;
+        color: #111111;
+        padding: 37px 40px 30px;
+        border-bottom: 1px solid #d3dbd9;
+      }
+
+      #event-alert .model-container .modal-footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      #event-alert .model-container .modal-footer button {
+        flex: 1;
+        font-size: 15px;
+        line-height: 32px;
+        font-weight: 600;
+        color: #009c75;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+      }
+
+      #event-alert .model-container .modal-footer button.btn-cancel {
+        color: #111111;
+      }
+    </style>
+    <div id="mission-3">
+      <div class="block-1">
+        <img src="./images/block-1.png" alt="" width="100%" />
+        <div class="duration">
+          <span>2023.10.02 11:00 ~ 2023.10.08 18:00</span>
+        </div>
+        <div class="participants">
+          <img src="./images/block-1-1.png" width="129" alt="" />
+          <span>15,720명 참여</span>
+        </div>
+      </div>
+      <div class="block-2">
+        <img src="./images/block-2.png" alt="" width="100%" />
+      </div>
+      <div class="block-3">
+        <div class="block-3-social-network-container">
+          <img src="./images/block-3.png" alt="" width="88.5%" />
+          <div class="block-3-social-network">
+            <div class="item">
+              <img src="./images/block-3-instagram.png" alt="" width="70%" />
+              <div class="info">
+                <img
+                  src="./images/block-3-instagram-tag.png"
+                  alt=""
+                  width="100%"
+                />
+                <a href="https://www.instagram.com/nowairplanemode/​">
+                  <img
+                    src="./images/block-3-instagram-link.png"
+                    alt=""
+                    width="46.05%"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <img src="./images/block-3-youtube.png" alt="" width="70%" />
+              <div class="info">
+                <img
+                  src="./images/block-3-youtube-tag.png"
+                  alt=""
+                  width="100%"
+                />
+                <a href="https://www.youtube.com/@now_airplanemode/"
+                  ><img
+                    src="./images/block-3-youtube-link.png"
+                    alt=""
+                    width="46.05%"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-3-contact">
+          <div class="total-comment">댓글 1,345</div>
+          <form id="mission-3-form">
+            <textarea id="comment"></textarea>
+            <button type="button" id="mission-3-btn" onclick="onSubmit()">
+              <img
+                src="./images/block-3-contact-button.png"
+                width="123"
+                alt=""
+              />
+            </button>
+          </form>
+          <div class="comments" id="list-comment">
+            <!-- comments will be loaded here -->
+          </div>
+          <div class="load-more">
+            <button onClick="loadMoreComment()">
+              <img
+                src="./images/block-3-load-more-button.png"
+                width="100%"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="event-alert">
+      <div class="model-container">
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button class="btn-cancel" onclick="closeAlert()">취소</button>
+          <button class="btn-ok">확인</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/html" id="comment-item">
+      <div class="comment">
+        <div class="user-info">
+          <img src="./images/block-3-avatar.png" width="73" alt="" />
+          <span>별명</span>
+        </div>
+        <div class="user-comment">
+          기대돼요~<br />인스타 구독했어요 @MODETOUR1325
+        </div>
+      </div>
+    </script>
+
+    <script>
+      (function () {
+        //disable button comment if it’s not this mission time
+        const date = new Date().getTime();
+        const missionStart = new Date("Aug 19, 2023 21:00:00").getTime();
+        // const missionStart = new Date('September 11, 2023 11:00:00').getTime();
+        const missionEnd = new Date("September 17, 2023 18:00:00").getTime();
+        const btn = document.getElementById("mission-3-btn");
+        if (date >= missionStart && date <= missionEnd) {
+          btn.classList.remove("disabled");
+        } else {
+          btn.classList.add("disabled");
+        }
+
+        //load comment
+        loadMoreComment();
+      })();
+
+      const modal = document.querySelector("#event-alert");
+      const modalBody = document.querySelector("#event-alert .modal-body");
+      const modalButton = document.querySelector(
+        "#event-alert .modal-footer button.btn-ok"
+      );
+      const modalButtonCancel = document.querySelector(
+        "#event-alert .modal-footer button.btn-cancel"
+      );
+
+      function loadMoreComment() {
+        const commentList = document.getElementById("list-comment");
+        const comment = document.getElementById("comment-item").innerHTML;
+        for (let i = 0; i < 10; i++) {
+          commentList.insertAdjacentHTML("beforeend", comment);
+        }
+      }
+
+      function onSubmit() {
+        const comment = document.getElementById("comment");
+        if (comment.value === "") {
+          //show alert
+          modalBody.innerHTML = `Please leave a comment!`;
+          modalButtonCancel.classList.add("hide");
+          modalButton.addEventListener("click", function () {
+            closeAlert();
+          });
+          showAlert();
+        } else {
+          //show alert
+          modalBody.innerHTML = `댓글을 등록 하시겠습니까?`;
+          modalButtonCancel.classList.remove("hide");
+          modalButton.addEventListener("click", function () {
+            closeAlert();
+            modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
+            modalButtonCancel.classList.add("hide");
+            modalButton.addEventListener("click", function () {
+              window.location.href = "../challenge/challenge.html";
+            });
+            showAlert();
+          });
+          showAlert();
+        }
+        return;
+      }
+
+      function closeAlert() {
+        modal.classList.remove("show");
+      }
+      function showAlert() {
+        modal.classList.add("show");
+      }
+    </script>
+  </body>
+</html>

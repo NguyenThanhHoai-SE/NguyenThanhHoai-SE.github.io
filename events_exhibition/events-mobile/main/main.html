@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main - MO</title>
+    <link rel="stylesheet" href="../fonts/Modetour/Modetour.css" />
+    <link
+      rel="stylesheet"
+      href="../fonts/Pretendard-1.3.7/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <style>
+      /* reset css */
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      button,
+      a {
+        cursor: pointer;
+        text-decoration: unset;
+        color: inherit;
+      }
+
+      /* end reset css */
+
+      #main {
+        /* margin: 0 auto; */
+        position: relative;
+        font-family: "Modetour";
+        font-weight: 400;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 480px;
+      }
+
+      #main .block-1 > img {
+        object-fit: cover;
+      }
+
+      #main .block-2 {
+        background-image: url("./images/bg.png");
+        background-size: 100% auto;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 33px;
+        padding-bottom: 44.8px;
+      }
+
+      #main .block-2 .duration {
+        margin-bottom: 38.12px;
+        font-size: 5.33vw;
+        font-weight: 800;
+        color: #000000;
+        font-family: "Pretendard";
+        height: 5.6vw;
+      }
+
+      @media screen and (min-width: 480px) {
+        #main .block-2 .duration {
+          font-size: 25.6px;
+          height: 26.88px;
+        }
+      }
+
+      #main .block-2 > img:nth-child(1) {
+        margin-bottom: 39px;
+      }
+
+      #main .block-2 > img:nth-child(2) {
+        margin-bottom: 10px;
+      }
+
+      #main .block-2 > img:nth-child(5) {
+        margin-bottom: 41px;
+      }
+
+      #main .block-2 > a:nth-child(6) {
+        margin-bottom: 55.6px;
+      }
+
+      #main .block-2 > a:nth-child(6) > img {
+        margin: 0 auto;
+        display: block;
+      }
+
+      #main .block-2 > img:nth-child(7) {
+        margin-bottom: 36px;
+      }
+
+      /* For block-2-8*/
+      #main .block-2 > a:nth-child(9) {
+        margin-bottom: 8px;
+      }
+
+      #main .block-2 .block-2-missions {
+        display: flex;
+        flex-direction: column;
+        gap: 19.82px;
+        margin-bottom: 53px;
+      }
+
+      #main .block-2 .block-2-missions a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #main .block-2 .block-2-missions a span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3.73vw;
+        font-family: "Pretendard";
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      @media screen and (min-width: 480px) {
+        #main .block-2 .block-2-missions a span {
+          font-size: 17.92px;
+        }
+      }
+
+      #main .block-2 .block-2-tickets {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 19.83px;
+      }
+
+      #main .block-3 {
+        position: relative;
+      }
+
+      #main .block-3 > a {
+        position: absolute;
+        display: block;
+        bottom: 6%;
+        width: 89%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #main .block-3 > a > img {
+        display: block;
+      }
+
+      #main .block-4 {
+        background-image: url("./images/bg.png");
+        background-size: 100% auto;
+        background-position: -20px -40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 19.87px;
+        padding-bottom: 36.33px;
+      }
+
+      #main .block-4 > img:nth-child(1) {
+        margin-bottom: 33.65px;
+      }
+
+      #main .block-4 > a > img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      #event-alert.modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+      }
+
+      #event-alert.modal-backdrop.show {
+        display: flex;
+      }
+
+      #event-alert .model-container {
+        background-color: white;
+        width: 335px;
+        margin: auto;
+        position: relative;
+        padding: 0;
+        font-family: "Pretendard";
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px #00000029;
+      }
+
+      #event-alert .model-container .modal-body {
+        padding: 0 40px;
+        text-align: center;
+        font-size: 15px;
+        line-height: 23px;
+        color: #111111;
+        padding: 37px 40px 30px;
+        border-bottom: 1px solid #d3dbd9;
+      }
+
+      #event-alert .model-container .modal-footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      #event-alert .model-container .modal-footer button {
+        flex: 1;
+        font-size: 15px;
+        line-height: 32px;
+        font-weight: 600;
+        color: #009c75;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+      }
+
+      #event-alert .model-container .modal-footer button.btn-cancel {
+        color: #111111;
+      }
+    </style>
+
+    <div id="main">
+      <div class="block-1">
+        <img src="./images/block-1.png" alt="" width="100%" />
+      </div>
+      <div class="block-2">
+        <img src="./images/block-2-1.png" alt="" width="89.33%" />
+        <img src="./images/block-2-2.png" alt="" width="43.2%" />
+        <!-- <img src="./images/block-2-3.png" alt="" width="324" /> -->
+        <span class="duration">2023.08.28 – 2023.09.26 (30일간)</span>
+        <img src="./images/block-2-4.png" alt="" width="43.2%" />
+        <img src="./images/block-2-5.png" alt="" width="89.33%" />
+        <a onclick="checkLogin('../challenge/challenge.html')">
+          <img src="./images/block-2-6.png" alt="" width="89.33%"
+        /></a>
+        <img src="./images/block-2-7.png" alt="" width="57.87%" />
+        <div class="block-2-missions">
+          <a onclick="checkLogin('../mission-1/mission-1.html')"
+            ><img src="./images/block-2-mission-1.png" alt="" width="89.33%" />
+            <span class="mission-time"
+              >2023.09.18 11:00 ~ 2023.09.24 18:00</span
+            ></a
+          >
+          <a onclick="checkLogin('../mission-2/mission-2.html')">
+            <img
+              src="./images/block-2-mission-2.png"
+              alt=""
+              width="89.33%"
+            /><span class="mission-time"
+              >2023.09.25 11:00 ~ 2023.10.01 18:00</span
+            ></a
+          >
+          <a onclick="checkLogin('../mission-3/mission-3.html')">
+            <img
+              src="./images/block-2-mission-3.png"
+              alt=""
+              width="89.33%"
+            /><span class="mission-time"
+              >2023.10.02 11:00 ~ 2023.10.08 18:00</span
+            ></a
+          >
+          <a onclick="checkLogin('../mission-4/mission-4.html')">
+            <img
+              src="./images/block-2-mission-4.png"
+              alt=""
+              width="89.33%"
+            /><span class="mission-time"
+              >2023.10.09 11:00 ~ 2023.10.15 18:00</span
+            ></a
+          >
+        </div>
+        <img src="./images/block-2-8.png" alt="" width="57.87%" />
+        <div class="block-2-tickets">
+          <img src="./images/block-2-tickets-1.png" alt="" width="89.33%" />
+          <img src="./images/block-2-tickets-2.png" alt="" width="89.33%" />
+          <img src="./images/block-2-tickets-3.png" alt="" width="89.33%" />
+          <img src="./images/block-2-tickets-4.png" alt="" width="89.33%" />
+        </div>
+        <img
+          src="./images/block-2-9.png"
+          alt=""
+          width="89.33%"
+          style="border-radius: 16px; display: block"
+        />
+      </div>
+      <div class="block-3">
+        <img src="./images/block-3.png" alt="" width="100%" />
+        <a href="https://newgen-mo.modetour.com/" target="_blank">
+          <img src="./images/block-3-button.png" width="100%" />
+        </a>
+      </div>
+      <div class="block-4">
+        <img src="./images/block-4-1.png" alt="" width="90.93%" />
+        <a onclick="checkLogin('../mission-1/mission-1.html')"
+          ><img src="./images/block-4-2.png" alt="" width="89.33%"
+        /></a>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="event-alert">
+      <div class="model-container">
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button class="btn-cancel" onclick="closeAlert()">취소</button>
+          <button class="btn-ok">확인</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.querySelector("#event-alert");
+      const modalBody = document.querySelector("#event-alert .modal-body");
+      const modalButton = document.querySelector(
+        "#event-alert .modal-footer .btn-ok"
+      );
+      let isLogin = false;
+      function checkLogin(url) {
+        console.log("isLogin", isLogin);
+        if (!isLogin) {
+          //show alert
+          modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
+
+          modalButton.addEventListener("click", function () {
+            isLogin = true;
+            window.location.href = url;
+          });
+          showAlert();
+        } else {
+          window.location.href = url;
+        }
+      }
+      function closeAlert() {
+        modal.classList.remove("show");
+      }
+      function showAlert() {
+        modal.classList.add("show");
+      }
+    </script>
+  </body>
+</html>
