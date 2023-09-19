@@ -312,7 +312,7 @@
             })();
             let eventHistory;
             async function getJoinEventHistory(status) {
-                const result = await window.postmessage().getJoinEventHistoryFunc(status).then((value) => {
+                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
                     return value
                 });
                 eventHistory = result;
