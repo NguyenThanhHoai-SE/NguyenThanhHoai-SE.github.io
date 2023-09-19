@@ -327,14 +327,14 @@
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
-            let isLogin = false;
+            let isLogin = window.parent.checkLoginFunction();
             function checkLogin(url) {
+
                 if (! isLogin) {
                     modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
 
-                    modalButton.addEventListener("click", function () {
-                        isLogin = true;
-                        window.location.href = url;
+                    modalButton.addEventListener("click", function () { // window.location.href = isLogin;
+                        window.parent.login();
                     });
                     showAlert();
                 } else {
