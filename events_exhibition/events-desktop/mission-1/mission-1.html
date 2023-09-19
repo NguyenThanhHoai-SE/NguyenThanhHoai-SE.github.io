@@ -399,6 +399,14 @@
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer button");
+
+            async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
+                const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
+                    return value
+                });
+                console.log("result register mission challenge = ", result)
+            }
+
             function onSubmit() {
                 const quiz1 = document.querySelectorAll('input[name="quiz-1"]');
                 const quiz2 = document.querySelectorAll('input[name="quiz-2"]');
@@ -422,9 +430,10 @@
                         });
                         showAlert();
                     } else { // show alert
+                        registerMissonChallenge("", "9F9C3763-1709-449A-A7E6-FF4A71650887", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "AD0BECB5-A525-4566-B408-B8EBD136DAB8", "")
                         modalBody.innerHTML = `30 days with 모두투어 챌린지 첫번째 미션 성공을 축하드립니다. 해외항공 할인쿠폰이 발급되었습니다. 마이페이지에서 확인하세요.`;
                         modalButton.addEventListener("click", function () {
-                            window.location.href = "../challenge/challenge.html";
+                            window.location.href = "https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html";
                         });
                         showAlert();
                     }
