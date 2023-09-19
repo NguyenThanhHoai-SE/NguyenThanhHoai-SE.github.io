@@ -396,9 +396,22 @@
             </div>
         </div>
         <script>
+            (function () { // disable button comment if it’s not this mission time
+                getJoinEventHistory(null)
+            })();
+
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer button");
+            let eventHistory;
+            async function getJoinEventHistory(status) {
+                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+                    return value
+                });
+                eventHistory = result;
+                console.log("result join event history = ", result);
+                console.log("event history = ", eventHistory);
+            }
 
             async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
                 const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
@@ -435,7 +448,7 @@
                         });
                         showAlert();
                     } else { // show alert
-                        registerMissonChallenge("", "9F9C3763-1709-449A-A7E6-FF4A71650887", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "AD0BECB5-A525-4566-B408-B8EBD136DAB8",)
+                        registerMissonChallenge("", eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "AD0BECB5-A525-4566-B408-B8EBD136DAB8", "")
                         console.log("register")
                     }
                 }

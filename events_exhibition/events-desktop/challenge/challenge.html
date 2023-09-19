@@ -306,6 +306,18 @@
         <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script> -->
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
+            (function () { // disable button comment if it’s not this mission time
+                getJoinEventHistory(null)
+            })();
+            let eventHistory;
+            async function getJoinEventHistory(status) {
+                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+                    return value
+                });
+                eventHistory = result;
+                console.log("result join event history = ", result);
+                console.log("event history = ", eventHistory);
+            }
             const timeMissionEvent = document.getElementById("mission-time-event")
             function checkStatus(eventMission, eventMissionChallenges) {
                 console.log("eventMission", eventMission);
@@ -315,7 +327,7 @@
                 
 
 
-                if (eventMissionChallenges ?. find((e) => e.eventMissionId === eventMission.eventMissionId)) 
+                if (eventMissionChallenges ?. find((e) => e.eventMissionId === eventMission.eventMissionId && e.eventApplyId === eventHistory.eventApplyId)) 
                     return 'completed';
                 
 

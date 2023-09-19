@@ -363,7 +363,18 @@
 
                 // load comment
                 loadMoreComment();
+                getJoinEventHistory(null)
             })();
+
+            let eventHistory;
+            async function getJoinEventHistory(status) {
+                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+                    return value
+                });
+                eventHistory = result;
+                console.log("result join event history = ", result);
+                console.log("event history = ", eventHistory);
+            }
 
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
@@ -407,7 +418,7 @@
                     modalButtonCancel.classList.remove("hide");
                     modalButton.addEventListener("click", function () {
                         closeAlert();
-                        registerMissonChallenge("", "9F9C3763-1709-449A-A7E6-FF4A71650887", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
+                        registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
                     });
                     showAlert();
                 }
