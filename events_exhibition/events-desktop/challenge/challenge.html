@@ -308,6 +308,8 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 getJoinEventHistory(null)
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
+
             })();
             let eventHistory;
             async function getJoinEventHistory(status) {
@@ -410,9 +412,6 @@
                     handleDatasetStatus(result.eventMissions, result.eventMissionChallenges);
                 }
             }
-
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
-
             function downloadCoupon() { // show alert
                 $("#event-alert .modal-body").html(`해외여행 할인쿠폰팩이 발급 되었습니다.<br>지금 확인 하시겠습니까?`);
                 // click "확인" button => go to coupon box page
