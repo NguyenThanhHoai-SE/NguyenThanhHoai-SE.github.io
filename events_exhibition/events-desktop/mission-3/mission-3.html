@@ -355,11 +355,11 @@
                 // const missionStart = new Date('September 11, 2023 11:00:00').getTime();
                 const missionEnd = new Date("September 17, 2023 18:00:00").getTime();
                 const btn = document.getElementById("mission-3-btn");
-                if (date >= missionStart && date <= missionEnd) {
-                    btn.classList.remove("disabled");
-                } else {
-                    btn.classList.add("disabled");
-                }
+                // if (date >= missionStart && date <= missionEnd) {
+                //     btn.classList.remove("disabled");
+                // } else {
+                //     btn.classList.add("disabled");
+                // }
 
                 // load comment
                 loadMoreComment();
@@ -378,8 +378,23 @@
                 }
             }
 
+            async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
+                const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
+                    return value
+                });
+                console.log("result register mission challenge = ", result)
+                modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
+                modalButtonCancel.classList.add("hide");
+                modalButton.addEventListener("click", function () {
+                    window.location.href = "https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html";
+                });
+                showAlert();
+            }
+
             function onSubmit() {
                 const comment = document.getElementById("comment");
+                console.log("comment", comment.value)
+
                 if (comment.value === "") { // show alert
                     modalBody.innerHTML = `Please leave a comment!`;
                     modalButtonCancel.classList.add("hide");
@@ -392,12 +407,7 @@
                     modalButtonCancel.classList.remove("hide");
                     modalButton.addEventListener("click", function () {
                         closeAlert();
-                        modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
-                        modalButtonCancel.classList.add("hide");
-                        modalButton.addEventListener("click", function () {
-                            window.location.href = "https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html";
-                        });
-                        showAlert();
+                        registerMissonChallenge("", "9F9C3763-1709-449A-A7E6-FF4A71650887", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
                     });
                     showAlert();
                 }
