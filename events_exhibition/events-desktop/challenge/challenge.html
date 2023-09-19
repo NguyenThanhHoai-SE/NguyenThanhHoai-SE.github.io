@@ -308,17 +308,16 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 getJoinEventHistory(null)
-                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
 
             })();
             let eventHistory;
             async function getJoinEventHistory(status) {
-                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+                const result = await window.postmessage().getJoinEventHistoryFunc(status).then((value) => {
                     return value
                 });
                 eventHistory = result;
                 console.log("result join event history = ", result);
-                console.log("event history = ", eventHistory);
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
             }
             const timeMissionEvent = document.getElementById("mission-time-event")
             function checkStatus(eventMission, eventMissionChallenges) {
@@ -329,7 +328,7 @@
                 
 
 
-                if (eventMissionChallenges ?. find((e) => e.eventMissionId === eventMission.eventMissionId && e.eventApplyId === eventHistory.eventApplyId)) 
+                if (eventHistory && eventMissionChallenges ?. find((e) => e.eventMissionId === eventMission.eventMissionId && e.eventApplyId === eventHistory.eventApplyId)) 
                     return 'completed';
                 
 
