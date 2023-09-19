@@ -271,14 +271,21 @@
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-challenge.png" alt="" width="534"/>
                 </a>
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-middle-title.png" alt="" width="450px"/>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-1.png" alt="" width="1200"/><span class="mission-time">2023.09.18 11:00 ~ 2023.09.24 18:00</span>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html')" class="mission">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-1.png" alt="" width="1200"/>
+                    <span class="mission-time" id="mission-1-time"></span>
                 </a>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/mission-2.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-2.png" alt="" width="1200"/><span class="mission-time">2023.09.25 11:00 ~ 2023.10.01 18:00</span>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/mission-2.html')" class="mission">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-2.png" alt="" width="1200"/>
+                    <span class="mission-time" id="mission-2-time"></span>
                 </a>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/mission-3.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-3.png" alt="" width="1200"/>
-                    <span class="mission-time">2023.10.02 11:00 ~ 2023.10.08 18:00</span>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/mission-3.html')" class="mission">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-3.png" alt="" width="1200"/>
+                    <span class="mission-time" id="mission-3-time"></span>
                 </a>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-4/mission-4.html')" class="mission"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-4.png" alt="" width="1200"/><span class="mission-time">2023.10.09 11:00 ~ 2023.10.15 18:00</span>
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-4/mission-4.html')" class="mission">
+                    <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/images/block-3-mission-4.png" alt="" width="1200"/>
+                    <span class="mission-time" id="mission-4-time"></span>
                 </a>
             </div>
             <div class="block-4">
@@ -323,12 +330,40 @@
             </div>
         </div>
         <!-- end modal-->
+        <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
-            let isLogin = window.parent.checkLoginFunction();
-            function checkLogin(url) {
+            const timeMission1 = document.getElementById("mission-1-time")
+            const timeMission2 = document.getElementById("mission-2-time")
+            const timeMission3 = document.getElementById("mission-3-time")
+            const timeMission4 = document.getElementById("mission-4-time")
+
+            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                    return value
+                });
+                if (result && result.eventMissions) {
+                    const eventMissions = result.eventMissions;
+                    timeMission1.innerHTML = moment(eventMissions ?. [0].missionStartDate || undefined) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0] ?. undefined || null) ?. format("YYYY.MM.DD HH:mm")
+                    timeMission2.innerHTML = moment(eventMissions ?. [0].missionStartDate || undefined) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0] ?. undefined || null) ?. format("YYYY.MM.DD HH:mm")
+                    timeMission3.innerHTML = moment(eventMissions ?. [0].missionStartDate || undefined) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0] ?. undefined || null) ?. format("YYYY.MM.DD HH:mm")
+                    timeMission4.innerHTML = moment(eventMissions ?. [0].missionStartDate || undefined) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0] ?. undefined || null) ?. format("YYYY.MM.DD HH:mm")
+                }
+                console.log("result event master = ", result);
+            }
+
+            async function joinEvent(eventMasterId) {
+                const result = await window.parent.joinEventFunc(eventMasterId)
+                console.log("result join event = ", result);
+            }
+
+            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
+            joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114')
+
+            async function checkLogin(url) {
+                let isLogin = await window.parent.checkLoginFunction();
 
                 if (! isLogin) {
                     modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
