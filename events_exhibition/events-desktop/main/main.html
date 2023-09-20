@@ -396,8 +396,8 @@
                         window.parent.login();
                     });
                     showAlert();
-                } else {
-                    window.location.href = url;
+                } else { // window.location.href = url;
+                    window.parent.changePathnameFunc(url)
                 }
             }
             function closeAlert() {
