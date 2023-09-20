@@ -307,6 +307,9 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
+                console.log("window.location.pathname", window.location.pathname)
+
+                window.parent.changePathnameFunc(window.location.pathname);
                 getJoinEventHistory(null)
 
             })();
@@ -429,10 +432,6 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
-
-            window.addEventListener("load", () => {
-                window.parent.changePathnameFunc(window.location.pathname);
-            })
         </script>
     </body>
 </html>
