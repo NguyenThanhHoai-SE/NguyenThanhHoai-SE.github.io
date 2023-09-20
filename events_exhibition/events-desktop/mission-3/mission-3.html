@@ -296,13 +296,14 @@
                             <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_instagram.png" width="81" alt=""/>
                             <div class="section-2-information">
                                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_instagram_tag.png" width="250" alt=""/>
-                                <a href="https://www.instagram.com/nowairplanemode/​"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></a>
+                                <div onclick="window.parent.open('https://www.instagram.com/nowairplanemode/', '_blank')"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></div>
                             </div>
                         </div>
                         <div class="section-2-social-network">
                             <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_youtube.png" width="81" alt=""/>
                             <div class="section-2-information">
-                                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_youtube_tag.png" width="250" alt=""/><a href="https://www.youtube.com/@now_airplanemode/​"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></a>
+                                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_youtube_tag.png" width="250" alt=""/>
+                                <div onclick="window.parent.open('https://www.youtube.com/@now_airplanemode/​', '_blank')"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_link.png" style="cursor: pointer" width="98" alt=""/></div>
                             </div>
                         </div>
                     </div>
@@ -397,7 +398,7 @@
                 modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
                 modalButtonCancel.classList.add("hide");
                 modalButton.addEventListener("click", function () {
-                    window.location.href = "https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html";
+                    changePathname("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html")
                 });
                 showAlert();
             }
@@ -430,6 +431,9 @@
             }
             function showAlert() {
                 modal.classList.add("show");
+            }
+            function changePathname(url) {
+                window.parent.changePathnameFunc(url);
             }
         </script>
     </body>
