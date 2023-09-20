@@ -413,9 +413,9 @@
             function handleButton(eventMater) {
 
                 if (eventMater && eventMater.eventMissions) {
-                    const mission2 = eventMater.eventMissions ?. [1];
-                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
-                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
+                    const mission3 = eventMater.eventMissions ?. [2];
+                    if (mission3 && mission3.missionStartDate && mission3.missionEndDate) {
+                        if (moment(mission3.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission3.missionEndDate))) 
                             btn.classList.remove("disabled");
                          else {
                             btn.classList.add("disabled");
