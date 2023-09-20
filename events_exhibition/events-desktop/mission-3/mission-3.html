@@ -295,9 +295,9 @@
         <div id="event-container">
             <div class="section-1">
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1.png" width="1200" alt=""/>
-                <div class="participants">
+                <div class="participants" id="participants">
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1_1.png" width="239" alt=""/>
-                    <span>15,720명 참여</span>
+                    <span>0 명 참여</span>
                 </div>
                 <span class="duration"></span>
             </div>
@@ -324,7 +324,7 @@
                 </div>
             </div>
             <div class="section-3">
-                <div class="total-comment">댓글 1,345</div>
+                <div class="total-comment">댓글 0</div>
                 <form id="mission-3-form">
                     <textarea id="comment"></textarea>
                     <button type="button" id="mission-3-btn" onclick="onSubmit()">
@@ -413,11 +413,23 @@
                             duration.innerHTML = moment(eventMissions ?. [2].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [2].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
                         
 
+
                     }
-
-
+                    calMissionCount(result);
                 }
                 console.log("result event master = ", result);
+            }
+
+
+            function calMissionCount(eventMater) {
+                if (eventMater && eventMater.eventMissions) {
+                    const mission3Id = eventMater.eventMissions ?. [2] ?. eventMissionId;
+
+                    if (eventMater.eventMissionChallenges) {
+                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission3Id) ?. length ?? 0;
+                        document.getElementById('participants').innerHTML = `${count} 명 참여`;
+                    }
+                }
             }
 
             async function getEventComments(eventMasterId, eventMissionId) {
