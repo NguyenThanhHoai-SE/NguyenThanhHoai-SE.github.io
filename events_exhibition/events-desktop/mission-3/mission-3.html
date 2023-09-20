@@ -349,6 +349,7 @@
                 </div>
             </div>
         </script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
                 const date = new Date().getTime();
@@ -362,7 +363,9 @@
                 //     btn.classList.add("disabled");
                 // }
                 // load comment
-                console.log("window.parent", window.parent.location);
+                const queryString = window.parent.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                console.log("urlParams", urlParams);
 
                 getJoinEventHistory(null)
                 getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
