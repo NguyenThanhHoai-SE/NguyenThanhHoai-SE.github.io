@@ -426,6 +426,13 @@
             function showAlert() {
                 $("#event-alert").addClass("show");
             }
+            function changePathname(url) {
+                window.parent.changePathnameFunc(url);
+            }
+
+            window.addEventListener("load", () => {
+                window.parent.changePathnameFunc(window.location.pathname);
+            })
         </script>
     </body>
 </html>
