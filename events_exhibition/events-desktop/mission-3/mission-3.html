@@ -295,9 +295,9 @@
         <div id="event-container">
             <div class="section-1">
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1.png" width="1200" alt=""/>
-                <div class="participants" id="participants">
+                <div class="participants">
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/images/mission3_1_1.png" width="239" alt=""/>
-                    <span>0 명 참여</span>
+                    <span id="participants-count">0 명 참여</span>
                 </div>
                 <span class="duration"></span>
             </div>
@@ -366,17 +366,6 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
-                const date = new Date().getTime();
-                const missionStart = new Date("Aug 19, 2023 21:00:00").getTime();
-                // const missionStart = new Date('September 11, 2023 11:00:00').getTime();
-                const missionEnd = new Date("September 17, 2023 18:00:00").getTime();
-                const btn = document.getElementById("mission-3-btn");
-                // if (date >= missionStart && date <= missionEnd) {
-                //     btn.classList.remove("disabled");
-                // } else {
-                //     btn.classList.add("disabled");
-                // }
-                // load comment
                 const queryString = window.parent.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 console.log("urlParams", urlParams.get("id"));
@@ -401,7 +390,7 @@
 
             async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
                 const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
-                    return value
+                    return value;
                 });
                 if (result) {
                     const duration = document.querySelector(".duration");
@@ -416,8 +405,24 @@
 
                     }
                     calMissionCount(result);
+                    handleButton(result);
                 }
                 console.log("result event master = ", result);
+            }
+
+            function handleButton(eventMater) {
+
+                if (eventMater && eventMater.eventMissions) {
+                    const mission2 = eventMater.eventMissions ?. [1];
+                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
+                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
+                            btn.classList.remove("disabled");
+                         else {
+                            btn.classList.add("disabled");
+                        }
+                    }
+
+                }
             }
 
 
@@ -427,7 +432,7 @@
 
                     if (eventMater.eventMissionChallenges) {
                         const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission3Id) ?. length ?? 0;
-                        document.getElementById('participants').innerHTML = `${count} 명 참여`;
+                        document.getElementById('participants-count').innerHTML = `${count} 명 참여`;
                     }
                 }
             }

@@ -180,42 +180,34 @@
         <div id="event-container">
             <div class="section-1">
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/images/mission2_1.png" width="1200" alt=""/>
-                <div class="participants" id="participants">
-                    <span>0 명 참여​</span>
+                <div class="participants">
+                    <span id="participants-count">0 명 참여​</span>
                 </div>
                 <span class="duration"></span>
                 <div class="button" id="mission-2-btn" onclick="window.parent.location.href='https://newgen-pc.modetour.com'">
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/images/mission2_btn.png" width="601"/></div>
             </div>
             <!-- <div class="footer">
-                                                                                                                                                                                                                                                                                                                                <a
-                                                                                                                                                                                                                                                                                                                                  id="mission-2-btn"
-                                                                                                                                                                                                                                                                                                                                  class="disabled"
-                                                                                                                                                                                                                                                                                                                                  href="https://newgen-pc.modetour.com/"
-                                                                                                                                                                                                                                                                                                                                >
-                                                                                                                                                                                                                                                                                                                                  <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/images/mission2_btn.png" width="601" alt="" />
-                                                                                                                                                                                                                                                                                                                                </a>
-                                                                                                                                                                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                <a
+                                                                                                                                                                                                                                                                                                                                                                                                                                  id="mission-2-btn"
+                                                                                                                                                                                                                                                                                                                                                                                                                                  class="disabled"
+                                                                                                                                                                                                                                                                                                                                                                                                                                  href="https://newgen-pc.modetour.com/"
+                                                                                                                                                                                                                                                                                                                                                                                                                                >
+                                                                                                                                                                                                                                                                                                                                                                                                                                  <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/images/mission2_btn.png" width="601" alt="" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                              </div> -->
         </div>
 
+        <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () {
-                const date = new Date().getTime();
-                const missionStart = new Date("September 12, 2023 11:00:00").getTime();
-                // const missionStart = new Date('September 04, 2023 11:00:00').getTime();
-                const missionEnd = new Date("October 01, 2023 18:00:00").getTime();
-                const btn = document.getElementById("mission-2-btn");
-                if (date >= missionStart && date <= missionEnd) {
-                    btn.classList.remove("disabled");
-                } else {
-                    btn.classList.add("disabled");
-                } getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
 
             })();
 
             async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
                 const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
-                    return value
+                    return value;
                 });
                 if (result) {
                     const duration = document.querySelector(".duration");
@@ -230,9 +222,25 @@
 
                     }
                     calMissionCount(result);
+                    handleButton(result);
 
                 }
                 console.log("result event master = ", result);
+            }
+
+            function handleButton(eventMater) {
+
+                if (eventMater && eventMater.eventMissions) {
+                    const mission2 = eventMater.eventMissions ?. [1];
+                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
+                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
+                            btn.classList.remove("disabled");
+                         else {
+                            btn.classList.add("disabled");
+                        }
+                    }
+
+                }
             }
 
             function calMissionCount(eventMater) {
@@ -241,7 +249,7 @@
 
                     if (eventMater.eventMissionChallenges) {
                         const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission2Id) ?. length ?? 0;
-                        document.getElementById('participants').innerHTML = `${count} 명 참여`;
+                        document.getElementById('participants-count').innerHTML = `${count} 명 참여`;
                     }
                 }
             }
