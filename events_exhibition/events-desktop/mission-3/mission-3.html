@@ -442,10 +442,10 @@
 
             function loadMoreComment() {
                 document.querySelector('.total-comment').innerHTML = '댓글 ' + `${
-                    result.length
+                    commentList.length
                 }`
 
-                const commentList = document.getElementById("list-comment");
+                const commentsList = document.getElementById("list-comment");
                 // const comment = document.getElementById("comment-item").innerHTML;
                 let comment;
                 const n = indexCommentStart + 10 > commentList.length ? commentList.length : indexCommentStart + 10;
@@ -461,7 +461,7 @@
                     }
                                     </div>
                                 </div>`
-                    commentList.insertAdjacentHTML("beforeend", comment);
+                    commentsList.insertAdjacentHTML("beforeend", comment);
                 }
                 indexCommentStart = n;
             }
@@ -481,8 +481,6 @@
 
             function onSubmit() {
                 const comment = document.getElementById("comment");
-                console.log("comment", comment.value)
-
                 if (comment.value === "") { // show alert
                     modalBody.innerHTML = `Please leave a comment!`;
                     modalButtonCancel.classList.add("hide");
