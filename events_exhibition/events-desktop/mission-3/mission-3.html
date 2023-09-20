@@ -519,7 +519,11 @@
                     modalButton.addEventListener("click", function (event) {
                         console.log("event2", event)
                         closeAlert();
-                        registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
+                        if (comment.value) 
+                            registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
+
+                        
+
                     });
                     showAlert();
                 }
@@ -535,9 +539,6 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
-            window.addEventListener("beforeunload", () => {
-                changePathname(window.location);
-            })
         </script>
     </body>
 </html>
