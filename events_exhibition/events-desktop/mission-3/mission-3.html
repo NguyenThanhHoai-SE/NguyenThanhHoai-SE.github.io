@@ -414,6 +414,7 @@
 
                 if (eventMater && eventMater.eventMissions) {
                     const mission3 = eventMater.eventMissions ?. [2];
+                    const btn = document.getElementById("mission-3-btn");
                     if (mission3 && mission3.missionStartDate && mission3.missionEndDate) {
                         if (moment(mission3.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission3.missionEndDate))) 
                             btn.classList.remove("disabled");

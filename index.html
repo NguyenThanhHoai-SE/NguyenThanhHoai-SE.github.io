@@ -101,6 +101,7 @@
             async function cancelJoinEvent(eventApplyId, eventMasterId) {
                 const result = await window.parent.cancelJoinEventFunc(eventApplyId, eventMasterId)
                 console.log("result cancel join event = ", result)
+                window.parent.open(window.parent.location.origin + '/event/detail-iframe')
             }
 
             async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
