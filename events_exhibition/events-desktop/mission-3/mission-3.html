@@ -405,9 +405,15 @@
                 });
                 if (result) {
                     const duration = document.querySelector(".duration");
-                    if (result.eventStartDate && result.eventEndDate) 
-                        duration.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD MM:DD") + ' ~ ' + moment(result.eventEndDate).format("YYYY.MM.DD  MM:DD");
-                    
+                    const eventMissions = result.eventMissions;
+                    if (eventMissions) {
+
+
+                        if (eventMissions ?. [2].missionStartDate && eventMissions ?. [2] ?. missionEndDate) 
+                            duration.innerHTML = moment(eventMissions ?. [2].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [2].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
+                        
+
+                    }
 
 
                 }
@@ -497,9 +503,8 @@
                 modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
                 modalButtonCancel.classList.add("hide");
                 modalButton.addEventListener("click", function () {
-                    console.log("event1", event)
-                    closeAlert();
                     changePathname("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html")
+                    closeAlert();
                 });
                 showAlert();
             }
@@ -517,12 +522,11 @@
                     modalBody.innerHTML = `댓글을 등록 하시겠습니까?`;
                     modalButtonCancel.classList.remove("hide");
                     modalButton.addEventListener("click", function (event) {
-                        console.log("event2", event)
                         closeAlert();
                         if (comment.value) 
-                            registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
-
+                            registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "");
                         
+
 
                     });
                     showAlert();
