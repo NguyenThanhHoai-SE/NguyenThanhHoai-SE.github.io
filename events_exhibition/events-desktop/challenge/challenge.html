@@ -317,8 +317,8 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html");
                 getJoinEventHistory(null)
-
             })();
             let eventHistory;
             async function getJoinEventHistory(status) {
@@ -439,10 +439,6 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
-
-            window.addEventListener("load", () => {
-                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html");
-            })
         </script>
     </body>
 </html>

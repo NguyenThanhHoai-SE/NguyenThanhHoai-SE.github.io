@@ -344,6 +344,9 @@
         <!-- end modal-->
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
+            (function () { // disable button comment if it’s not this mission time
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/main.html");
+            })();
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
@@ -418,9 +421,6 @@
             function showAlert() {
                 modal.classList.add("show");
             }
-            window.addEventListener("load", () => {
-                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/main.html");
-            })
         </script>
     </body>
 </html>

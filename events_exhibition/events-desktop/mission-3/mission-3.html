@@ -366,6 +366,7 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/mission-3.html");
                 const queryString = window.parent.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 console.log("urlParams", urlParams.get("id"));
@@ -561,9 +562,6 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
-            window.addEventListener("load", () => {
-                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-3/mission-3.html");
-            })
         </script>
     </body>
 </html>
