@@ -413,6 +413,9 @@
                     // window.parent.changePathnameFunc(url)
                     const result = window.parent.changePathnameFunc(url);
                     console.log("change pathname = ", result);
+                    if (result) 
+                        window.location.href = url;
+                    
                 }
             }
             function closeAlert() {
