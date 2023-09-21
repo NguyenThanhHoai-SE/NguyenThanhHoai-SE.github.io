@@ -316,10 +316,7 @@
         <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script> -->
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
-            window.addEventListener("load", () => {
-                console.log("load", window.location.href);
-                changePathname(window.location.href);
-            })(function () { // disable button comment if it’s not this mission time
+            (function () { // disable button comment if it’s not this mission time
                 getJoinEventHistory(null)
 
             })();
