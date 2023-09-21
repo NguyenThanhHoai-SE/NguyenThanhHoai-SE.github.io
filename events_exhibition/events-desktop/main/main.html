@@ -408,8 +408,11 @@
                         window.parent.login();
                     });
                     showAlert();
-                } else { // window.location.href = url;
-                    window.parent.changePathnameFunc(url)
+                } else {
+                    // window.location.href = url;
+                    // window.parent.changePathnameFunc(url)
+                    const result = window.parent.changePathnameFunc(url);
+                    console.log("change pathname = ", result);
                 }
             }
             function closeAlert() {
