@@ -442,6 +442,7 @@
 
             window.addEventListener("pageshow", () => {
                 console.log("pageshow");
+                console.log("window.location", window.location)
                 window.parent.changePathnameFunc(window.location.href);
             })
         </script>
