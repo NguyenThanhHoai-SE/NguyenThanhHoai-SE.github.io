@@ -439,6 +439,11 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
+
+            window.addEventListener("pageshow", () => {
+                console.log("pageshow");
+                window.parent.changePathnameFunc(window.location.href);
+            })
         </script>
     </body>
 </html>
