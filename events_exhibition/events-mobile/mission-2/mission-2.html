@@ -64,23 +64,22 @@
 
             #mission-2 .block-1 .duration {
                 position: absolute;
-                color: white;
-                top: 25.33vw;
-                left: 26.67vw;
+                color: black;
+                top: 133.33vw;
+                left: 18.67vw;
                 font-size: 3.47vw;
                 font-weight: 700;
             }
 
             #mission-2 .block-1 .participants {
                 position: absolute;
-                top: 45.2vw;
+                top: 177.2vw;
                 left: 16.16vw;
-                color: white;
+                color: black;
                 font-weight: 900;
                 font-size: 10.13vw;
                 height: 13.6vw;
                 line-height: 13.6vw;
-                background: rgb(20, 20, 20);
             }
 
             @media screen and(min-width: 480px) {
@@ -177,15 +176,15 @@
         </style>
         <div id="mission-2">
             <div class="block-1">
-                <img src="./images/bg.png" alt="" width="100%"/>
+                <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/images/bg.png" alt="" width="100%"/>
                 <div class="participants">
-                    <span>15,720 명 참여​</span>
+                    <span id="participants-count">0명 참여​</span>
                 </div>
                 <div class="duration">
-                    <span>2023.09.25 11:00 ~ 2023.10.01 18:00</span>
+                    <span></span>
                 </div>
                 <div class="block-1-btn-container">
-                    <a id="mission-2-btn" class="disabled" href="https://newgen-mo.modetour.com/"><img src="./images/mission-2-button.png" alt="" width="100%"/></a>
+                    <a id="mission-2-btn" class="disabled" href="https://newgen-mo.modetour.com/"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/images/mission-2-button.png" alt="" width="100%"/></a>
                 </div>
             </div>
         </div>
@@ -201,6 +200,58 @@
 
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
+            (function () {
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-2/mission-2.html");
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            })();
+            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                    return value;
+                });
+                if (result) {
+                    const duration = document.querySelector(".duration");
+                    const eventMissions = result.eventMissions;
+                    if (eventMissions) {
+
+
+                        if (eventMissions ?. [1].missionStartDate && eventMissions ?. [1] ?. missionEndDate) 
+                            duration.innerHTML = moment(eventMissions ?. [1].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [1].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
+                        
+
+
+                    }
+                    calMissionCount(result);
+                    handleButton(result);
+
+                }
+                console.log("result event master = ", result);
+            }
+
+            function handleButton(eventMater) {
+
+                if (eventMater && eventMater.eventMissions) {
+                    const mission2 = eventMater.eventMissions ?. [1];
+                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
+                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
+                            btn.classList.remove("disabled");
+                         else {
+                            btn.classList.add("disabled");
+                        }
+                    }
+
+                }
+            }
+
+            function calMissionCount(eventMater) {
+                if (eventMater && eventMater.eventMissions) {
+                    const mission2Id = eventMater.eventMissions ?. [1] ?. eventMissionId;
+
+                    if (eventMater.eventMissionChallenges) {
+                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission2Id) ?. length ?? 0;
+                        document.getElementById('participants-count').innerHTML = `${count} 명 참여`;
+                    }
+                }
+            }
             const modal = document.querySelector("#event-alert");
             const modalBody = document.querySelector("#event-alert .modal-body");
             const modalButton = document.querySelector("#event-alert .modal-footer button");
@@ -210,18 +261,7 @@
             }
             function showAlert() {
                 modal.classList.add("show");
-            }(function () {
-                const date = new Date().getTime();
-                const missionStart = new Date("September 12, 2023 11:00:00").getTime();
-                // const missionStart = new Date('September 04, 2023 11:00:00').getTime();
-                const missionEnd = new Date("October 01, 2023 18:00:00").getTime();
-                const btn = document.getElementById("mission-2-btn");
-                if (date >= missionStart && date <= missionEnd) {
-                    btn.classList.remove("disabled");
-                } else {
-                    btn.classList.add("disabled");
-                }
-            })();
+            }
         </script>
     </body>
 </html>

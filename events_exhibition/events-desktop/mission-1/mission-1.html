@@ -297,16 +297,12 @@
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-banner.png" alt="" width="1200"/>
                 <div class="participants">
                     <div class="participants-statics">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>7</span>
-                        <span>2</span>
                         <span>0</span>
                     </div>
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-text-2.png" width="65" alt=""/>
                     <img src="./images/block-1-text-3.png" width="143" alt=""/>
                 </div>
-                <span class="duration">2023.09.18 11:00 ~ 2023.09.24 18:00</span>
+                <span class="duration"></span>
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/images/block-1-text-1.png" width="345" alt=""/>
             </div>
             <form id="mission-1-form">
@@ -408,12 +404,15 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html");
-                getJoinEventHistory(null)
+                getJoinEventHistory(null);
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+
             })();
 
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer button");
+
             let eventHistory;
             async function getJoinEventHistory(status) {
                 const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
@@ -422,6 +421,40 @@
                 eventHistory = result;
                 console.log("result join event history = ", result);
                 console.log("event history = ", eventHistory);
+            }
+
+            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                    return value;
+                });
+                if (result) {
+                    const duration = document.querySelector(".duration");
+                    const eventMissions = result.eventMissions;
+                    if (eventMissions) {
+
+
+                        if (eventMissions ?. [0].missionStartDate && eventMissions ?. [0] ?. missionEndDate) 
+                            duration.innerHTML = moment(eventMissions ?. [0].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
+                        
+
+
+                    }
+                    calMissionCount(result);
+                }
+            }
+            function calMissionCount(eventMater) {
+                if (eventMater && eventMater.eventMissions) {
+                    const mission1Id = eventMater.eventMissions ?. [0] ?. eventMissionId;
+
+                    if (eventMater.eventMissionChallenges) {
+                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission1Id) ?. length ?? 0;
+                        const participantsStatics = document.querySelector(".participants-statics")
+                        const htmlContent = `${count}`.split('') ?. map((item) => {
+                            return `<span>${item}</span>`
+                        }).join('')
+                        participantsStatics.innerHTML = htmlContent;
+                    }
+                }
             }
 
             async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
