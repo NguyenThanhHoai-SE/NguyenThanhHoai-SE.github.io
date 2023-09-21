@@ -254,9 +254,9 @@
                             <button class="download" onclick="downloadCoupon()">
                                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/images/myChallenge_1_download.png" width="200" alt=""/>
                             </button>
-                            <div class="join" onclick="changePathname('https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html')">
+                            <a class="join" href="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html">
                                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/images/myChallenge_1_join.png" width="200" alt=""/>
-                            </div>
+                            </a>
                         </span>
                     </div>
 
@@ -440,8 +440,7 @@
                 window.parent.changePathnameFunc(url);
             }
 
-            window.addEventListener("pageshow", () => {
-                console.log("pageshow");
+            window.addEventListener("load", () => {
                 window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html");
             })
         </script>

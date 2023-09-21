@@ -409,13 +409,7 @@
                     });
                     showAlert();
                 } else {
-                    // window.location.href = url;
-                    // window.parent.changePathnameFunc(url)
                     const result = window.parent.changePathnameFunc(url);
-                    console.log("change pathname = ", result);
-                    if (result) 
-                        window.location.href = url;
-                    
                 }
             }
             function closeAlert() {
@@ -424,6 +418,9 @@
             function showAlert() {
                 modal.classList.add("show");
             }
+            window.addEventListener("load", () => {
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/main.html");
+            })
         </script>
     </body>
 </html>

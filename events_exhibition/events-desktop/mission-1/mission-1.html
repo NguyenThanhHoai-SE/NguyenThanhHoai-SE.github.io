@@ -474,6 +474,9 @@
             function changePathname(url) {
                 window.parent.changePathnameFunc(url);
             }
+            window.addEventListener("load", () => {
+                window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/mission-1/mission-1.html");
+            })
         </script>
     </body>
 </html>
