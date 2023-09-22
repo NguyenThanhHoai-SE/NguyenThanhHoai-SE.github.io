@@ -463,6 +463,8 @@
                     let comment;
                     const n = result.length ?? 0 > 10 ? 10 : result.length;
                     indexCommentStart = n;
+                    window.parent.addContentHeightFunc(n * 206);
+
                     for (let i = 0; i < result.length ?? 0; i++) {
                         comment = `<div class="comment">
                                     <div class="user-info">
@@ -506,6 +508,8 @@
                 } else {
                     n = indexCommentStart + 10;
                 }
+                window.parent.addContentHeightFunc(n * 166);
+
                 for (let i = indexCommentStart; i < n; i++) {
                     comment = `<div class="comment">
                                     <div class="user-info">
