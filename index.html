@@ -72,8 +72,8 @@
                 console.log("eventList", eventList)
             }
 
-            async function getJoinEventHistory(status) {
-                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+            async function getJoinEventHistory(status, eventMasterId, deviceType) {
+                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                     return value
                 });
                 console.log("result join event history = ", result);

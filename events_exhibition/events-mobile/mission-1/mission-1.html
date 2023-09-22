@@ -452,7 +452,7 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-1/mission-1.html");
-                getJoinEventHistory(null);
+                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
                 getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
             })();
 
@@ -461,8 +461,8 @@
             const modalButton = document.querySelector("#event-alert .modal-footer button");
 
             let eventHistory;
-            async function getJoinEventHistory(status) {
-                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+            async function getJoinEventHistory(status, eventMasterId, deviceType) {
+                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                     return value
                 });
                 eventHistory = result;

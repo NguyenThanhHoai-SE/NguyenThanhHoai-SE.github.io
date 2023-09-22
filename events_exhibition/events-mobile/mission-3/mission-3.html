@@ -452,7 +452,7 @@
                 const urlParams = new URLSearchParams(queryString);
                 console.log("urlParams", urlParams.get("id"));
 
-                getJoinEventHistory(null)
+                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "")
                 getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
                 getEventComments('587A765D-FB3D-4ADD-81E7-08DBA36F3114', 'DBA73DD9-CCE5-4177-A81B-EEC05D5FA555');
 
@@ -460,8 +460,8 @@
             let eventHistory;
             let commentList;
             let indexCommentStart = 0;
-            async function getJoinEventHistory(status) {
-                const result = await window.parent.getJoinEventHistoryFunc(status).then((value) => {
+            async function getJoinEventHistory(status, eventMasterId, deviceType) {
+                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                     return value
                 });
                 eventHistory = result;
@@ -540,8 +540,12 @@
                     for (let i = 0; i < result.length ?? 0; i++) {
                         comment = `<div class="comment">
                                     <div class="user-info">
-                                        <img src="./images/mission3_avatar.png" width="73" alt=""/>
-                                        <span>별명</span>
+                                        <img src="${
+                            result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/mission3_avatar.png'
+                        }" width="73" alt=""/>
+                                        <span>${
+                            result[i].eventUserInfo.memberName
+                        }</span>
                                     </div>
                                     <div class="user-comment">
                                         ${
