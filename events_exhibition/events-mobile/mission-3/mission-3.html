@@ -540,7 +540,8 @@
                     const commentsList = document.getElementById("list-comment");
                     // const comment = document.getElementById("comment-item").innerHTML;
                     let comment;
-                    const n = result.length ?? 0 > 10 ? 10 : result.length;
+                    const n = (result.length ?? 0) > 10 ? 10 : result.length;
+                    console.log("n ===========", n);
                     window.parent.addContentHeightFunc(n * 166);
                     indexCommentStart = n;
                     for (let i = 0; i < result.length ?? 0; i++) {
@@ -587,7 +588,7 @@
                 } else {
                     n = indexCommentStart + 10;
                 }
-                window.parent.addContentHeightFunc(n * 166);
+                window.parent.addContentHeightFunc((n - indexCommentStart) * 166);
                 for (let i = indexCommentStart; i < n; i++) {
                     comment = `<div class="comment">
                                     <div class="user-info">
