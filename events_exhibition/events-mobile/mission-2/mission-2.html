@@ -221,26 +221,28 @@
 
                     }
                     calMissionCount(result);
-                    // handleButton(result);
+                    handleButton(result);
 
                 }
                 console.log("result event master = ", result);
             }
 
-            // function handleButton(eventMater) {
+            function handleButton(eventMater) {
 
-            //     if (eventMater && eventMater.eventMissions) {
-            //         const mission2 = eventMater.eventMissions ?. [1];
-            //         if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
-            //             if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate)))
-            //                 btn.classList.remove("disabled");
-            //              else {
-            //                 btn.classList.add("disabled");
-            //             }
-            //         }
+                if (eventMater && eventMater.eventMissions) {
+                    const mission2 = eventMater.eventMissions ?. [1];
+                    const btn = document.getElementById("mission-2-btn");
 
-            //     }
-            // }
+                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
+                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
+                            btn.classList.remove("disabled");
+                         else {
+                            btn.classList.add("disabled");
+                        }
+                    }
+
+                }
+            }
 
             function calMissionCount(eventMater) {
                 if (eventMater && eventMater.eventMissions) {
@@ -260,6 +262,7 @@
                 if (result ?. result === 'S') 
                     window.parent.location.href = window.parent.location.origin;
                 
+
 
                 console.log("result event master = ", result);
             }
