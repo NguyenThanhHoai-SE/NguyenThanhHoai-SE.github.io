@@ -584,8 +584,12 @@
                 for (let i = indexCommentStart; i < n; i++) {
                     comment = `<div class="comment">
                                     <div class="user-info">
-                                        <img src="./images/mission3_avatar.png" width="73" alt=""/>
-                                        <span>별명</span>
+                                        <img src="${
+                        result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/mission3_avatar.png'
+                    }" width="73" alt=""/>
+                                        <span>${
+                        result[i].eventUserInfo.memberName
+                    }</span>
                                     </div>
                                     <div class="user-comment">
                                         ${
