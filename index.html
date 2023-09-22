@@ -38,7 +38,7 @@
 
             <button onclick="joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">JOIN EVENT</button>
 
-            <button onclick="cancelJoinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114', '47D50740-F0BE-4905-824C-C95C70D2FDA9')">CANCEL JOIN EVENT</button>
+            <button onclick="cancelJoinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">CANCEL JOIN EVENT</button>
 
             <button onclick="registerMissonChallenge('587A765D-FB3D-4ADD-81E7-08DBA36F3114', '', 'C9546842-64A5-41BA-A76F-B499B28DA3BB', 'test test test', '')">REGISTER MISSION CHALLENGE</button>
 
@@ -98,8 +98,8 @@
                 console.log("result join event = ", result);
             }
 
-            async function cancelJoinEvent(eventApplyId, eventMasterId) {
-                const result = await window.parent.cancelJoinEventFunc(eventApplyId, eventMasterId)
+            async function cancelJoinEvent(eventMasterId) {
+                const result = await window.parent.cancelJoinEventFunc(eventMasterId)
                 console.log("result cancel join event = ", result)
                 window.parent.open(window.parent.location.origin + '/event/detail-iframe')
             }
