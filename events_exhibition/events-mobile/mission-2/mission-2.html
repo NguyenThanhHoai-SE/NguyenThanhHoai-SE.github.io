@@ -257,6 +257,10 @@
                 const result = await window.parent.applySecondMissionFunc(eventMasterId).then((value) => {
                     return value;
                 });
+                if (result ?. result === 'S') 
+                    window.parent.location.href = window.parent.location.origin;
+                
+
                 console.log("result event master = ", result);
             }
             const modal = document.querySelector("#event-alert");
