@@ -184,7 +184,7 @@
                     <span></span>
                 </div>
                 <div class="block-1-btn-container">
-                    <a id="mission-2-btn" class="disabled" href="https://newgen-mo.modetour.com/"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/images/mission-2-button.png" alt="" width="100%"/></a>
+                    <div id="mission-2-btn" class="disabled" onclick="applySecondMission('587A765D-FB3D-4ADD-81E7-08DBA36F3114')"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/images/mission-2-button.png" alt="" width="100%"/></div>
                 </div>
             </div>
         </div>
@@ -251,6 +251,13 @@
                         document.getElementById('participants-count').innerHTML = `${count} 명 참여`;
                     }
                 }
+            }
+
+            async function applySecondMission(eventMasterId) {
+                const result = await window.parent.applySecondMissionFunc(eventMasterId).then((value) => {
+                    return value;
+                });
+                console.log("result event master = ", result);
             }
             const modal = document.querySelector("#event-alert");
             const modalBody = document.querySelector("#event-alert .modal-body");

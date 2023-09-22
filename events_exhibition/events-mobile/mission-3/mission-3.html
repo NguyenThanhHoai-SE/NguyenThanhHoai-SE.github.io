@@ -277,6 +277,11 @@
                 font-size: 18px;
                 font-weight: 400;
                 font-family: "Pretendard";
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             #mission-3 .block-3 .load-more {
@@ -541,7 +546,7 @@
                         comment = `<div class="comment">
                                     <div class="user-info">
                                         <img src="${
-                            result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/mission3_avatar.png'
+                            result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/block-3-avatar.png'
                         }" width="73" alt=""/>
                                         <span>${
                             result[i].eventUserInfo.memberName
@@ -585,7 +590,7 @@
                     comment = `<div class="comment">
                                     <div class="user-info">
                                         <img src="${
-                        result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/mission3_avatar.png'
+                        result[i].eventUserInfo.memberAvatar ?? 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/images/block-3-avatar.png'
                     }" width="73" alt=""/>
                                         <span>${
                         result[i].eventUserInfo.memberName
