@@ -264,22 +264,22 @@
                 <span class="duration" id="mission-time-event"></span>
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-4.png" alt="" width="43.2%"/>
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-5.png" alt="" width="89.33%"/>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/challenge/challenge.html')">
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/challenge/challenge.html', 0)">
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-6.png" alt="" width="89.33%"/></a>
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-7.png" alt="" width="57.87%"/>
                 <div class="block-2-missions">
-                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-1/mission-1.html')"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-mission-1.png" alt="" width="89.33%"/>
+                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-1/mission-1.html', 1)"><img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-mission-1.png" alt="" width="89.33%"/>
                         <span class="mission-time" id="mission-1-time"></span>
                     </a>
-                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/mission-2.html')">
+                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-2/mission-2.html', 2)">
                         <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-mission-2.png" alt="" width="89.33%"/>
                         <span class="mission-time" id="mission-2-time"></span>
                     </a>
-                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/mission-3.html')">
+                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-3/mission-3.html', 3)">
                         <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-mission-3.png" alt="" width="89.33%"/>
                         <span class="mission-time" id="mission-3-time"></span>
                     </a>
-                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-4/mission-4.html')">
+                    <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-4/mission-4.html', 4)">
                         <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-2-mission-4.png" alt="" width="89.33%"/>
                         <span class="mission-time" id="mission-4-time"></span>
                     </a>
@@ -301,7 +301,7 @@
             </div>
             <div class="block-4">
                 <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-4-1.png" alt="" width="90.93%"/>
-                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-1/mission-1.html')">
+                <a onclick="checkLogin('https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/mission-1/mission-1.html', 1)">
                     <img src="https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/images/block-4-2.png" alt="" width="89.33%"/></a>
             </div>
         </div>
@@ -320,6 +320,8 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-mobile/main/main.html");
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+                joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
             })();
             const modal = document.querySelector("#event-alert");
             const modalBody = document.querySelector("#event-alert .modal-body");
@@ -371,10 +373,25 @@
                 console.log("result join event = ", result);
             }
 
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
-            joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114')
+            function checkConditionSubmit(type) {
+                if (type > 0) {
+                    const startDate = eventMissions ?. [type - 1].missionStartDate ? moment(eventMissions ?. [type - 1].missionStartDate) : null;
+                    const endDate = eventMissions ?. [type - 1].missionEndDate ? moment(eventMissions ?. [type - 1].missionEndDate) : null;
+                    if (! startDate || ! endDate || moment().isBefore(startDate) || moment().isAfter(endDate)) 
+                        return false;
+                    
+
+
+                }
+                return true;
+            }
 
             async function checkLogin(url) {
+                if (! checkConditionSubmit(type)) 
+                    return;
+                
+
+
                 let isLogin = await window.parent.checkLoginFunction();
 
                 if (! isLogin) {
