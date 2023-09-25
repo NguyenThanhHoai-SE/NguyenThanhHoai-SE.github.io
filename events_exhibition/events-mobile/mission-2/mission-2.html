@@ -254,13 +254,28 @@
                 }
             }
 
+            function formatCount(count) {
+                let length = `${count}`.split('').length;
+                let countStr = '';
+                for (i = 0; i < 5 - length; i ++) 
+                    countStr = countStr + '0';
+                
+
+
+                const countFinal = countStr + `${count}`;
+                console.log("countFinal", countFinal)
+                return countFinal ?? '';
+            }
+
             function calMissionCount(eventMater) {
                 if (eventMater && eventMater.eventMissions) {
                     const mission2Id = eventMater.eventMissions ?. [1] ?. eventMissionId;
 
                     if (eventMater.eventMissionChallenges) {
                         const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission2Id) ?. length ?? 0;
-                        document.getElementById('participants-count').innerHTML = `${count} 명 참여`;
+                        document.getElementById('participants-count').innerHTML = `${
+                            formatCount(count)
+                        } 명 참여`;
                     }
                 }
             }

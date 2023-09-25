@@ -445,6 +445,18 @@
                     calMissionCount(result);
                 }
             }
+            function formatCount(count) {
+                let length = `${count}`.split('').length;
+                let countStr = '';
+                for (i = 0; i < 5 - length; i ++) 
+                    countStr = countStr + '0';
+                
+
+
+                const countFinal = countStr + `${count}`;
+                console.log("countFinal", countFinal)
+                return countFinal ?? '';
+            }
             function calMissionCount(eventMater) {
                 if (eventMater && eventMater.eventMissions) {
                     const mission1Id = eventMater.eventMissions ?. [0] ?. eventMissionId;
@@ -452,7 +464,7 @@
                     if (eventMater.eventMissionChallenges) {
                         const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission1Id) ?. length ?? 0;
                         const participantsStatics = document.querySelector(".participants-statics")
-                        const htmlContent = `${count}`.split('') ?. map((item) => {
+                        const htmlContent = formatCount(count).split('') ?. map((item) => {
                             return `<span>${item}</span>`
                         }).join('')
                         participantsStatics.innerHTML = htmlContent;
