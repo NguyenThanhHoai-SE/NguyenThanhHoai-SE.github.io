@@ -331,6 +331,8 @@
             const timeMission2 = document.getElementById("mission-2-time")
             const timeMission3 = document.getElementById("mission-3-time")
             const timeMission4 = document.getElementById("mission-4-time")
+            let eventMissions;
+
             async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
                 const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
                     return value
@@ -341,7 +343,7 @@
                     
 
 
-                    const eventMissions = result.eventMissions;
+                    eventMissions = result.eventMissions;
                     if (eventMissions) {
                         if (eventMissions ?. [0].missionStartDate && eventMissions ?. [0] ?. missionEndDate) 
                             timeMission1.innerHTML = moment(eventMissions ?. [0].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
