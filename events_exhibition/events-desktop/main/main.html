@@ -346,18 +346,20 @@
         <script>
             (function () { // disable button comment if it’s not this mission time
                 window.parent.changePathnameFunc("https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/main/main.html");
-                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
                 joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
             })();
             const modal = document.querySelector("#event-modal");
             const modalBody = document.querySelector("#event-modal .modal-body");
             const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
-            const timeMissionEvent = document.getElementById("mission-time-event")
-            const timeMission1 = document.getElementById("mission-1-time")
-            const timeMission2 = document.getElementById("mission-2-time")
-            const timeMission3 = document.getElementById("mission-3-time")
-            const timeMission4 = document.getElementById("mission-4-time")
+            const timeMissionEvent = document.getElementById("mission-time-event");
+            const timeMission1 = document.getElementById("mission-1-time");
+            const timeMission2 = document.getElementById("mission-2-time");
+            const timeMission3 = document.getElementById("mission-3-time");
+            const timeMission4 = document.getElementById("mission-4-time");
             let eventMissions;
+            let eventHistory;
             async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
                 const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
                     return value
@@ -395,6 +397,14 @@
                 console.log("result event master = ", result);
             }
 
+            async function getJoinEventHistory(status, eventMasterId, deviceType) {
+                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
+                    return value
+                });
+                eventHistory = result;
+                console.log("result join event history = ", result);
+            }
+
             async function joinEvent(eventMasterId) {
                 const result = await window.parent.joinEventFunc(eventMasterId)
                 console.log("result join event = ", result);
@@ -409,14 +419,20 @@
                     
 
 
+                    if (eventHistory ?. eventMissionChallenges ?. find((e) => e ?. eventMissionId === eventMissions ?. [type - 1] ?. eventMissionId)) 
+                        return false;
+                    
+
+
                 }
                 return true;
             }
 
 
             async function checkLogin(url, type) {
+                let linkUrl = url;
                 if (! checkConditionSubmit(type)) 
-                    return;
+                    linkUrl = 'https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/challenge/challenge.html';
                 
 
 
@@ -430,7 +446,7 @@
                     });
                     showAlert();
                 } else {
-                    const result = window.parent.changePathnameFunc(url);
+                    const result = window.parent.changePathnameFunc(linkUrl);
                 }
             }
             function closeAlert() {
