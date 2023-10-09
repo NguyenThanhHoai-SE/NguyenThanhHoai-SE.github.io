@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mission 1 - MO</title>
+    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css" />
+    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
+</head>
+    <body>
+        <style>
+            /* reset css */
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            ol,
+            ul {
+                list-style: none;
+            }
+
+            button,
+            a {
+                cursor: pointer;
+                text-decoration: unset;
+                color: inherit;
+            }
+
+            /* end reset css */
+
+            #mission-1 {
+                /* margin: 0 auto; */
+                position: relative;
+                font-weight: 400;
+                width: 100%;
+                margin: 0 auto;
+                max-width: 480px;
+            }
+
+            #mission-1 .block-1 > img {
+                display: block;
+                object-fit: cover;
+            }
+
+            #mission-1 .block-1 {
+                position: relative;
+            }
+
+            #mission-1 .block-1 .participants {
+                position: absolute;
+                column-gap: 15px;
+                bottom: 0;
+                width: 100%;
+                padding: 0 4vw 6.8vw 3vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+                align-items: center;
+            }
+
+            #mission-1 .block-1 .participants .participants-statics {
+                display: flex;
+                flex-direction: row;
+                gap: 3.38px;
+            }
+
+            #mission-1 .block-1 .participants .participants-text {
+                width: 21.33vw;
+            }
+
+            #mission-1 .block-1 .participants-statics span {
+                background-image: url("https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-1-participants-bg.png");
+                width: 13.23vw;
+                height: 18.52vw;
+                background-position: 0;
+                background-size: contain;
+                background-repeat: no-repeat;
+                color: white;
+                font-weight: 900;
+                font-size: 10vw;
+                text-align: center;
+                font-family: "Pretendard";
+                display: block;
+                line-height: 18.52vw;
+                text-align: center;
+            }
+
+            #mission-1 .block-1 .text-group {
+                position: absolute;
+                left: 4.8vw;
+                bottom: 28vw;
+                display: flex;
+                align-items: center;
+                column-gap: 2.46vw;
+            }
+
+            #mission-1 .block-1 .text-group > img:nth-child(1) {
+                width: 3.41vw;
+            }
+
+            #mission-1 .block-1 .text-group > img:nth-child(2) {
+                width: 37.8vw;
+            }
+
+            #mission-1 .block-1 .duration {
+                bottom: 37.87vw;
+                left: 20.53vw;
+                position: absolute;
+                color: #ff00ae;
+                font-family: "Pretendard";
+                font-weight: 800;
+                font-size: 4vw;
+            }
+
+            @media screen and(min-width: 480px) {
+                #mission-1 .block-1 .text-group {
+                    left: 23.04px;
+                    column-gap: 11.8px;
+                    bottom: 134.4px;
+                }
+
+                #mission-1 .block-1 .text-group > img:nth-child(1) {
+                    width: 16.36px;
+                }
+
+                #mission-1 .block-1 .text-group > img:nth-child(2) {
+                    width: 182.35px;
+                }
+
+                #mission-1 .block-1 .participants .participants-text {
+                    width: 102.38px;
+                }
+                #mission-1 .block-1 .participants {
+                    padding: 0 19.2px 32.64px 14.4px;
+                }
+                #mission-1 .block-1 .participants span {
+                    font-size: 48px;
+                    width: 63.5px;
+                    height: 88.9px;
+                    line-height: 88.9px;
+                }
+                #mission-1 .block-1 .duration {
+                    font-size: 19.2px;
+                    bottom: 181.76px;
+                    left: 98.56px;
+                }
+            }
+
+            form img {
+                display: block;
+            }
+
+            .radio-custom {
+                position: relative;
+                /* padding-left: 35px; */
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .radio-custom input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            /* custom radio style --checktag */
+            .radio-custom .checktag {
+                display: flex;
+            }
+
+            .radio-custom input ~ .checktag::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 1px;
+                right: 1px;
+                bottom: 1px;
+                background-image: url("https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-overlay.png");
+                border-radius: 16px;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                z-index: 1;
+            }
+
+            .radio-custom .checktag img {
+                position: relative;
+            }
+
+            .radio-custom input:checked ~ .checktag::before {
+                opacity: 1;
+            }
+
+            .misison-1-quiz {
+                position: relative;
+            }
+
+            .quiz-1 .radio-container {
+                position: absolute;
+                bottom: 6.12%;
+                width: 92.5%;
+                background-color: inherit;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 14.81px;
+            }
+
+            .quiz-2 .radio-container {
+                position: absolute;
+                bottom: 6.6%;
+                width: 92.5%;
+                background-color: inherit;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 14.81px;
+            }
+
+            .quiz-3 .radio-container {
+                position: absolute;
+                bottom: 5.18%;
+                width: 92.5%;
+                background-color: inherit;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 14.81px;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .footer .btn-submit {
+                background: white;
+                margin: 24.22px 0 31.09px;
+                width: 89.33%;
+            }
+
+            #event-alert.modal-backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: none;
+            }
+
+            #event-alert.modal-backdrop.show {
+                display: flex;
+            }
+
+            #event-alert .model-container {
+                background-color: white;
+                width: 335px;
+                margin: auto;
+                position: relative;
+                padding: 0;
+                font-family: "Pretendard";
+                font-weight: 400;
+                border-radius: 5px;
+                box-shadow: 0 0 6px #00000029;
+            }
+
+            #event-alert .model-container .modal-body {
+                padding: 37px 40px 30px;
+                text-align: center;
+                font-size: 15px;
+                line-height: 23px;
+                color: #111111;
+                border-bottom: 1px solid #d3dbd9;
+            }
+
+            #event-alert .model-container .modal-footer {
+                display: flex;
+                justify-content: center;
+            }
+
+            #event-alert .model-container .modal-footer button {
+                flex: 1;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 600;
+                color: #009c75;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
+
+            #event-alert .model-container .modal-footer button.btn-cancel {
+                color: #111111;
+            }
+        </style>
+        <div id="mission-1">
+            <div class="block-1">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-1.png" alt="" width="100%"/>
+                <div class="duration"></div>
+                <div class="text-group">
+                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-1-dot.png"/>
+                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-1-text-1.png"/>
+                </div>
+                <div class="participants">
+                    <div class="participants-statics">
+                        <span>0</span>
+                    </div>
+                    <div class="participants-text">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-1-text-2.png" alt="" width="100%"/>
+                    </div>
+                </div>
+            </div>
+            <form id="mission-1-form">
+                <div class="misison-1-quiz quiz-1">
+                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-1.png" width="100%" alt=""/>
+
+                    <div class="radio-container">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="1"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-1-1.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="2"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-1-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="3"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-1-3.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-1" value="4"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-1-4.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="misison-1-quiz quiz-2">
+                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2.png" width="100%" alt=""/>
+
+                    <div class="radio-container">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="1"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2-1.png" width="100%" alt=""/>
+                            </span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="2"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="3"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2-4.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="4"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2-3.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-2" value="5"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-2-5.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="misison-1-quiz quiz-3">
+                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3.png" width="100%" alt=""/>
+
+                    <div class="radio-container">
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="1"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3-1.png" width="100%" alt=""/>
+                            </span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="2"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3-2.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="3"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3-3.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="4"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3-4.png" width="100%" alt=""/></span>
+                        </label>
+
+                        <label class="radio-custom">
+                            <input type="radio" name="quiz-3" value="4"/>
+                            <span class="checktag"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-quiz-3-5.png" width="100%" alt=""/></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button class="btn-submit" type="button" onclick="onSubmit()">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-1/images/block-2-button.png" width="100%" alt=""/>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-backdrop" id="event-alert">
+            <div class="model-container">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button>확인</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script>
+            (function () { // disable button comment if it’s not this mission time
+                window.parent.changePathnameFunc("/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define");
+                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
+                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            })();
+
+            const modal = document.querySelector("#event-alert");
+            const modalBody = document.querySelector("#event-alert .modal-body");
+            const modalButton = document.querySelector("#event-alert .modal-footer button");
+
+            let eventHistory;
+            async function getJoinEventHistory(status, eventMasterId, deviceType) {
+                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
+                    return value
+                });
+                eventHistory = result;
+                console.log("result join event history = ", result);
+                console.log("event history = ", eventHistory);
+            }
+
+            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                    return value;
+                });
+                if (result) {
+                    const duration = document.querySelector(".duration");
+                    const eventMissions = result.eventMissions;
+                    if (eventMissions) {
+
+
+                        if (eventMissions ?. [0].missionStartDate && eventMissions ?. [0] ?. missionEndDate) 
+                            duration.innerHTML = moment(eventMissions ?. [0].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
+                        
+
+
+                    }
+                    calMissionCount(result);
+                }
+            }
+            function formatCount(count) {
+                let length = `${count}`.split('').length;
+                let countStr = '';
+                for (i = 0; i < 5 - length; i ++) 
+                    countStr = countStr + '0';
+                
+
+
+                const countFinal = countStr + `${count}`;
+                console.log("countFinal", countFinal)
+                return countFinal ?? '';
+            }
+            function calMissionCount(eventMater) {
+                if (eventMater && eventMater.eventMissions) {
+                    const mission1Id = eventMater.eventMissions ?. [0] ?. eventMissionId;
+
+                    if (eventMater.eventMissionChallenges) {
+                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission1Id) ?. length ?? 0;
+                        const participantsStatics = document.querySelector(".participants-statics")
+                        const htmlContent = formatCount(count).split('') ?. map((item) => {
+                            return `<span>${item}</span>`
+                        }).join('')
+                        participantsStatics.innerHTML = htmlContent;
+                    }
+                }
+            }
+
+            async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
+                const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
+                    return value
+                });
+                console.log("result register mission challenge = ", result)
+                if (result ?. result === 'S') {
+
+                    modalBody.innerHTML = `30days with 모두투어 챌린지 첫번째 미션 성공을 축하드립니다. ​지금 해외항공 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.`;
+                    modalButton.addEventListener("click", function () {
+                        changePathname("/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define")
+                    });
+                    showAlert();
+                }
+            }
+
+            function onSubmit() {
+                const quiz1 = document.querySelectorAll('input[name="quiz-1"]');
+                const quiz2 = document.querySelectorAll('input[name="quiz-2"]');
+                const quiz3 = document.querySelectorAll('input[name="quiz-3"]');
+                const selected1 = [... quiz1].find((radio) => radio.checked);
+                const selected2 = [... quiz2].find((radio) => radio.checked);
+                const selected3 = [... quiz3].find((radio) => radio.checked);
+
+                if (! selected1 || ! selected2 || ! selected3) {
+                    modalBody.innerHTML = "정답을 모두 체크해 주세요.";
+                    modalButton.addEventListener("click", function () {
+                        modal.classList.remove("show");
+                    });
+                    showAlert();
+                } else {
+                    if (selected1.value !== "4" || selected2.value !== "1" || selected3.value !== "1") { // show alert
+                        modalBody.innerHTML = `정답을 아닙니다. 다시 퀴즈를 확인해 주세요.`;
+
+                        modalButton.addEventListener("click", function () {
+                            modal.classList.remove("show");
+                        });
+                        showAlert();
+                    } else { // show alert
+                        registerMissonChallenge("", eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "AD0BECB5-A525-4566-B408-B8EBD136DAB8", "")
+                        console.log("register")
+                    }
+                }
+                return;
+            }
+
+            function closeAlert() {
+                modal.classList.remove("show");
+            }
+            function showAlert() {
+                modal.classList.add("show");
+            }
+            function changePathname(url) {
+                window.parent.changePathnameFunc(url);
+            }
+        </script>
+    </body>
+</html>
