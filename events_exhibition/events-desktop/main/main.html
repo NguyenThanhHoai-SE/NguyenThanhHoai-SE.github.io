@@ -345,7 +345,6 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
         <script>
             (function () { // disable button comment if it’s not this mission time
-                window.parent.changePathnameFunc("/special-exhibition/52b9989c-3e79-401f-3b2d-08dba4951127?type=user-define");
                 joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
                 getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
                 getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
@@ -443,6 +442,7 @@
 
                     modalButton.addEventListener("click", function () { // window.location.href = isLogin;
                         window.parent.login();
+                        closeAlert();
                     });
                     showAlert();
                 } else {
