@@ -673,16 +673,18 @@
         }
 
         function showTermsConditions() {
-            // const checkbox = document.querySelector('input[name="mission-4-agree"]');
-            // checkbox.disabled = true;
+            const checkbox = document.querySelector('input[name="mission-4-agree"]');
+            checkbox.disabled = true;
             // modalBody.innerHTML = `Terms & Condition content ... `;
             // modalButton.addEventListener("click", function () {
-            //     const checkbox = document.querySelector('input[name="mission-4-agree"]');
-            //     checkbox.disabled = false;
+            // const checkbox = document.querySelector('input[name="mission-4-agree"]');
+            // checkbox.disabled = false;
             //     modal.classList.remove("show");
             // });
             // showAlert();
             window.parent.showPopupFunction("Terms & Condition content ... ", () => { }, () => {
+                const checkbox = document.querySelector('input[name="mission-4-agree"]');
+                checkbox.disabled = false;
             })
         }
 
