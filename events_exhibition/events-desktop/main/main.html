@@ -1,439 +1,491 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>Main - PC</title>
-        <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css"/>
-        <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
-    </head>
 
-    <body>
-        <style>
-            /* reset css */
-            * {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                box-sizing: border-box;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Main - PC</title>
+    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css" />
+    <link rel="stylesheet"
+        href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
+</head>
 
-            body {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-family: Arial, Helvetica, sans-serif;
-            }
+<body>
+    <style>
+        /* reset css */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
 
-            body::-webkit-scrollbar {
-                display: none;
-            }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            body::-webkit-scrollbar-track {
-                display: none;
-            }
+        body::-webkit-scrollbar {
+            display: none;
+        }
 
-            body::-webkit-scrollbar-thumb {
-                display: none;
-            }
+        body::-webkit-scrollbar-track {
+            display: none;
+        }
 
-            ol,
-            ul {
-                list-style: none;
-            }
+        body::-webkit-scrollbar-thumb {
+            display: none;
+        }
 
-            button,
-            a {
-                cursor: pointer;
-                text-decoration: unset;
-                color: inherit;
-            }
+        ol,
+        ul {
+            list-style: none;
+        }
 
-            /* end reset css */
+        button,
+        a {
+            cursor: pointer;
+            text-decoration: unset;
+            color: inherit;
+        }
 
-            /* modal */
-            #event-modal.modal-backdrop {
-                background-color: rgba(0, 0, 0, 0.6);
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                display: none;
-            }
+        /* end reset css */
 
-            #event-modal.modal-backdrop.show {
-                display: flex;
-            }
+        /* modal */
+        #event-modal.modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
 
-            #event-modal .model-container {
-                background-color: white;
-                width: 335px;
-                margin: auto;
-                position: relative;
-                padding: 0;
-                font-family: "Pretendard";
-                font-weight: 400;
-                border-radius: 5px;
-                box-shadow: 0 0 6px #00000029;
-            }
+        #event-modal.modal-backdrop.show {
+            display: flex;
+        }
 
-            #event-modal .model-container .modal-body {
-                padding: 37px 40px 30px;
-                text-align: center;
-                font-size: 15px;
-                line-height: 23px;
-                color: #111111;
-                border-bottom: 1px solid #d3dbd9;
-            }
+        #event-modal .model-container {
+            background-color: white;
+            width: 335px;
+            margin: auto;
+            position: relative;
+            padding: 0;
+            font-family: "Pretendard";
+            font-weight: 400;
+            border-radius: 5px;
+            box-shadow: 0 0 6px #00000029;
+        }
 
-            #event-modal .model-container .modal-footer {
-                display: flex;
-                justify-content: center;
-            }
+        #event-modal .model-container .modal-body {
+            padding: 37px 40px 30px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 23px;
+            color: #111111;
+            border-bottom: 1px solid #d3dbd9;
+        }
 
-            #event-modal .model-container .modal-footer button {
-                flex: 1;
-                font-size: 15px;
-                line-height: 32px;
-                font-weight: 600;
-                color: #009c75;
-                height: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: none !important;
-                box-shadow: none !important;
-                outline: none !important;
-            }
+        #event-modal .model-container .modal-footer {
+            display: flex;
+            justify-content: center;
+        }
 
-            #event-modal .model-container .modal-footer button.btn-cancel {
-                color: #111111;
-            }
+        #event-modal .model-container .modal-footer button {
+            flex: 1;
+            font-size: 15px;
+            line-height: 32px;
+            font-weight: 600;
+            color: #009c75;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
 
-            /* End modal */
+        #event-modal .model-container .modal-footer button.btn-cancel {
+            color: #111111;
+        }
 
-            .block-3 > .block-3-time-container,
-            .block-3 > img:first-child,
-            .block-3 > img:nth-child(2) {
-                margin-left: 94px;
-                margin-bottom: 17px;
-            }
-            #event-container {
-                position: relative;
-                font-family: Modetour;
-                font-weight: 400;
-            }
-            .block-1 {
-                max-width: 1200px;
-                margin: auto;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                padding-top: 303px;
-                padding-bottom: 263px;
-                background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-1-bg.png") 0 0 / cover no-repeat;
-            }
-            .block-2,
-            .block-3 {
-                margin: auto;
-                padding-top: 94px;
-                display: flex;
-                flex-direction: column;
-                max-width: 1200px;
-            }
-            .block-2 {
-                padding-bottom: 0;
-            }
-            .block-2 > img {
-                display: block;
-                margin: 0 auto;
-            }
-            .block-3 {
-                background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-1.png") 0 0/100% auto;
-                padding-bottom: 56px;
-            }
-            .block-4,
-            .block-5 {
-                flex-direction: column;
-            }
-            .block-3 > .block-3-time-container {
-                margin-right: auto;
-                position: relative;
-                display: flex;
-                justify-content: space-between;
-                column-gap: 55px;
-                align-items: flex-start;
-            }
-            .block-3 > .block-3-time-container > span {
-                font-size: 34px;
-                line-height: 38px;
-                vertical-align: super;
-                color: #000000;
-                font-family: "Pretendard";
-                font-weight: 800;
-            }
-            .block-3 > a:nth-child(3) {
-                margin-left: 333px;
-                margin-top: 54px;
-                margin-bottom: 94px;
-            }
-            .block-3 > img:nth-child(4) {
-                margin: 56.45px auto 94.25px;
-            }
-            .block-3 > a:nth-child(n + 5),
-            .block-4 > img {
-                margin-bottom: 56px;
-            }
-            .block-3 .mission {
-                display: block;
-                position: relative;
-            }
-            .block-3 .mission-time {
-                position: absolute;
-                left: 92px;
-                bottom: 77px;
-                color: #000000;
-                font-size: 22px;
-                font-weight: 800;
-                font-family: "Pretendard";
-            }
-            .block-4 {
-                background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-1.png") 0 -60px/100% auto;
-                width: 1200px;
-                margin: 0 auto;
-                display: flex;
-                align-items: center;
-                padding-bottom: 88px;
-            }
-            .block-4 .block-4-coupons {
-                width: 1200px;
-                margin: 0 auto;
-                display: flex;
-                flex-wrap: wrap;
-                row-gap: 56px;
-                column-gap: 13px;
-                justify-content: flex-end;
-                padding-bottom: 95.26px;
-                z-index: 1;
-            }
-            .block-4 .block-4-rewards {
-                z-index: 1;
-                display: block;
-            }
-            .block-5 {
-                background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-2.png") center 0/1920px auto no-repeat;
-                display: flex;
-                align-items: center;
-                position: relative;
-                padding-top: 890px;
-                margin-top: -890px;
-            }
-            .block-5 > a {
-                position: absolute;
-                bottom: 65px;
-            }
-            #event-container .block-6 {
-                background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-3.png") center 0/1920px auto no-repeat;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 56px;
-            }
-            #event-container .block-7 {
-                padding-bottom: 64px;
-                max-width: 1200px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 74.79px auto 0;
-            }
-            #event-container .block-7 > img {
-                margin-bottom: 56px;
-                display: block;
-            }
-            #event-container .floating {
-                display: flex;
-                position: fixed;
-                right: 110px;
-                bottom: 64px;
-                z-index: 2;
-            }
-        </style>
-        <div id="event-container">
-            <div class="block-1">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-1-banner.png" alt="" width="872"/>
-            </div>
-            <div class="block-2">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-2-main.png" alt="" width="813"/>
-            </div>
-            <div class="block-3">
-                <div class="block-3-time-container">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-time-click.png" alt="" width="248"/>
-                    <span class="block-3-time" id="mission-time-event"></span>
-                </div>
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-benefits.png" alt="" width="1105"/>
-                <a onclick="checkLogin('/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define', 0)">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-challenge.png" alt="" width="534"/>
-                </a>
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-middle-title.png" alt="" width="450px"/>
-                <a onclick="checkLogin('/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define', 1)" class="mission">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-1.png" alt="" width="1200"/>
-                    <span class="mission-time" id="mission-1-time"></span>
-                </a>
-                <a onclick="checkLogin('/special-exhibition/1d09842c-e007-4061-3b2f-08dba4951127?type=user-define', 2)" class="mission">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-2.png" alt="" width="1200"/>
-                    <span class="mission-time" id="mission-2-time"></span>
-                </a>
-                <a onclick="checkLogin('/special-exhibition/ccc7fca2-839f-41f5-3b30-08dba4951127?type=user-define', 3)" class="mission">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-3.png" alt="" width="1200"/>
-                    <span class="mission-time" id="mission-3-time"></span>
-                </a>
-                <a onclick="checkLogin('/special-exhibition/f808dd5f-f705-406e-3b31-08dba4951127?type=user-define', 4)" class="mission">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-4.png" alt="" width="1200"/>
-                    <span class="mission-time" id="mission-4-time"></span>
-                </a>
-            </div>
-            <div class="block-4">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-title.png" alt="" width="450px"/>
-                <div class="block-4-coupons">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-1.png" alt="" width="589px"/>
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-2.png" alt="" width="589px"/>
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-3.png" alt="" width="589px"/>
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-4.png" alt="" width="589px"/>
-                </div>
-                <img class="block-4-rewards" src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-rewards.png" alt="" width="1200"/>
-            </div>
-            <div class="block-5">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-5-banner.png" alt="" width="1200"/>
-                <a href="https://newgen-pc.modetour.com/" class="block-5-button-link" target="_blank">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-5-button.png" alt="" width="535"/>
-                </a>
-            </div>
-            <div class="block-6">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-6.png" alt="" width="1200"/>
-            </div>
-            <div class="block-7">
-                <a onclick="checkLogin('/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define', 1)">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-7.png" alt="" width="534"/>
-                </a>
-            </div>
-            <div class="floating">
-                <a onclick="checkLogin('/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define', 0)">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/floating-button.png" alt="" width="204"/>
-                </a>
-            </div>
+        /* End modal */
+
+        .block-3>.block-3-time-container,
+        .block-3>img:first-child,
+        .block-3>img:nth-child(2) {
+            margin-left: 94px;
+            margin-bottom: 17px;
+        }
+
+        #event-container {
+            position: relative;
+            font-family: Modetour;
+            font-weight: 400;
+        }
+
+        .block-1 {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 303px;
+            padding-bottom: 263px;
+            background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-1-bg.png") 0 0 / cover no-repeat;
+        }
+
+        .block-2,
+        .block-3 {
+            margin: auto;
+            padding-top: 94px;
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+        }
+
+        .block-2 {
+            padding-bottom: 0;
+        }
+
+        .block-2>img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .block-3 {
+            background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-1.png") 0 0/100% auto;
+            padding-bottom: 56px;
+        }
+
+        .block-4,
+        .block-5 {
+            flex-direction: column;
+        }
+
+        .block-3>.block-3-time-container {
+            margin-right: auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            column-gap: 55px;
+            align-items: flex-start;
+        }
+
+        .block-3>.block-3-time-container>span {
+            font-size: 34px;
+            line-height: 38px;
+            vertical-align: super;
+            color: #000000;
+            font-family: "Pretendard";
+            font-weight: 800;
+        }
+
+        .block-3>a:nth-child(3) {
+            margin-left: 333px;
+            margin-top: 54px;
+            margin-bottom: 94px;
+        }
+
+        .block-3>img:nth-child(4) {
+            margin: 56.45px auto 94.25px;
+        }
+
+        .block-3>a:nth-child(n + 5),
+        .block-4>img {
+            margin-bottom: 56px;
+        }
+
+        .block-3 .mission {
+            display: block;
+            position: relative;
+        }
+
+        .block-3 .mission-time {
+            position: absolute;
+            left: 92px;
+            bottom: 77px;
+            color: #000000;
+            font-size: 22px;
+            font-weight: 800;
+            font-family: "Pretendard";
+        }
+
+        .block-4 {
+            background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-1.png") 0 -60px/100% auto;
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding-bottom: 88px;
+        }
+
+        .block-4 .block-4-coupons {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 56px;
+            column-gap: 13px;
+            justify-content: flex-end;
+            padding-bottom: 95.26px;
+            z-index: 1;
+        }
+
+        .block-4 .block-4-rewards {
+            z-index: 1;
+            display: block;
+        }
+
+        .block-5 {
+            background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-2.png") center 0/1920px auto no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 890px;
+            margin-top: -890px;
+        }
+
+        .block-5>a {
+            position: absolute;
+            bottom: 65px;
+        }
+
+        #event-container .block-6 {
+            background: url("https://img.modetour.com/eagle/exhibition20230927/pc/main/images/bg-3.png") center 0/1920px auto no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 56px;
+        }
+
+        #event-container .block-7 {
+            padding-bottom: 64px;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 74.79px auto 0;
+        }
+
+        #event-container .block-7>img {
+            margin-bottom: 56px;
+            display: block;
+        }
+
+        #event-container .floating {
+            display: flex;
+            position: fixed;
+            right: 110px;
+            bottom: 64px;
+            z-index: 2;
+        }
+    </style>
+    <div id="event-container">
+        <div class="block-1">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-1-banner.png" alt=""
+                width="872" />
         </div>
+        <div class="block-2">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-2-main.png" alt=""
+                width="813" />
+        </div>
+        <div class="block-3">
+            <div class="block-3-time-container">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-time-click.png"
+                    alt="" width="248" />
+                <span class="block-3-time" id="mission-time-event"></span>
+            </div>
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-benefits.png" alt=""
+                width="1105" />
+            <a onclick="checkLogin('/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define', 0)">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-challenge.png" alt=""
+                    width="534" />
+            </a>
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-middle-title.png" alt=""
+                width="450px" />
+            <a onclick="checkLogin('/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define', 1)"
+                class="mission">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-1.png" alt=""
+                    width="1200" />
+                <span class="mission-time" id="mission-1-time"></span>
+            </a>
+            <a onclick="checkLogin('/special-exhibition/1d09842c-e007-4061-3b2f-08dba4951127?type=user-define', 2)"
+                class="mission">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-2.png" alt=""
+                    width="1200" />
+                <span class="mission-time" id="mission-2-time"></span>
+            </a>
+            <a onclick="checkLogin('/special-exhibition/ccc7fca2-839f-41f5-3b30-08dba4951127?type=user-define', 3)"
+                class="mission">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-3.png" alt=""
+                    width="1200" />
+                <span class="mission-time" id="mission-3-time"></span>
+            </a>
+            <a onclick="checkLogin('/special-exhibition/f808dd5f-f705-406e-3b31-08dba4951127?type=user-define', 4)"
+                class="mission">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-3-mission-4.png" alt=""
+                    width="1200" />
+                <span class="mission-time" id="mission-4-time"></span>
+            </a>
+        </div>
+        <div class="block-4">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-title.png" alt=""
+                width="450px" />
+            <div class="block-4-coupons">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-1.png" alt=""
+                    width="589px" />
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-2.png" alt=""
+                    width="589px" />
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-3.png" alt=""
+                    width="589px" />
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-coupon-4.png" alt=""
+                    width="589px" />
+            </div>
+            <img class="block-4-rewards"
+                src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-4-rewards.png" alt=""
+                width="1200" />
+        </div>
+        <div class="block-5">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-5-banner.png" alt=""
+                width="1200" />
+            <a href="https://newgen-pc.modetour.com/" class="block-5-button-link" target="_blank">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-5-button.png" alt=""
+                    width="535" />
+            </a>
+        </div>
+        <div class="block-6">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-6.png" alt=""
+                width="1200" />
+        </div>
+        <div class="block-7">
+            <a onclick="checkLogin('/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define', 1)">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/block-7.png" alt=""
+                    width="534" />
+            </a>
+        </div>
+        <div class="floating">
+            <a onclick="checkLogin('/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define', 0)">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/main/images/floating-button.png" alt=""
+                    width="204" />
+            </a>
+        </div>
+    </div>
 
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <script>
-            (function () { // disable button comment if it’s not this mission time
-                joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
-                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
-                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
-            })();
-            const modal = document.querySelector("#event-modal");
-            const modalBody = document.querySelector("#event-modal .modal-body");
-            const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
-            const timeMissionEvent = document.getElementById("mission-time-event");
-            const timeMission1 = document.getElementById("mission-1-time");
-            const timeMission2 = document.getElementById("mission-2-time");
-            const timeMission3 = document.getElementById("mission-3-time");
-            const timeMission4 = document.getElementById("mission-4-time");
-            let eventMissions;
-            let eventHistory;
-            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
-                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
-                    return value
-                });
-                if (result) {
-                    if (result.eventStartDate && result.eventEndDate) 
-                        timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD") + '(' + moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + ')일간';
-                    
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script>
+        (function () { // disable button comment if it’s not this mission time
+            joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
+            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
+        })();
+        const modal = document.querySelector("#event-modal");
+        const modalBody = document.querySelector("#event-modal .modal-body");
+        const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
+        const timeMissionEvent = document.getElementById("mission-time-event");
+        const timeMission1 = document.getElementById("mission-1-time");
+        const timeMission2 = document.getElementById("mission-2-time");
+        const timeMission3 = document.getElementById("mission-3-time");
+        const timeMission4 = document.getElementById("mission-4-time");
+        let eventMissions;
+        let eventHistory;
+        async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+            const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                return value
+            });
+            if (result) {
+                if (result.eventStartDate && result.eventEndDate)
+                    timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD") + '(' + moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + ')일간';
 
 
-                    eventMissions = result.eventMissions;
-                    if (eventMissions) {
-                        if (eventMissions ?. [0].missionStartDate && eventMissions ?. [0] ?. missionEndDate) 
-                            timeMission1.innerHTML = moment(eventMissions ?. [0].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [0].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+
+                eventMissions = result.eventMissions;
+                if (eventMissions) {
+                    if (eventMissions?.[0].missionStartDate && eventMissions?.[0]?.missionEndDate)
+                        timeMission1.innerHTML = moment(eventMissions?.[0].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[0].missionEndDate)?.format("YYYY.MM.DD HH:mm");
 
 
-                        if (eventMissions ?. [1].missionStartDate && eventMissions ?. [1] ?. missionEndDate) 
-                            timeMission2.innerHTML = moment(eventMissions ?. [1].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [1].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+
+                    if (eventMissions?.[1].missionStartDate && eventMissions?.[1]?.missionEndDate)
+                        timeMission2.innerHTML = moment(eventMissions?.[1].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[1].missionEndDate)?.format("YYYY.MM.DD HH:mm");
 
 
-                        if (eventMissions ?. [2].missionStartDate && eventMissions ?. [2] ?. missionEndDate) 
-                            timeMission3.innerHTML = moment(eventMissions ?. [2].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [2].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+
+                    if (eventMissions?.[2].missionStartDate && eventMissions?.[2]?.missionEndDate)
+                        timeMission3.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD HH:mm");
 
 
-                        if (eventMissions ?. [3].missionStartDate && eventMissions ?. [3] ?. missionEndDate) 
-                            timeMission4.innerHTML = moment(eventMissions ?. [3].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [3].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+
+                    if (eventMissions?.[3].missionStartDate && eventMissions?.[3]?.missionEndDate)
+                        timeMission4.innerHTML = moment(eventMissions?.[3].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[3].missionEndDate)?.format("YYYY.MM.DD HH:mm");
 
 
-                    }
+
                 }
-                console.log("result event master = ", result);
             }
+            console.log("result event master = ", result);
+        }
 
-            async function getJoinEventHistory(status, eventMasterId, deviceType) {
-                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
-                    return value
-                });
-                eventHistory = result;
-                console.log("result join event history = ", result);
+        async function getJoinEventHistory(status, eventMasterId, deviceType) {
+            const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
+                return value
+            });
+            eventHistory = result;
+            console.log("result join event history = ", result);
+        }
+
+        async function joinEvent(eventMasterId) {
+            const result = await window.parent.joinEventFunc(eventMasterId)
+            console.log("result join event = ", result);
+        }
+
+        function checkConditionSubmit(type) {
+            if (type > 0) {
+                const startDate = eventMissions?.[type - 1].missionStartDate ? moment(eventMissions?.[type - 1].missionStartDate) : null;
+                const endDate = eventMissions?.[type - 1].missionEndDate ? moment(eventMissions?.[type - 1].missionEndDate) : null;
+                if (!startDate || !endDate || moment().isBefore(startDate) || moment().isAfter(endDate))
+                    return false;
+
+
+
+                if (eventHistory?.eventMissionChallenges?.find((e) => e?.eventMissionId === eventMissions?.[type - 1]?.eventMissionId))
+                    return false;
+
+
+
             }
+            return true;
+        }
 
-            async function joinEvent(eventMasterId) {
-                const result = await window.parent.joinEventFunc(eventMasterId)
-                console.log("result join event = ", result);
+
+        async function checkLogin(url, type) {
+            let linkUrl = url;
+            if (!checkConditionSubmit(type))
+                linkUrl = '/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define';
+
+
+
+            let isLogin = await window.parent.checkLoginFunction();
+
+            if (!isLogin) {
+                window.parent.showPopupFunction('<div>회원만 참여 가능한 이벤트입니다.<br /> 로그인 하시겠습니까?</div>', () => { }, () => {
+                    window.parent.login()
+                })
+            } else {
+                const result = window.parent.changePathnameFunc(linkUrl);
             }
+        }
+    </script>
+</body>
 
-            function checkConditionSubmit(type) {
-                if (type > 0) {
-                    const startDate = eventMissions ?. [type - 1].missionStartDate ? moment(eventMissions ?. [type - 1].missionStartDate) : null;
-                    const endDate = eventMissions ?. [type - 1].missionEndDate ? moment(eventMissions ?. [type - 1].missionEndDate) : null;
-                    if (! startDate || ! endDate || moment().isBefore(startDate) || moment().isAfter(endDate)) 
-                        return false;
-                    
-
-
-                    if (eventHistory ?. eventMissionChallenges ?. find((e) => e ?. eventMissionId === eventMissions ?. [type - 1] ?. eventMissionId)) 
-                        return false;
-                    
-
-
-                }
-                return true;
-            }
-
-
-            async function checkLogin(url, type) {
-                let linkUrl = url;
-                if (! checkConditionSubmit(type)) 
-                    linkUrl = '/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define';
-                
-
-
-                let isLogin = await window.parent.checkLoginFunction();
-
-                if (! isLogin) {
-                    window.parent.showPopupFunction('회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?', () => {}, () => {
-                        window.parent.login()
-                    })
-                } else {
-                    const result = window.parent.changePathnameFunc(linkUrl);
-                }
-            }
-        </script>
-    </body>
 </html>
