@@ -438,7 +438,9 @@
                 let isLogin = await window.parent.checkLoginFunction();
 
                 if (! isLogin) {
-                    window.parent.showPopupFunction('회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?', () => {}, window.parent.login())
+                    window.parent.showPopupFunction('회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?', () => {}, () => {
+                        window.parent.login()
+                    })
                     // modalBody.innerHTML = `회원만 참여 가능한 이벤트입니다. 로그인 하시겠습니까?`;
 
                     // modalButton.addEventListener("click", function () { // window.location.href = isLogin;
