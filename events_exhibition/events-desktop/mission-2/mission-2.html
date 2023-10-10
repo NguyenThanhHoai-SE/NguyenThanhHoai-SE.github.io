@@ -1,290 +1,288 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>Mission 2 - PC</title>
-        <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css"/>
-        <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css"/>
-    </head>
 
-    <body>
-        <style>
-            /* reset css */
-            * {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                box-sizing: border-box;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mission 2 - PC</title>
+    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css" />
+    <link rel="stylesheet"
+        href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
+</head>
 
-            body {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            body::-webkit-scrollbar {
-                display: none;
-            }
+<body>
+    <style>
+        /* reset css */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
 
-            body::-webkit-scrollbar-track {
-                display: none;
-            }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            body::-webkit-scrollbar-thumb {
-                display: none;
-            }
-            ol,
-            ul {
-                list-style: none;
-            }
+        body::-webkit-scrollbar {
+            display: none;
+        }
 
-            button,
-            a {
-                cursor: pointer;
-                text-decoration: unset;
-                color: inherit;
-            }
+        body::-webkit-scrollbar-track {
+            display: none;
+        }
 
-            /* end reset css */
+        body::-webkit-scrollbar-thumb {
+            display: none;
+        }
 
-            /* modal */
-            #event-modal.modal-backdrop {
-                background-color: rgba(0, 0, 0, 0.6);
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                display: none;
-            }
+        ol,
+        ul {
+            list-style: none;
+        }
 
-            #event-modal.modal-backdrop.show {
-                display: flex;
-            }
+        button,
+        a {
+            cursor: pointer;
+            text-decoration: unset;
+            color: inherit;
+        }
 
-            #event-modal .model-container {
-                background-color: white;
-                width: 335px;
-                margin: auto;
-                position: relative;
-                padding: 0;
-                font-family: "Pretendard";
-                font-weight: 400;
-                border-radius: 5px;
-                box-shadow: 0 0 6px #00000029;
-            }
+        /* end reset css */
 
-            #event-modal .model-container .modal-body {
-                padding: 37px 40px 30px;
-                text-align: center;
-                font-size: 15px;
-                line-height: 23px;
-                color: #111111;
-                border-bottom: 1px solid #d3dbd9;
-            }
+        /* modal */
+        #event-modal.modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
 
-            #event-modal .model-container .modal-footer {
-                display: flex;
-                justify-content: center;
-            }
+        #event-modal.modal-backdrop.show {
+            display: flex;
+        }
 
-            #event-modal .model-container .modal-footer button {
-                flex: 1;
-                font-size: 15px;
-                line-height: 32px;
-                font-weight: 600;
-                color: #009c75;
-                height: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: none !important;
-                box-shadow: none !important;
-                outline: none !important;
-            }
+        #event-modal .model-container {
+            background-color: white;
+            width: 335px;
+            margin: auto;
+            position: relative;
+            padding: 0;
+            font-family: "Pretendard";
+            font-weight: 400;
+            border-radius: 5px;
+            box-shadow: 0 0 6px #00000029;
+        }
 
-            #event-modal .model-container .modal-footer button.btn-cancel {
-                color: #111111;
-            }
+        #event-modal .model-container .modal-body {
+            padding: 37px 40px 30px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 23px;
+            color: #111111;
+            border-bottom: 1px solid #d3dbd9;
+        }
 
-            /* End modal */
+        #event-modal .model-container .modal-footer {
+            display: flex;
+            justify-content: center;
+        }
 
-            #event-container {
-                max-width: 1200px;
-                margin: auto;
-                display: flex;
-                flex-direction: column;
-                font-family: "Pretendard";
-            }
+        #event-modal .model-container .modal-footer button {
+            flex: 1;
+            font-size: 15px;
+            line-height: 32px;
+            font-weight: 600;
+            color: #009c75;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
 
-            #event-container .section-1 {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-            }
+        #event-modal .model-container .modal-footer button.btn-cancel {
+            color: #111111;
+        }
 
-            .section-1 .duration {
-                position: absolute;
-                color: black;
-                left: 388px;
-                top: 1477px;
-                font-size: 34px;
-                font-weight: 700;
-                height: 52px;
-                border-radius: 6px;
-                display: block;
-                padding: 0 8px;
-                line-height: 60px;
-            }
+        /* End modal */
 
-            #event-container .section-1 .participants {
-                position: absolute;
-                top: 1883px;
-                width: 100%;
-                color: black;
-                font-weight: 900;
-                font-size: 100px;
-            }
+        #event-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            font-family: "Pretendard";
+        }
 
-            #event-container .section-1 .participants p {
-                width: 100%;
-                text-align: center;
-            }
+        #event-container .section-1 {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
 
-            #event-container .section-1 .button {
-                position: absolute;
-                width: 600px;
-                height: 70px;
-                bottom: 47px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
+        .section-1 .duration {
+            position: absolute;
+            color: black;
+            left: 388px;
+            top: 1477px;
+            font-size: 34px;
+            font-weight: 700;
+            height: 52px;
+            border-radius: 6px;
+            display: block;
+            padding: 0 8px;
+            line-height: 60px;
+        }
 
-            #event-container .footer {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                background-color: #141414;
-                padding-bottom: 45px;
-            }
+        #event-container .section-1 .participants {
+            position: absolute;
+            top: 1883px;
+            width: 100%;
+            color: black;
+            font-weight: 900;
+            font-size: 100px;
+        }
 
-            #event-container .disabled {
-                pointer-events: none;
-                user-select: none;
-            }
-        </style>
-        <div id="event-container">
-            <div class="section-1">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_1.png" width="1200" alt=""/>
-                <div class="participants">
-                    <p id="participants-count">0명 참여​</p>
-                </div>
-                <span class="duration"></span>
-                <div class="button" id="mission-2-btn" onclick="applySecondMission('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_btn.png" width="601"/></div>
+        #event-container .section-1 .participants p {
+            width: 100%;
+            text-align: center;
+        }
+
+        #event-container .section-1 .button {
+            position: absolute;
+            width: 600px;
+            height: 70px;
+            bottom: 47px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #event-container .footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #141414;
+            padding-bottom: 45px;
+        }
+
+        #event-container .disabled {
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+    <div id="event-container">
+        <div class="section-1">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_1.png" width="1200"
+                alt="" />
+            <div class="participants">
+                <p id="participants-count">0명 참여​</p>
             </div>
-            <!-- <div class="footer">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <a
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      id="mission-2-btn"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      class="disabled"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      href="https://newgen-pc.modetour.com/"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    >
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_btn.png" width="601" alt="" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div> -->
+            <span class="duration"></span>
+            <div class="button" id="mission-2-btn" onclick="applySecondMission('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_btn.png"
+                    width="601" />
+            </div>
         </div>
+    </div>
 
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <script>
-            (function () {
-                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
-            })();
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script>
+        (function () {
+            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+        })();
 
-            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
-                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
-                    return value;
-                });
-                if (result) {
-                    const duration = document.querySelector(".duration");
-                    const eventMissions = result.eventMissions;
-                    if (eventMissions) {
-
-
-                        if (eventMissions ?. [1].missionStartDate && eventMissions ?. [1] ?. missionEndDate) 
-                            duration.innerHTML = moment(eventMissions ?. [1].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [1].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+        async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+            const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                return value;
+            });
+            if (result) {
+                const duration = document.querySelector(".duration");
+                const eventMissions = result.eventMissions;
+                if (eventMissions) {
 
 
-                    }
-                    calMissionCount(result);
-                    handleButton(result);
+                    if (eventMissions?.[1].missionStartDate && eventMissions?.[1]?.missionEndDate)
+                        duration.innerHTML = moment(eventMissions?.[1].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[1].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+
+
 
                 }
-                console.log("result event master = ", result);
+                calMissionCount(result);
+                handleButton(result);
+
             }
+            console.log("result event master = ", result);
+        }
 
-            function handleButton(eventMater) {
+        function handleButton(eventMater) {
 
-                if (eventMater && eventMater.eventMissions) {
-                    const mission2 = eventMater.eventMissions ?. [1];
-                    const btn = document.getElementById("mission-2-btn");
-                    if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
-                        if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate))) 
-                            btn.classList.remove("disabled");
-                         else {
-                            btn.classList.add("disabled");
-                        }
+            if (eventMater && eventMater.eventMissions) {
+                const mission2 = eventMater.eventMissions?.[1];
+                const btn = document.getElementById("mission-2-btn");
+                if (mission2 && mission2.missionStartDate && mission2.missionEndDate) {
+                    if (moment(mission2.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission2.missionEndDate)))
+                        btn.classList.remove("disabled");
+                    else {
+                        btn.classList.add("disabled");
                     }
-
                 }
+
             }
+        }
 
-            function formatCount(count) {
-                let length = `${count}`.split('').length;
-                let countStr = '';
-                for (i = 0; i < 5 - length; i ++) 
-                    countStr = countStr + '0';
-                
+        function formatCount(count) {
+            let length = `${count}`.split('').length;
+            let countStr = '';
+            for (i = 0; i < 5 - length; i++)
+                countStr = countStr + '0';
 
 
-                const countFinal = countStr + `${count}`;
-                console.log("countFinal", countFinal)
-                return countFinal ?? '';
-            }
 
-            function calMissionCount(eventMater) {
-                if (eventMater && eventMater.eventMissions) {
-                    const mission2Id = eventMater.eventMissions ?. [1] ?. eventMissionId;
+            const countFinal = countStr + `${count}`;
+            console.log("countFinal", countFinal)
+            return countFinal ?? '';
+        }
 
-                    if (eventMater.eventMissionChallenges) {
-                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission2Id) ?. length ?? 0;
-                        document.getElementById('participants-count').innerHTML = `${
-                            formatCount(count)
+        function calMissionCount(eventMater) {
+            if (eventMater && eventMater.eventMissions) {
+                const mission2Id = eventMater.eventMissions?.[1]?.eventMissionId;
+
+                if (eventMater.eventMissionChallenges) {
+                    const count = eventMater.eventMissionChallenges?.filter((e) => e.eventMissionId === mission2Id)?.length ?? 0;
+                    document.getElementById('participants-count').innerHTML = `${formatCount(count)
                         } 명 참여`;
-                    }
                 }
             }
+        }
 
-            async function applySecondMission(eventMasterId) {
-                const result = await window.parent.applySecondMissionFunc(eventMasterId).then((value) => {
-                    return value;
-                });
-                if (result ?. result === 'S') 
-                    window.parent.location.href = window.parent.location.origin;
-                
+        async function applySecondMission(eventMasterId) {
+            const result = await window.parent.applySecondMissionFunc(eventMasterId).then((value) => {
+                return value;
+            });
+            if (result?.result === 'S')
+                window.parent.location.href = window.parent.location.origin;
 
 
-                console.log("result event master = ", result);
-            }
-        </script>
-    </body>
+
+            console.log("result event master = ", result);
+        }
+    </script>
+</body>
+
 </html>
