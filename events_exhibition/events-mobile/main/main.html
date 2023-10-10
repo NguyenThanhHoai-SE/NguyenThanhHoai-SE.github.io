@@ -324,7 +324,7 @@
         <div class="block-4">
             <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-4-1.png" alt=""
                 width="90.93%" />
-            <a onclick="checkLogin('/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define', 1)">
+            <a onclick="joinFirstEvent()">
                 <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-4-2.png" alt=""
                     width="89.33%" /></a>
         </div>
@@ -413,6 +413,21 @@
 
             }
             return true;
+        }
+
+        function joinFirstEvent() {
+            const res = eventMissions?.map((event) => {
+                return checkConditionSubmit(event?.sortOrder)
+            })
+            const type = res?.findIndex((e) => e) + 1 ?? 0;
+            const missionLinkList = [
+                '/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define',
+                '/special-exhibition/2dfaec15-dad9-4c4e-3b2e-08dba4951127?type=user-define',
+                '/special-exhibition/1d09842c-e007-4061-3b2f-08dba4951127?type=user-define',
+                '/special-exhibition/ccc7fca2-839f-41f5-3b30-08dba4951127?type=user-define',
+                '/special-exhibition/f808dd5f-f705-406e-3b31-08dba4951127?type=user-define'
+            ];
+            checkLogin(missionLinkList[type], type)
         }
 
         async function checkLogin(url, type) {
