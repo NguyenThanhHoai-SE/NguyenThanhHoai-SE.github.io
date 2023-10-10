@@ -1,443 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mission 3 - MO</title>
     <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css" />
-    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
+    <link rel="stylesheet"
+        href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
 </head>
-    <body>
-        <style>
-            /* reset css */
-            * {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                box-sizing: border-box;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-            }
 
-            body {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-family: Arial, Helvetica, sans-serif;
-            }
+<body>
+    <style>
+        /* reset css */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
 
-            .hidden {
-                display: none !important;
-            }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            ol,
-            ul {
-                list-style: none;
-            }
+        .hidden {
+            display: none !important;
+        }
 
-            button,
-            a {
-                cursor: pointer;
-                text-decoration: unset;
-                color: inherit;
-            }
+        ol,
+        ul {
+            list-style: none;
+        }
 
-            /* end reset css */
+        button,
+        a {
+            cursor: pointer;
+            text-decoration: unset;
+            color: inherit;
+        }
 
-            #mission-3 {
-                /* margin: 0 auto; */
-                position: relative;
-                font-family: "Modetour";
-                font-weight: 400;
-                width: 100%;
-                margin: 0 auto;
-                max-width: 480px;
-            }
+        /* end reset css */
 
-            #mission-3 .block-1 > img,
-            #mission-3 .block-2 > img {
-                display: block;
-                object-fit: cover;
-            }
+        #mission-3 {
+            /* margin: 0 auto; */
+            position: relative;
+            font-family: "Modetour";
+            font-weight: 400;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 480px;
+        }
 
-            #mission-3 .block-1 {
-                position: relative;
-                max-width: 100%;
+        #mission-3 .block-1>img,
+        #mission-3 .block-2>img {
+            display: block;
+            object-fit: cover;
+        }
+
+        #mission-3 .block-1 {
+            position: relative;
+            max-width: 100%;
+        }
+
+        #mission-3 .block-1 .duration {
+            position: absolute;
+            top: 9vw;
+            left: 36vw;
+            font-size: 3.2vw;
+            color: white;
+            font-weight: 700;
+            font-family: "Pretendard";
+        }
+
+        #mission-3 .participants {
+            position: absolute;
+            bottom: 11.89%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+        }
+
+        #mission-3 .participants span {
+            color: white;
+            font-weight: 800;
+            font-size: 9vw;
+            font-family: "Pretendard";
+        }
+
+        #mission-3 .block-3 {
+            background-image: url("https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/bg.png");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: cover;
+            width: 100%;
+            height: 114.67vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 33px;
+            padding-bottom: 44.8px;
+        }
+
+        @media screen and(min-width: 480px) {
+            #mission-3 .participants span {
+                font-size: 43.2px;
             }
 
             #mission-3 .block-1 .duration {
-                position: absolute;
-                top: 9vw;
-                left: 36vw;
-                font-size: 3.2vw;
-                color: white;
-                font-weight: 700;
-                font-family: "Pretendard";
-            }
-
-            #mission-3 .participants {
-                position: absolute;
-                bottom: 11.89%;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 60%;
-            }
-
-            #mission-3 .participants span {
-                color: white;
-                font-weight: 800;
-                font-size: 9vw;
-                font-family: "Pretendard";
+                top: 43.2px;
+                left: 172.8px;
+                font-size: 15.36px;
             }
 
             #mission-3 .block-3 {
-                background-image: url("https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/bg.png");
-                background-repeat: no-repeat;
-                background-position: 0 0;
-                background-size: cover;
-                width: 100%;
-                height: 114.67vw;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 33px;
-                padding-bottom: 44.8px;
+                height: 550px;
             }
+        }
 
-            @media screen and(min-width: 480px) {
-                #mission-3 .participants span {
-                    font-size: 43.2px;
-                }
+        #mission-3 .block-3 .block-3-social-network-container {
+            position: relative;
+            margin-bottom: 47px;
+        }
 
-                #mission-3 .block-1 .duration {
-                    top: 43.2px;
-                    left: 172.8px;
-                    font-size: 15.36px;
-                }
+        #mission-3 .block-3 .block-3-social-network-container>img:nth-child(1) {
+            margin: 0 auto;
+            display: block;
+        }
 
-                #mission-3 .block-3 {
-                    height: 550px;
-                }
-            }
+        #mission-3 .block-3 .block-3-social-network {
+            position: absolute;
+            left: 14.4vw;
+            bottom: 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 19px;
+        }
 
-            #mission-3 .block-3 .block-3-social-network-container {
-                position: relative;
-                margin-bottom: 47px;
-            }
+        #mission-3 .block-3 .block-3-social-network .item {
+            display: flex;
+            column-gap: 4.5vw;
+        }
 
-            #mission-3 .block-3 .block-3-social-network-container > img:nth-child(1) {
-                margin: 0 auto;
-                display: block;
-            }
+        #mission-3 .block-3 .block-3-social-network .item>img {
+            width: 15.47vw;
+            display: block;
+        }
 
+        #mission-3 .block-3 .block-3-social-network .item .info {
+            display: flex;
+            flex-direction: column;
+            width: 40.53vw;
+            justify-content: center;
+            row-gap: 2.4vw;
+        }
+
+        @media screen and(min-width: 480px) {
             #mission-3 .block-3 .block-3-social-network {
-                position: absolute;
-                left: 14.4vw;
-                bottom: 7%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 19px;
+                left: 69.12px;
             }
 
             #mission-3 .block-3 .block-3-social-network .item {
                 display: flex;
-                column-gap: 4.5vw;
+                column-gap: 21.6px;
             }
 
-            #mission-3 .block-3 .block-3-social-network .item > img {
-                width: 15.47vw;
-                display: block;
+            #mission-3 .block-3 .block-3-social-network .item>img {
+                width: 74.256px;
             }
 
             #mission-3 .block-3 .block-3-social-network .item .info {
-                display: flex;
-                flex-direction: column;
-                width: 40.53vw;
-                justify-content: center;
-                row-gap: 2.4vw;
+                width: 194.54px;
+                row-gap: 11.52px;
             }
+        }
 
-            @media screen and(min-width: 480px) {
-                #mission-3 .block-3 .block-3-social-network {
-                    left: 69.12px;
-                }
+        #mission-3 .block-3 .block-3-social-network .item .info>img:nth-child(1) {
+            display: block;
+        }
 
-                #mission-3 .block-3 .block-3-social-network .item {
-                    display: flex;
-                    column-gap: 21.6px;
-                }
+        #mission-3 .block-3 {
+            display: flex;
+            flex-direction: column;
+        }
 
-                #mission-3 .block-3 .block-3-social-network .item > img {
-                    width: 74.256px;
-                }
+        #mission-3 .block-3 .block-3-contact {
+            width: 88.5%;
+        }
 
-                #mission-3 .block-3 .block-3-social-network .item .info {
-                    width: 194.54px;
-                    row-gap: 11.52px;
-                }
-            }
+        #mission-3 .block-3 button {
+            display: flex;
+            cursor: pointer;
+        }
 
-            #mission-3 .block-3 .block-3-social-network .item .info > img:nth-child(1) {
-                display: block;
-            }
+        #mission-3 .block-3 .contact {
+            margin: 0 auto;
+            display: block;
+        }
 
-            #mission-3 .block-3 {
-                display: flex;
-                flex-direction: column;
-            }
+        #mission-3 .block-3 .total-comment {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 13px;
+            margin-left: 18px;
+            font-family: "Pretendard";
+        }
 
-            #mission-3 .block-3 .block-3-contact {
-                width: 88.5%;
-            }
+        #mission-3 .block-3 #mission-3-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+            padding-bottom: 52px;
+            border-bottom: 1px solid #c6c6c6;
+        }
 
-            #mission-3 .block-3 button {
-                display: flex;
-                cursor: pointer;
-            }
+        #mission-3 .block-3 #mission-3-form #comment {
+            height: 230px;
+            width: 100%;
+            border: 1px solid #686868;
+            background-color: #efefef;
+            border-radius: 15px;
+            font-size: 16px;
+            resize: none;
+            padding: 20px;
+            font-family: "Pretendard";
+            font-weight: 400;
+        }
 
-            #mission-3 .block-3 .contact {
-                margin: 0 auto;
-                display: block;
-            }
+        #mission-3 .block-3 #mission-3-form #comment:focus {
+            background-color: white;
+            border-color: #686868;
+            outline: none;
+            box-shadow: none;
+        }
 
-            #mission-3 .block-3 .total-comment {
-                font-size: 20px;
-                font-weight: 800;
-                margin-bottom: 13px;
-                margin-left: 18px;
-                font-family: "Pretendard";
-            }
+        #mission-3 .block-3 #mission-3-form button {
+            margin-right: 18px;
+        }
 
-            #mission-3 .block-3 #mission-3-form {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 20px;
-                padding-bottom: 52px;
-                border-bottom: 1px solid #c6c6c6;
-            }
+        #mission-3 .block-3 .comments {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 47px;
+        }
 
-            #mission-3 .block-3 #mission-3-form #comment {
-                height: 230px;
-                width: 100%;
-                border: 1px solid #686868;
-                background-color: #efefef;
-                border-radius: 15px;
-                font-size: 16px;
-                resize: none;
-                padding: 20px;
-                font-family: "Pretendard";
-                font-weight: 400;
-            }
+        #mission-3 .block-3 .comments .comment {
+            display: flex;
+            flex-direction: column;
+            padding: 13px 0 17px;
+            color: black;
+            border-bottom: 1px solid #c6c6c6;
+        }
 
-            #mission-3 .block-3 #mission-3-form #comment:focus {
-                background-color: white;
-                border-color: #686868;
-                outline: none;
-                box-shadow: none;
-            }
+        #mission-3 .block-3 .comments .comment .user-info {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
 
-            #mission-3 .block-3 #mission-3-form button {
-                margin-right: 18px;
-            }
+        #mission-3 .block-3 .comments .comment .user-info span {
+            font-size: 20px;
+            font-weight: 800;
+        }
 
-            #mission-3 .block-3 .comments {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 47px;
-            }
+        #mission-3 .block-3 .comments .comment .user-comment {
+            font-size: 18px;
+            font-weight: 400;
+            font-family: "Pretendard";
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-            #mission-3 .block-3 .comments .comment {
-                display: flex;
-                flex-direction: column;
-                padding: 13px 0 17px;
-                color: black;
-                border-bottom: 1px solid #c6c6c6;
-            }
+        #mission-3 .block-3 .load-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            width: 100%;
+            margin-bottom: 13.88vw;
+        }
 
-            #mission-3 .block-3 .comments .comment .user-info {
-                display: flex;
-                align-items: center;
-                gap: 18px;
-                margin-bottom: 20px;
-            }
-
-            #mission-3 .block-3 .comments .comment .user-info span {
-                font-size: 20px;
-                font-weight: 800;
-            }
-
-            #mission-3 .block-3 .comments .comment .user-comment {
-                font-size: 18px;
-                font-weight: 400;
-                font-family: "Pretendard";
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
+        @media screen and(min-width: 480px) {
             #mission-3 .block-3 .load-more {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: white;
-                width: 100%;
-                margin-bottom: 13.88vw;
+                margin-bottom: 66.62px;
             }
+        }
 
-            @media screen and(min-width: 480px) {
-                #mission-3 .block-3 .load-more {
-                    margin-bottom: 66.62px;
-                }
-            }
+        #mission-3 .block-3 .load-more>img {
+            display: block;
+        }
 
-            #mission-3 .block-3 .load-more > img {
-                display: block;
-            }
+        #mission-3 .disabled {
+            pointer-events: none;
+            user-select: none;
+        }
 
-            #mission-3 .disabled {
-                pointer-events: none;
-                user-select: none;
-            }
+        #event-alert.modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
 
-            #event-alert.modal-backdrop {
-                background-color: rgba(0, 0, 0, 0.6);
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                display: none;
-            }
+        #event-alert.modal-backdrop.show {
+            display: flex;
+        }
 
-            #event-alert.modal-backdrop.show {
-                display: flex;
-            }
+        #event-alert .model-container {
+            background-color: white;
+            width: 335px;
+            margin: auto;
+            position: relative;
+            padding: 0;
+            font-family: "Pretendard";
+            font-weight: 400;
+            border-radius: 5px;
+            box-shadow: 0 0 6px #00000029;
+        }
 
-            #event-alert .model-container {
-                background-color: white;
-                width: 335px;
-                margin: auto;
-                position: relative;
-                padding: 0;
-                font-family: "Pretendard";
-                font-weight: 400;
-                border-radius: 5px;
-                box-shadow: 0 0 6px #00000029;
-            }
+        #event-alert .model-container .modal-body {
+            padding: 37px 40px 30px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 23px;
+            color: #111111;
+            border-bottom: 1px solid #d3dbd9;
+        }
 
-            #event-alert .model-container .modal-body {
-                padding: 37px 40px 30px;
-                text-align: center;
-                font-size: 15px;
-                line-height: 23px;
-                color: #111111;
-                border-bottom: 1px solid #d3dbd9;
-            }
+        #event-alert .model-container .modal-footer {
+            display: flex;
+            justify-content: center;
+        }
 
-            #event-alert .model-container .modal-footer {
-                display: flex;
-                justify-content: center;
-            }
+        #event-alert .model-container .modal-footer button {
+            flex: 1;
+            font-size: 15px;
+            line-height: 32px;
+            font-weight: 600;
+            color: #009c75;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
 
-            #event-alert .model-container .modal-footer button {
-                flex: 1;
-                font-size: 15px;
-                line-height: 32px;
-                font-weight: 600;
-                color: #009c75;
-                height: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: none !important;
-                box-shadow: none !important;
-                outline: none !important;
-            }
-
-            #event-alert .model-container .modal-footer button.btn-cancel {
-                color: #111111;
-            }
-        </style>
-        <div id="mission-3">
-            <div class="block-1">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-1.png" alt="" width="100%"/>
-                <div class="duration">
-                    <span></span>
-                </div>
-                <div class="participants">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-1-1.png" width="129" alt=""/>
-                    <span id="participants-count">0 명 참여</span>
-                </div>
+        #event-alert .model-container .modal-footer button.btn-cancel {
+            color: #111111;
+        }
+    </style>
+    <div id="mission-3">
+        <div class="block-1">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-1.png" alt=""
+                width="100%" />
+            <div class="duration">
+                <span></span>
             </div>
-            <div class="block-2">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-2.png" alt="" width="100%"/>
+            <div class="participants">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-1-1.png"
+                    width="129" alt="" />
+                <span id="participants-count">0 명 참여</span>
             </div>
-            <div class="block-3">
-                <div class="block-3-social-network-container">
-                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3.png" alt="" width="88.5%"/>
-                    <div class="block-3-social-network">
-                        <div class="item">
-                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram.png" alt="" width="70%"/>
-                            <div class="info">
-                                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram-tag.png" alt="" width="100%"/>
-                                <div onclick="window.parent.open('https://www.instagram.com/nowairplanemode', '_blank')">
-                                    <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram-link.png" alt="" width="46.05%"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube.png" alt="" width="70%"/>
-                            <div class="info">
-                                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube-tag.png" alt="" width="100%"/>
-                                <div onclick="window.parent.open('https://www.youtube.com/@now_airplanemode', '_blank')"><img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube-link.png" alt="" width="46.05%"/></div>
+        </div>
+        <div class="block-2">
+            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-2.png" alt=""
+                width="100%" />
+        </div>
+        <div class="block-3">
+            <div class="block-3-social-network-container">
+                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3.png" alt=""
+                    width="88.5%" />
+                <div class="block-3-social-network">
+                    <div class="item">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram.png"
+                            alt="" width="70%" />
+                        <div class="info">
+                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram-tag.png"
+                                alt="" width="100%" />
+                            <div onclick="window.parent.open('https://www.instagram.com/nowairplanemode', '_blank')">
+                                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-instagram-link.png"
+                                    alt="" width="46.05%" />
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="block-3-contact">
-                    <div class="total-comment">댓글0</div>
-                    <form id="mission-3-form">
-                        <textarea id="comment"></textarea>
-                        <button type="button" id="mission-3-btn" onclick="onSubmit()">
-                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-contact-button.png" width="123" alt=""/>
-                        </button>
-                    </form>
-                    <div
-                        class="comments" id="list-comment"><!-- comments will be loaded here -->
-                    </div>
-                    <div class="load-more hidden">
-                        <button onclick="loadMoreComment()">
-                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-load-more-button.png" width="100%" alt=""/>
-                        </button>
+                    <div class="item">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube.png"
+                            alt="" width="70%" />
+                        <div class="info">
+                            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube-tag.png"
+                                alt="" width="100%" />
+                            <div onclick="window.parent.open('https://www.youtube.com/@now_airplanemode', '_blank')">
+                                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-youtube-link.png"
+                                    alt="" width="46.05%" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="modal-backdrop" id="event-alert">
-            <div class="model-container">
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn-cancel" onclick="closeAlert()">취소</button>
-                    <button class="btn-ok">확인</button>
+            <div class="block-3-contact">
+                <div class="total-comment">댓글0</div>
+                <form id="mission-3-form">
+                    <textarea id="comment"></textarea>
+                    <button type="button" id="mission-3-btn" onclick="onSubmit()">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-contact-button.png"
+                            width="123" alt="" />
+                    </button>
+                </form>
+                <div class="comments" id="list-comment"><!-- comments will be loaded here -->
+                </div>
+                <div class="load-more hidden">
+                    <button onclick="loadMoreComment()">
+                        <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-load-more-button.png"
+                            width="100%" alt="" />
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script type="text/html" id="comment-item">
+    <div class="modal-backdrop" id="event-alert">
+        <div class="model-container">
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAlert()">취소</button>
+                <button class="btn-ok">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="comment-item">
             <div class="comment">
                 <div class="user-info">
                     <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-avatar.png" width="73" alt=""/>
@@ -449,233 +465,202 @@
             </div>
         </script>
 
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <script>
-            (function () { // disable button comment if it’s not this mission time
-                window.parent.changePathnameFunc("/special-exhibition/ccc7fca2-839f-41f5-3b30-08dba4951127?type=user-define");
-                const queryString = window.parent.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                console.log("urlParams", urlParams.get("id"));
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script>
+        (function () { // disable button comment if it’s not this mission time
+            const queryString = window.parent.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            console.log("urlParams", urlParams.get("id"));
 
-                getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "")
-                getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
-                getEventComments('587A765D-FB3D-4ADD-81E7-08DBA36F3114', 'DBA73DD9-CCE5-4177-A81B-EEC05D5FA555');
+            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "")
+            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0)
+            getEventComments('587A765D-FB3D-4ADD-81E7-08DBA36F3114', 'DBA73DD9-CCE5-4177-A81B-EEC05D5FA555');
 
-            })();
-            let eventHistory;
-            let commentList;
-            let indexCommentStart = 0;
-            async function getJoinEventHistory(status, eventMasterId, deviceType) {
-                const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
-                    return value
-                });
-                eventHistory = result;
-                console.log("result join event history = ", result);
-                console.log("event history = ", eventHistory);
-            }
+        })();
+        let eventHistory;
+        let commentList;
+        let indexCommentStart = 0;
+        async function getJoinEventHistory(status, eventMasterId, deviceType) {
+            const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
+                return value
+            });
+            eventHistory = result;
+            console.log("result join event history = ", result);
+            console.log("event history = ", eventHistory);
+        }
 
-            async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
-                const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
-                    return value;
-                });
-                if (result) {
-                    const duration = document.querySelector(".duration");
-                    const eventMissions = result.eventMissions;
-                    if (eventMissions) {
-
-
-                        if (eventMissions ?. [2].missionStartDate && eventMissions ?. [2] ?. missionEndDate) 
-                            duration.innerHTML = moment(eventMissions ?. [2].missionStartDate) ?. format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions ?. [2].missionEndDate) ?. format("YYYY.MM.DD HH:mm");
-                        
+        async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
+            const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {
+                return value;
+            });
+            if (result) {
+                const duration = document.querySelector(".duration");
+                const eventMissions = result.eventMissions;
+                if (eventMissions) {
 
 
-                    }
-                    calMissionCount(result);
-                    handleButton(result);
-                }
-                console.log("result event master = ", result);
-            }
+                    if (eventMissions?.[2].missionStartDate && eventMissions?.[2]?.missionEndDate)
+                        duration.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD HH:mm");
 
-            function handleButton(eventMater) {
 
-                if (eventMater && eventMater.eventMissions) {
-                    const mission3 = eventMater.eventMissions ?. [2];
-                    const btn = document.getElementById("mission-3-btn");
-                    if (mission3 && mission3.missionStartDate && mission3.missionEndDate) {
-                        if (moment(mission3.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission3.missionEndDate))) 
-                            btn.classList.remove("disabled");
-                         else {
-                            btn.classList.add("disabled");
-                        }
-                    }
 
                 }
+                calMissionCount(result);
+                handleButton(result);
             }
+            console.log("result event master = ", result);
+        }
 
-            function formatCount(count) {
-                let length = `${count}`.split('').length;
-                let countStr = '';
-                for (i = 0; i < 5 - length; i ++) 
-                    countStr = countStr + '0';
-                
+        function handleButton(eventMater) {
 
+            if (eventMater && eventMater.eventMissions) {
+                // const mission3 = eventMater.eventMissions?.[2];
+                // const btn = document.getElementById("mission-3-btn");
+                // if (mission3 && mission3.missionStartDate && mission3.missionEndDate) {
+                //     if (moment(mission3.missionStartDate).isBefore(moment()) && moment().isBefore(moment(mission3.missionEndDate)))
+                //         btn.classList.remove("disabled");
+                //     else {
+                //         btn.classList.add("disabled");
+                //     }
+                // }
 
-                const countFinal = countStr + `${count}`;
-                console.log("countFinal", countFinal)
-                return countFinal ?? '';
             }
+        }
 
-            function calMissionCount(eventMater) {
-                if (eventMater && eventMater.eventMissions) {
-                    const mission3Id = eventMater.eventMissions ?. [2] ?. eventMissionId;
+        function formatCount(count) {
+            let length = `${count}`.split('').length;
+            let countStr = '';
+            for (i = 0; i < 5 - length; i++)
+                countStr = countStr + '0';
 
-                    if (eventMater.eventMissionChallenges) {
-                        const count = eventMater.eventMissionChallenges ?. filter((e) => e.eventMissionId === mission3Id) ?. length ?? 0;
-                        document.getElementById('participants-count').innerHTML = `${
-                            formatCount(count)
+
+
+            const countFinal = countStr + `${count}`;
+            console.log("countFinal", countFinal)
+            return countFinal ?? '';
+        }
+
+        function calMissionCount(eventMater) {
+            if (eventMater && eventMater.eventMissions) {
+                const mission3Id = eventMater.eventMissions?.[2]?.eventMissionId;
+
+                if (eventMater.eventMissionChallenges) {
+                    const count = eventMater.eventMissionChallenges?.filter((e) => e.eventMissionId === mission3Id)?.length ?? 0;
+                    document.getElementById('participants-count').innerHTML = `${formatCount(count)
                         } 명 참여`;
-                    }
                 }
             }
+        }
 
-            async function getEventComments(eventMasterId, eventMissionId) {
-                const result = await window.parent.getEventCommentsFunc(eventMasterId, eventMissionId).then((value) => {
-                    return value
-                });
-                if (result) {
-                    if (result.length > 10) 
-                        document.querySelector(".load-more").classList.remove("hidden");
-                    
+        async function getEventComments(eventMasterId, eventMissionId) {
+            const result = await window.parent.getEventCommentsFunc(eventMasterId, eventMissionId).then((value) => {
+                return value
+            });
+            if (result) {
+                if (result.length > 10)
+                    document.querySelector(".load-more").classList.remove("hidden");
 
 
-                    document.querySelector('.total-comment').innerHTML = '댓글 ' + `${
-                        result.length ?? 0
+
+                document.querySelector('.total-comment').innerHTML = '댓글 ' + `${result.length ?? 0
                     }`
-
-                    const commentsList = document.getElementById("list-comment");
-                    // const comment = document.getElementById("comment-item").innerHTML;
-                    let comment;
-                    const n = (result.length ?? 0) > 10 ? 10 : result.length;
-                    console.log("n ===========", n);
-                    window.parent.addContentHeightFunc(n * 166);
-                    indexCommentStart = n;
-                    for (let i = 0; i < result.length ?? 0; i++) {
-                        comment = `<div class="comment">
-                                    <div class="user-info">
-                                        <img src="${
-                            result[i].eventUserInfo.memberAvatar ?? 'https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-avatar.png'
-                        }" width="73" alt=""/>
-                                        <span>${
-                            result[i].eventUserInfo.memberName
-                        }</span>
-                                    </div>
-                                    <div class="user-comment">
-                                        ${
-                            result[i].challengContent
-                        }
-                                    </div>
-                                </div>`
-                        commentsList.insertAdjacentHTML("beforeend", comment);
-                    }
-                }
-                commentList = result;
-                console.log("result event comment = ", result);
-            }
-
-            //
-            const modal = document.querySelector("#event-alert");
-            const modalBody = document.querySelector("#event-alert .modal-body");
-            const modalButton = document.querySelector("#event-alert .modal-footer button.btn-ok");
-            const modalButtonCancel = document.querySelector("#event-alert .modal-footer button.btn-cancel");
-
-            function loadMoreComment() {
-                ocument.querySelector('.total-comment').innerHTML = '댓글 ' + `${
-                    commentList.length
-                }`
 
                 const commentsList = document.getElementById("list-comment");
                 // const comment = document.getElementById("comment-item").innerHTML;
                 let comment;
-                let n;
-                if (indexCommentStart + 10 >= commentList.length) {
-                    document.querySelector(".load-more").classList.add("hidden");
-                    n = commentList.length;
-                } else {
-                    n = indexCommentStart + 10;
-                }
-                window.parent.addContentHeightFunc((n - indexCommentStart) * 166);
-                for (let i = indexCommentStart; i < n; i++) {
+                const n = (result.length ?? 0) > 10 ? 10 : result.length;
+                console.log("n ===========", n);
+                window.parent.addContentHeightFunc(n * 166);
+                indexCommentStart = n;
+                for (let i = 0; i < result.length ?? 0; i++) {
                     comment = `<div class="comment">
                                     <div class="user-info">
-                                        <img src="${
-                        result[i].eventUserInfo.memberAvatar ?? 'https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-avatar.png'
-                    }" width="73" alt=""/>
-                                        <span>${
-                        result[i].eventUserInfo.memberName
-                    }</span>
+                                        <img src="${result[i].eventUserInfo.memberAvatar ?? 'https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-avatar.png'
+                        }" width="73" alt=""/>
+                                        <span>${result[i].eventUserInfo.memberName
+                        }</span>
                                     </div>
                                     <div class="user-comment">
-                                        ${
-                        result[i].challengContent
-                    }
+                                        ${result[i].challengContent
+                        }
                                     </div>
                                 </div>`
                     commentsList.insertAdjacentHTML("beforeend", comment);
                 }
-                indexCommentStart = n;
             }
+            commentList = result;
+            console.log("result event comment = ", result);
+        }
 
-            async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
-                const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
-                    return value
-                });
-                console.log("result register mission challenge = ", result)
-                if (result ?. result === 'S') {
+        //
+        const modal = document.querySelector("#event-alert");
+        const modalBody = document.querySelector("#event-alert .modal-body");
+        const modalButton = document.querySelector("#event-alert .modal-footer button.btn-ok");
+        const modalButtonCancel = document.querySelector("#event-alert .modal-footer button.btn-cancel");
 
-                    modalBody.innerHTML = `30days with 모두투어 챌린지 세번째 미션 성공을 축하드립니다. ​지금 패키지여행 할인쿠폰이 지급되었습니다. ​마이페이지에서 확인하세요.​`;
-                    modalButtonCancel.classList.add("hide");
-                    modalButton.addEventListener("click", function () {
-                        changePathname("/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define")
-                        closeAlert();
-                    });
-                    showAlert();
-                }
+        function loadMoreComment() {
+            ocument.querySelector('.total-comment').innerHTML = '댓글 ' + `${commentList.length
+                }`
+
+            const commentsList = document.getElementById("list-comment");
+            // const comment = document.getElementById("comment-item").innerHTML;
+            let comment;
+            let n;
+            if (indexCommentStart + 10 >= commentList.length) {
+                document.querySelector(".load-more").classList.add("hidden");
+                n = commentList.length;
+            } else {
+                n = indexCommentStart + 10;
             }
-
-            function onSubmit() {
-                const comment = document.getElementById("comment");
-                if (! comment.value) { // show alert
-                    modalBody.innerHTML = `Please leave a comment!`;
-                    modalButtonCancel.classList.add("hide");
-                    modalButton.addEventListener("click", function () {
-                        closeAlert();
-                    });
-                    showAlert();
-                } else { // show alert
-                    modalBody.innerHTML = `댓글을 등록 하시겠습니까?`;
-                    modalButtonCancel.classList.remove("hide");
-                    modalButton.addEventListener("click", function (event) {
-                        closeAlert();
-                        if (comment.value) 
-                            registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "");
-                        
-
-
-                    });
-                    showAlert();
-                }
-                return;
+            window.parent.addContentHeightFunc((n - indexCommentStart) * 166);
+            for (let i = indexCommentStart; i < n; i++) {
+                comment = `<div class="comment">
+                                    <div class="user-info">
+                                        <img src="${result[i].eventUserInfo.memberAvatar ?? 'https://img.modetour.com/eagle/exhibition20230927/mobile/mission-3/images/block-3-avatar.png'
+                    }" width="73" alt=""/>
+                                        <span>${result[i].eventUserInfo.memberName
+                    }</span>
+                                    </div>
+                                    <div class="user-comment">
+                                        ${result[i].challengContent
+                    }
+                                    </div>
+                                </div>`
+                commentsList.insertAdjacentHTML("beforeend", comment);
             }
+            indexCommentStart = n;
+        }
 
-            function closeAlert() {
-                modal.classList.remove("show");
+        async function registerMissonChallenge(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos) {
+            const result = await window.parent.registerMissionChallengeFunc(challengContent, eventApplyId, eventMasterId, eventMissionId, missionCouponInfos).then((value) => {
+                return value
+            });
+            console.log("result register mission challenge = ", result)
+            if (result?.result === 'S') {
+                const content = "<div>30days with 모두투어 챌린지<br /> 세번째 미션 성공을 축하드립니다.<br /> ​지금 패키지여행 할인쿠폰이 지급되었습니다.<br /> ​마이페이지에서 확인하세요.</div>";
+                window.parent.showPopupFunction(content, () => { }, () => {
+                    changePathname("/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define");
+                })
             }
-            function showAlert() {
-                modal.classList.add("show");
+        }
+
+        function onSubmit() {
+            const comment = document.getElementById("comment");
+            if (!comment.value) { // show alert
+                window.parent.showPopupFunction("Please leave a comment!", () => { }, () => { })
+            } else { // show alert
+                window.parent.showPopupFunction("댓글을 등록 하시겠습니까?", () => { }, () => {
+                    if (comment.value)
+                        registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "");
+                })
             }
-            function changePathname(url) {
-                window.parent.changePathnameFunc(url);
-            }
-        </script>
-    </body>
+            return;
+        }
+
+        function changePathname(url) {
+            window.parent.changePathnameFunc(url);
+        }
+    </script>
+</body>
+
 </html>
