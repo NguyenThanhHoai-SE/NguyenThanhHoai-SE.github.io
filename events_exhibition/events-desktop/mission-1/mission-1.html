@@ -434,13 +434,15 @@
     </div>
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
+        const EVENT_ID = "D4BB010B-1C0C-4421-8305-08DBB59DB534";
         (function () { // disable button comment if it’s not this mission time
-            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            getJoinEventHistory("", EVENT_ID, "");
+            getEventMaster(null, null, EVENT_ID, 0, 0);
 
         })();
         let eventHistory;
         let eventMaster;
+        let mission1Id = '';
         async function getJoinEventHistory(status, eventMasterId, deviceType) {
             const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                 return value
@@ -467,6 +469,8 @@
 
 
                 }
+                mission1Id = result.eventMissions?.[0]?.eventMissionId;
+
                 calMissionCount(result);
             }
         }
@@ -484,7 +488,6 @@
         }
         function calMissionCount(eventMater) {
             if (eventMater && eventMater.eventMissions) {
-                const mission1Id = eventMater.eventMissions?.[0]?.eventMissionId;
 
                 if (eventMater.eventMissionChallenges) {
                     const count = eventMater.eventMissionChallenges?.filter((e) => e.eventMissionId === mission1Id)?.length ?? 0;
@@ -525,7 +528,7 @@
                 if (selected1.value !== "4" || selected2.value !== "1" || selected3.value !== "1") { // show alert
                     window.parent.showPopupFunction("정답을 아닙니다. 다시 퀴즈를 확인해 주세요.", () => { }, () => { })
                 } else { // show alert
-                    registerMissonChallenge("", eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "AD0BECB5-A525-4566-B408-B8EBD136DAB8", "")
+                    registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission1Id, "")
                     console.log("register")
                 }
             }

@@ -198,8 +198,7 @@
                 <span></span>
             </div>
             <div class="block-1-btn-container">
-                <div id="mission-2-btn" class="disabled"
-                    onclick="applySecondMission('587A765D-FB3D-4ADD-81E7-08DBA36F3114')"><img
+                <div id="mission-2-btn" class="disabled" onclick="applySecondMission(EVENT_ID)"><img
                         src="https://img.modetour.com/eagle/exhibition20230927/mobile/mission-2/images/mission-2-button.png"
                         alt="" width="100%" /></div>
             </div>
@@ -208,8 +207,9 @@
 
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
+        const EVENT_ID = "D4BB010B-1C0C-4421-8305-08DBB59DB534";
         (function () {
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            getEventMaster(null, null, EVENT_ID, 0, 0);
         })();
         async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {
             const result = await window.parent.getEventMasterFunc(deviceType, eventType, eventMasterId, pageNo, totalRecord).then((value) => {

@@ -194,7 +194,7 @@
                 <p id="participants-count">0명 참여​</p>
             </div>
             <span class="duration"></span>
-            <div class="button" id="mission-2-btn" onclick="applySecondMission('587A765D-FB3D-4ADD-81E7-08DBA36F3114')">
+            <div class="button" id="mission-2-btn" onclick="applySecondMission(EVENT_ID)">
                 <img src="https://img.modetour.com/eagle/exhibition20230927/pc/mission-2/images/mission2_btn.png"
                     width="601" />
             </div>
@@ -203,8 +203,9 @@
 
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
+        const EVENT_ID = "D4BB010B-1C0C-4421-8305-08DBB59DB534";
         (function () {
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            getEventMaster(null, null, EVENT_ID, 0, 0);
         })();
 
         async function getEventMaster(deviceType, eventType, eventMasterId, pageNo, totalRecord) {

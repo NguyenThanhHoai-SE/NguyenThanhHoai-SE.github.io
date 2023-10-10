@@ -379,20 +379,22 @@
         </script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
+        const EVENT_ID = "D4BB010B-1C0C-4421-8305-08DBB59DB534";
+
         (function () { // disable button comment if it’s not this mission time
             const queryString = window.parent.location.search;
             const urlParams = new URLSearchParams(queryString);
             console.log("urlParams", urlParams.get("id"));
 
-            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
-            getEventComments('587A765D-FB3D-4ADD-81E7-08DBA36F3114', 'DBA73DD9-CCE5-4177-A81B-EEC05D5FA555');
+            getJoinEventHistory("", EVENT_ID, "");
+            getEventMaster(null, null, EVENT_ID, 0, 0);
 
         })();
 
         let eventHistory;
         let commentList;
         let indexCommentStart = 0;
+        let mission3Id = '';
         async function getJoinEventHistory(status, eventMasterId, deviceType) {
             const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                 return value
@@ -418,6 +420,8 @@
 
 
                 }
+                mission3Id = result.eventMissions?.[2]?.eventMissionId;
+                getEventComments(EVENT_ID, mission3Id);
                 calMissionCount(result);
                 handleButton(result);
             }
@@ -456,7 +460,6 @@
 
         function calMissionCount(eventMater) {
             if (eventMater && eventMater.eventMissions) {
-                const mission3Id = eventMater.eventMissions?.[2]?.eventMissionId;
 
                 if (eventMater.eventMissionChallenges) {
                     const count = eventMater.eventMissionChallenges?.filter((e) => e.eventMissionId === mission3Id)?.length ?? 0;
@@ -558,7 +561,7 @@
             } else { // show alert
                 window.parent.showPopupFunction("댓글을 등록 하시겠습니까?", () => { }, () => {
                     if (comment.value)
-                        registerMissonChallenge(comment.value, eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "");
+                        registerMissonChallenge(comment.value, eventHistory.eventApplyId, EVENT_ID, mission3Id, "");
                 })
             }
             return;

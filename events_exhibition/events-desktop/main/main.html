@@ -384,14 +384,13 @@
 
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
+        const EVENT_ID = EVENT_ID;
         (function () { // disable button comment if it’s not this mission time
-            joinEvent('587A765D-FB3D-4ADD-81E7-08DBA36F3114');
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
-            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
+            joinEvent(EVENT_ID);
+            getEventMaster(null, null, EVENT_ID, 0, 0);
+            getJoinEventHistory("", EVENT_ID, "");
         })();
-        const modal = document.querySelector("#event-modal");
-        const modalBody = document.querySelector("#event-modal .modal-body");
-        const modalButton = document.querySelector("#event-modal .modal-footer .btn-ok");
+
         const timeMissionEvent = document.getElementById("mission-time-event");
         const timeMission1 = document.getElementById("mission-1-time");
         const timeMission2 = document.getElementById("mission-2-time");

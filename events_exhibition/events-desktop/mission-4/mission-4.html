@@ -559,11 +559,13 @@
     <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
         integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
     <script type="text/javascript">
+        const EVENT_ID = "D4BB010B-1C0C-4421-8305-08DBB59DB534";
         (function () { // disable button comment if it’s not this mission time
-            getJoinEventHistory("", "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "");
-            getEventMaster(null, null, '587A765D-FB3D-4ADD-81E7-08DBA36F3114', 0, 0);
+            getJoinEventHistory("", EVENT_ID, "");
+            getEventMaster(null, null, EVENT_ID, 0, 0);
         })();
         let eventHistory;
+        let mission4Id = '';
         async function getJoinEventHistory(status, eventMasterId, deviceType) {
             const result = await window.parent.getJoinEventHistoryFunc(status, eventMasterId, deviceType).then((value) => {
                 return value
@@ -625,7 +627,7 @@
 
         function calMissionCount(eventMater) {
             if (eventMater && eventMater.eventMissions) {
-                const mission4Id = eventMater.eventMissions?.[3]?.eventMissionId;
+                mission4Id = eventMater.eventMissions?.[3]?.eventMissionId;
 
                 if (eventMater.eventMissionChallenges) {
                     const count = eventMater.eventMissionChallenges?.filter((e) => e.eventMissionId === mission4Id)?.length ?? 0;
@@ -660,7 +662,7 @@
 
                 if (isFinshed4Mission) { // show alert
 
-                    registerMissonChallenge("", eventHistory.eventApplyId, "587A765D-FB3D-4ADD-81E7-08DBA36F3114", "DBA73DD9-CCE5-4177-A81B-EEC05D5FA555", "")
+                    registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission4Id, "")
                 } else { // show alert
 
                     window.parent.showPopupFunction("30 days with 모두투어 챌린지 마지막 미션 성공을 축하드립니다.", () => { }, () => {
