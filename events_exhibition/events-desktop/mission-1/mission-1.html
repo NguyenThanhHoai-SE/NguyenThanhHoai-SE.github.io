@@ -526,7 +526,7 @@
                 window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { })
             } else {
                 if (selected1.value !== "4" || selected2.value !== "1" || selected3.value !== "1") { // show alert
-                    window.parent.showPopupFunction("정답을 아닙니다. 다시 퀴즈를 확인해 주세요.", () => { }, () => { })
+                    window.parent.showPopupFunction("정답이 아닙니다. 다시 퀴즈를 확인해 주세요.", () => { }, () => { })
                 } else { // show alert
                     registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission1Id, "")
                     console.log("register")

@@ -644,7 +644,7 @@
         function onSubmit() {
             const comment = document.getElementById("comment");
             if (!comment.value) { // show alert
-                window.parent.showPopupFunction("Please leave a comment!", () => { }, () => { })
+                window.parent.showPopupFunction("댓글을 작성해주세요.", () => { }, () => { })
             } else { // show alert
                 window.parent.showPopupFunction("댓글을 등록 하시겠습니까?", () => { }, () => {
                     if (comment.value)

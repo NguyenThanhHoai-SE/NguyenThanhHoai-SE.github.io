@@ -655,21 +655,12 @@
             const selected = [...vote].find((radio) => radio.checked);
             const agree = document.querySelector('input[name="mission-4-agree"]').checked;
 
-            if (!selected || !agree) { // show alert
+            if (!selected) { // show alert
                 window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { })
+            } else if (!agree) {
+                window.parent.showPopupFunction("이벤트 약관을 확인해주세요.", () => { }, () => { })
             } else {
-                const isFinshed4Mission = true;
-
-                if (isFinshed4Mission) { // show alert
-
-                    registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission4Id, "")
-                } else { // show alert
-
-                    window.parent.showPopupFunction("30 days with 모두투어 챌린지 마지막 미션 성공을 축하드립니다.", () => { }, () => {
-                        changePathname("/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define");
-                    })
-
-                }
+                registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission4Id, "")
             }
             return;
         }
@@ -677,7 +668,22 @@
         function showTermsConditions() {
             const checkbox = document.querySelector('input[name="mission-4-agree"]');
             checkbox.disabled = true;
-            window.parent.showPopupFunction("Terms & Condition content ... ", () => { }, () => {
+            const content = `<div>
+                < p class="font-bold" > 참여방법</ >
+                <p>본 행사는 모두투어 회원 전용행사입니다.</p>
+                <p>해당 이벤트 참여 시 마케팅정보 활용에 동의하신 것으로 간주됩니다.</p>
+                <p>간편가입(카카오,네이버)등으로 가입시 이벤트 참여가 제한될 수 있습니다.</p>
+                <p>14세 미만의 회원은 이벤트 참여가 제한됩니다.</p>
+                <br />
+                <p class="font-bold">당첨자발표</p>
+                <p>모두투어 홈페이지 이벤트 당첨자 발표에 공지하여, 경품 발송 일정은 개별 연락을 통해 안내드립니다.</p>
+                <p>경품배송지는 당첨자 발표 후 개별적으로 확인이 이루어질 예정입니다.</p>
+                <p>회원정보상의 휴대폰 번호로 연락이 진행될 예정이며, 휴대폰번호 미입력 및 오류로 인해 연락이 되지 않을 경우 당첨이 취소됩니다.</p>
+            </div >`;
+            window.parent.showPopupFunction(content, () => {
+                const checkbox = document.querySelector('input[name="mission-4-agree"]');
+                checkbox.disabled = false;
+            }, () => {
                 const checkbox = document.querySelector('input[name="mission-4-agree"]');
                 checkbox.disabled = false;
             })
