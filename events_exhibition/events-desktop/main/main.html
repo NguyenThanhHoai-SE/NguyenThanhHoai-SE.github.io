@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>Main - PC</title>
-    <link rel="stylesheet" href="https://img.modetour.com/eagle/exhibition20230927/fonts/Modetour/Modetour.css" />
     <link rel="stylesheet"
-        href="https://img.modetour.com/eagle/exhibition20230927/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
+        href="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/fonts/Modetour/Modetour.css" />
+    <link rel="stylesheet"
+        href="https://nguyenthanhhoai-se.github.io/events_exhibition/events-desktop/fonts/Pretendard-1.3.7/web/static/pretendard.css" />
 </head>
 
 <body>
     <style>
         /* reset css */
+        @font-face {
+            font-family: myFirstFont;
+            src: url(sansation_bold.woff);
+            font-weight: bold;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -499,10 +506,6 @@
                 const result = window.parent.changePathnameFunc(linkUrl);
             }
         }
-
-        window.addEventListener("scroll", () => {
-            console.log(window.pageYOffset)
-        })
     </script>
 </body>
 
