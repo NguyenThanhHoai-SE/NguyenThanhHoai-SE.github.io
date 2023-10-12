@@ -646,7 +646,7 @@
                 const content = "<div>30 days with 모두투어 챌린지<br /> 모든 미션 성공을 축하드립니다!<br /> 무료 해외 숙박권 추첨에 응모 되셨습니다.<br /> 당첨 결과는 추후 이벤트 게시판에서<br /> 확인 하실 수 있습니다.</div>";
                 window.parent.showPopupFunction(content, () => { }, () => {
                     changePathname("/special-exhibition/d58abc9a-ee75-41f4-3b32-08dba4951127?type=user-define");
-                })
+                }, false);
             }
         }
 
@@ -656,9 +656,9 @@
             const agree = document.querySelector('input[name="mission-4-agree"]').checked;
 
             if (!selected) { // show alert
-                window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { })
+                window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { }, false);
             } else if (!agree) {
-                window.parent.showPopupFunction("이벤트 약관을 확인해주세요.", () => { }, () => { })
+                window.parent.showPopupFunction("이벤트 약관을 확인해주세요.", () => { }, () => { }, false);
             } else {
                 registerMissonChallenge("", eventHistory.eventApplyId, EVENT_ID, mission4Id, "")
             }
@@ -686,7 +686,7 @@
             }, () => {
                 const checkbox = document.querySelector('input[name="mission-4-agree"]');
                 checkbox.disabled = false;
-            }, 500)
+            }, false, 500)
         }
 
         function changePathname(url) {

@@ -495,7 +495,7 @@
             if (!isLogin) {
                 window.parent.showPopupFunction('<div>회원만 참여 가능한 이벤트입니다.<br /> 로그인 하시겠습니까?</div>', () => { }, () => {
                     window.parent.login()
-                })
+                }, true)
             } else {
                 const result = window.parent.changePathnameFunc(linkUrl);
             }
