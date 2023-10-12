@@ -654,7 +654,7 @@
         function onSubmit() {
             const vote = document.querySelectorAll('input[name="misstion-4-vote"]');
             const selected = [...vote].find((radio) => radio.checked);
-            const agree = document.querySelector('input[name="misstion-4-agree"]').checked;
+            const agree = document.querySelector('input[name="mission-4-agree"]').checked;
 
             if (!selected) { // show alert
                 window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { }, false);
