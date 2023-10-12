@@ -391,7 +391,6 @@
             getEventMaster(null, null, EVENT_ID, 0, 0);
             getJoinEventHistory("", EVENT_ID, "");
         })();
-
         const timeMissionEvent = document.getElementById("mission-time-event");
         const timeMission1 = document.getElementById("mission-1-time");
         const timeMission2 = document.getElementById("mission-2-time");
@@ -500,6 +499,10 @@
                 const result = window.parent.changePathnameFunc(linkUrl);
             }
         }
+
+        window.addEventListener("scroll", () => {
+            console.log(window.pageYOffset)
+        })
     </script>
 </body>
 
