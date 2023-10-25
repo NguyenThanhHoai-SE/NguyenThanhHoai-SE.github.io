@@ -413,7 +413,7 @@
             });
             if (result) {
                 if (result.eventStartDate && result.eventEndDate)
-                    timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD HH:mm") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD HH:mm") + '(' + (moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + 1) + ')일간';
+                    timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD") + '(' + (moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + 1) + ')일간';
 
 
 
