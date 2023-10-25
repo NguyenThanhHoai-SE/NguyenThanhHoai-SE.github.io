@@ -183,6 +183,11 @@
             padding-bottom: 36.33px;
         }
 
+        #main .block-4>a {
+            position: fixed;
+            bottom: 1px;
+        }
+
         #main .block-4>img:nth-child(1) {
             margin-bottom: 33.65px;
         }
@@ -262,8 +267,7 @@
                 width="100%" />
         </div>
         <div class="block-2">
-            <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-2-1.png" alt=""
-                width="89.33%" />
+            <img src="./images/block-2-1.png" alt="" width="89.33%" />
             <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-2-2.png" alt=""
                 width="43.2%" />
             <!-- <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-2-3.png" alt="" width="324" /> -->
@@ -317,9 +321,8 @@
         <div class="block-3">
             <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-3.png" alt=""
                 width="100%" />
-            <a href="https://newgen-mo.modetour.com/" target="_blank">
-                <img src="https://img.modetour.com/eagle/exhibition20230927/mobile/main/images/block-3-button.png"
-                    width="100%" />
+            <a href="/special-exhibition/7702a660-fd2e-454a-bfa4-08dbd157b9a0" target="_blank">
+                <img src="./images/block-3-button.png" width="100%" />
             </a>
         </div>
         <div class="block-4">
@@ -356,29 +359,29 @@
             });
             if (result) {
                 if (result.eventStartDate && result.eventEndDate)
-                    timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD") + '(' + moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + ')일간';
+                    timeMissionEvent.innerHTML = moment(result.eventStartDate).format("YYYY.MM.DD") + ' - ' + moment(result.eventEndDate).format("YYYY.MM.DD") + '(' + (moment(result.eventEndDate).diff(moment(result.eventStartDate), 'days') + 1) + ')일간';
 
 
 
                 eventMissions = result.eventMissions;
                 if (eventMissions) {
                     if (eventMissions?.[0].missionStartDate && eventMissions?.[0]?.missionEndDate)
-                        timeMission1.innerHTML = moment(eventMissions?.[0].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[0].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+                        timeMission1.innerHTML = moment(eventMissions?.[0].missionStartDate)?.format("YYYY.MM.DD") + ' ~ ' + moment(eventMissions?.[0].missionEndDate)?.format("YYYY.MM.DD");
 
 
 
                     if (eventMissions?.[1].missionStartDate && eventMissions?.[1]?.missionEndDate)
-                        timeMission2.innerHTML = moment(eventMissions?.[1].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[1].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+                        timeMission2.innerHTML = moment(eventMissions?.[1].missionStartDate)?.format("YYYY.MM.DD") + ' ~ ' + moment(eventMissions?.[1].missionEndDate)?.format("YYYY.MM.DD");
 
 
 
                     if (eventMissions?.[2].missionStartDate && eventMissions?.[2]?.missionEndDate)
-                        timeMission3.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+                        timeMission3.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD");
 
 
 
                     if (eventMissions?.[3].missionStartDate && eventMissions?.[3]?.missionEndDate)
-                        timeMission4.innerHTML = moment(eventMissions?.[3].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[3].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+                        timeMission4.innerHTML = moment(eventMissions?.[3].missionStartDate)?.format("YYYY.MM.DD") + ' ~ ' + moment(eventMissions?.[3].missionEndDate)?.format("YYYY.MM.DD");
 
 
 

@@ -587,7 +587,7 @@
 
 
                     if (eventMissions?.[2].missionStartDate && eventMissions?.[2]?.missionEndDate)
-                        duration.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD HH:mm") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD HH:mm");
+                        duration.innerHTML = moment(eventMissions?.[2].missionStartDate)?.format("YYYY.MM.DD") + ' ~ ' + moment(eventMissions?.[2].missionEndDate)?.format("YYYY.MM.DD");
 
 
 
@@ -662,7 +662,7 @@
             const agree = document.querySelector('input[name="mission-4-agree"]').checked;
 
             if (!selected) { // show alert
-                window.parent.showPopupFunction("정답을 모두 체크해 주세요.", () => { }, () => { }, false);
+                window.parent.showPopupFunction("가장 가고 싶은 여행지에​ 투표해 주세요.", () => { }, () => { }, false);
             } else if (!agree) {
                 window.parent.showPopupFunction("이벤트 약관을 확인해주세요.", () => { }, () => { }, false);
             } else {
