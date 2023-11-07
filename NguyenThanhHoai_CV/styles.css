@@ -1,0 +1,146 @@
+body {
+  font-family: "Poppins";
+  font-size: 22px;
+}
+
+.container {
+  width: 794px;
+  height: 2000px;
+  margin: auto;
+  background-color: #fafafa;
+}
+
+.content_body {
+  display: flex;
+  height: 100%;
+  position: relative;
+
+  .content_left {
+    min-width: 330px;
+    max-width: 330px;
+    height: calc(100% - 50px);
+    background-color: #d4dee6;
+    padding-top: 50px;
+  }
+
+  .content_left .head {
+    height: 350px;
+  }
+
+  .content_left .head .avatar {
+    text-align: center;
+  }
+
+  .content_left .head .avatar img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .section .title {
+    width: 60%;
+    height: 50px;
+    background-color: #4b565d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section .title p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+  }
+
+  .section .content {
+    padding: 20px 30px;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+
+  .content_left .section .content .info {
+    display: flex;
+    align-items: center;
+    height: 45px;
+  }
+  .content_left .section .content .info .icon {
+    background-color: #2a3439;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .content_left .section .content .info .icon .material-icons {
+    color: #ffffff;
+  }
+
+  .section .content .year {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7d8f9d;
+    height: 10px;
+  }
+
+  .section .content .title_name {
+    font-size: 14px;
+    font-weight: bold;
+    height: 10px;
+  }
+
+  .section .content .position {
+    font-size: 14px;
+    height: 10px;
+    color: #7d8f9d;
+  }
+
+  .section .content .detail {
+    font-size: 14px;
+    color: #2a3439;
+  }
+
+  /* ================== */
+
+  .content_right {
+    padding-top: 50px;
+  }
+
+  .content_right .head {
+    height: 350px;
+  }
+
+  .content_right .head .name {
+    padding-left: 30px;
+  }
+
+  .content_right .head .name p {
+    font-size: 50px;
+    font-weight: bold;
+    color: #4b565d;
+    line-height: 60px;
+    margin: 0px 0px;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 5px;
+  }
+
+  .content_right .head .major {
+    padding-left: 30px;
+  }
+
+  .content_right .head .major p {
+    font-size: 26px;
+    letter-spacing: 5px;
+    color: #293945;
+  }
+
+  .content_right .section .content {
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+  }
+}
