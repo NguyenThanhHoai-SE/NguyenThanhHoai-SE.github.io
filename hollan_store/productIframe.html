@@ -72,13 +72,15 @@
 
         (function () {
             const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
-            getProductFunc(id)
+            setTimeout(() => {
+                getProductFunc(id)
+            }, 1000);
         }
         )()
 
         async function getProductFunc(id) {
             if (typeof window.parent.getProduct === 'function') {
-                const result = await window.parent?.getProduct(id).then((value) => {
+                const result = await window.parent.getProduct(id).then((value) => {
                     return value;
                 });
                 if (result) {
