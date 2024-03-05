@@ -50,7 +50,7 @@
         <div class="top">
             <div class="items">
                 <div class="image">
-                    <img alt="product" src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
+                    <img alt="product" id="productImg" src="/" />
                 </div>
             </div>
 
@@ -71,7 +71,8 @@
     <script>
 
         (function () {
-            getProduct(1)
+            const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
+            getProduct(id)
         }
         )()
 
@@ -82,6 +83,7 @@
             console.log("result = ", result);
             console.log("window = ", window);
             if (result) {
+                document.getElementById("productImg").src = result.image;
                 document.getElementById("title").innerHTML = result.title;
                 document.getElementById("category").innerHTML = result.category;
                 document.getElementById("price").innerHTML = '$'+`${result.price}`;
