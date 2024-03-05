@@ -77,18 +77,23 @@
         )()
 
         async function getProductFunc(id) {
-            const result = await window.parent?.getProduct(id).then((value) => {
-                return value;
-            });
-            if (result) {
-                document.getElementById("productImg").src = result.image;
-                document.getElementById("title").innerHTML = result.title;
-                document.getElementById("category").innerHTML = result.category;
-                document.getElementById("price").innerHTML = '$'+`${result.price}`;
-                document.getElementById("rate").innerHTML = result.rating.rate;
-                document.getElementById("count").innerHTML = result.rating.count;
-                document.getElementById("des").innerHTML = result.description;
+            if (typeof window.parent.getProduct === 'function') {
+                const result = await window.parent?.getProduct(id).then((value) => {
+                    return value;
+                });
+                if (result) {
+                    document.getElementById("productImg").src = result.image;
+                    document.getElementById("title").innerHTML = result.title;
+                    document.getElementById("category").innerHTML = result.category;
+                    document.getElementById("price").innerHTML = '$' + `${result.price}`;
+                    document.getElementById("rate").innerHTML = result.rating.rate;
+                    document.getElementById("count").innerHTML = result.rating.count;
+                    document.getElementById("des").innerHTML = result.description;
+                }
+            } else {
+                console.error("getProduct function is not defined in the parent window.");
             }
+
         }
     </script>
 </body>
