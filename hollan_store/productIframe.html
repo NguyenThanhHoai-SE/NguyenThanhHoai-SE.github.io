@@ -71,17 +71,17 @@
     <script>
 
         (function () {
-            const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
-            getProduct(id)
+            getProduct()
         }
         )()
 
-        async function getProduct(id) {
+        async function getProduct() {
+            console.log("window = ", window);
+            const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
             const result = await window.parent.getProduct(id).then((value) => {
                 return value;
             });
             console.log("result = ", result);
-            console.log("window = ", window);
             if (result) {
                 document.getElementById("productImg").src = result.image;
                 document.getElementById("title").innerHTML = result.title;
