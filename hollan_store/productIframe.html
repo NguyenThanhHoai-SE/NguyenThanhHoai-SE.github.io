@@ -76,8 +76,11 @@
         )()
 
         async function getProduct() {
-            console.log("window = ", window);
-            const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
+            console.log("window = ", window.parent);
+            console.log("window.parent.location.pathname = ", window.parent.location.pathname);
+            const id = window.parent.location.pathname.split('/').slice(-1)?.[0] ?? '0';
+            console.log("id = ", id);
+
             const result = await window.parent.getProduct(id).then((value) => {
                 return value;
             });
