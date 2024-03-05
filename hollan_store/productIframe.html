@@ -75,7 +75,7 @@
         }
         )()
 
-        async function getProduct() {
+        async function getProduct(id) {
             const result = await window.parent.getProduct(id).then((value) => {
                 return value;
             });
