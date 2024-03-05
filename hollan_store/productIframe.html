@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        margin: 0px 0px;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        width: 1200px;
+    }
+
+    .top {
+        display: flex;
+    }
+
+    .items {
+        width: 50%;
+        position: relative;
+    }
+
+    .image {
+        background-color: white;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        height: 790px;
+    }
+
+    .infor {
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="items">
+                <div class="image">
+                    <img alt="product" src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
+                </div>
+            </div>
+
+            <div class="items">
+                <div class="infor">
+                    <h3><span>Title: </span><span id="title"></span></h3>
+                    <h3><span>Category: </span><span id="category"></span></h3>
+                    <h3><span>Price: </span><span id="price"></span></h3>
+                    <h3><span>Rate: </span><span id="rate"></span></h3>
+                    <h3><span>Count: </span><span id="count"></span></h3>
+                    <h3><span>Description: </span><span id="des"></span></h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        (function () {
+            getProduct(1)
+        }
+        )()
+
+        async function getProduct() {
+            const result = await window.parent.getProduct(id).then((value) => {
+                return value;
+            });
+            console.log("result = ", result);
+            console.log("window = ", window);
+            if (result) {
+                document.getElementById("title").innerHTML = result.title;
+                document.getElementById("category").innerHTML = result.category;
+                document.getElementById("price").innerHTML = '$'+`${result.price}`;
+                document.getElementById("rate").innerHTML = result.rating.rate;
+                document.getElementById("count").innerHTML = result.rating.count;
+                document.getElementById("des").innerHTML = result.description;
+            }
+        }
+    </script>
+</body>
+
+</html>
