@@ -77,7 +77,7 @@
         )()
 
         async function getProductFunc(id) {
-            const result = await window.parent.getProduct(id).then((value) => {
+            const result = await window.parent?.getProduct(id).then((value) => {
                 return value;
             });
             if (result) {
