@@ -71,20 +71,15 @@
     <script>
 
         (function () {
-            getProductFunc()
+            const id = window.parent.location.pathname.split('/').slice(-1)?.[0];
+            getProductFunc(id)
         }
         )()
 
-        async function getProductFunc() {
-            // console.log("window = ", window.parent);
-            // console.log("window.parent.location.pathname = ", window.parent.location.pathname);
-            // const id = window.parent.location.pathname.split('/').slice(-1)?.[0] ?? '0';
-            // console.log("id = ", id);
-
-            const result = await window.parent.getProduct("1").then((value) => {
+        async function getProductFunc(id) {
+            const result = await window.parent.getProduct(id).then((value) => {
                 return value;
             });
-            console.log("result = ", result);
             if (result) {
                 document.getElementById("productImg").src = result.image;
                 document.getElementById("title").innerHTML = result.title;
